@@ -17,13 +17,25 @@ namespace projectlndieFem
 
         private void Update()
         {
-            if(Input.GetMouseButtonDown(0))
+            var cellPosition = Grid.WorldToCell(transform.position);
+
+            var grid = FindObjectOfType<GridController>().ShowGrid;
+            var tileWorldPos = Grid.CellToWorld(cellPosition);
+            tileWorldPos.x += Grid.cellSize.x * 0.5f;
+            tileWorldPos.y += Grid.cellSize.y * 0.5f;
+
+            if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
             {
-                var cellPosition = Grid.WorldToCell(transform.position);
-                
-
-                var grid = FindObjectOfType<GridController>().ShowGrid;
-
+                TlieSelectController.Instance.Position(tileWorldPos);
+                TlieSelectController.Instance.Show();
+            }
+            else
+            {
+                TlieSelectController.Instance.Hide();
+            }
+                if (Input.GetMouseButtonDown(0))
+            {
+               
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
                     if (grid[cellPosition.x, cellPosition.y] == null)
@@ -35,9 +47,7 @@ namespace projectlndieFem
                     //씨아
                     else if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
                     {
-                        var tileWorldPos = Grid.CellToWorld(cellPosition);
-                        tileWorldPos.x += Grid.cellSize.x * 0.5f;
-                        tileWorldPos.y += Grid.cellSize.y * 0.5f;
+                       
                         ResController.Instance.SeedPrefab
                             .Instantiate()
                             .Position(tileWorldPos);
@@ -55,10 +65,7 @@ namespace projectlndieFem
 
             if (Input.GetMouseButtonDown(1))
             {
-                var cellPosition = Grid.WorldToCell(transform.position);
-
-
-                var grid = FindObjectOfType<GridController>().ShowGrid;
+               
 
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
