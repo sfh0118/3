@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using QFramework;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Globalization;
 
 namespace projectlndieFem
 {
@@ -11,12 +14,48 @@ namespace projectlndieFem
         void Start()
 		{
             Debug.Log("@@@@@");
+            Global.Days.Register(day  =>
+            {
+                var seeds = SceneManager.GetActiveScene()
+                .GetRootGameObjects()
+                .Where(gameObj => gameObj.name.StartsWith("Seed"));
+
+                foreach (var seed in seeds)
+                {
+                    var tilePos = Grid.WorldToCell(seed.transform.position);
+
+                    var tileData =  FindObjectOfType<GridController>().ShowGrid[tilePos.x, tilePos.y];
+                    if (tileData != null && tileData.Watered)
+                    {
+
+                        ResController.Instance.SmallPlantPrefab.Instantiate()
+                        .Position(seed.transform.position);
+
+                        seed.DestroySelf();
+                    }
+
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+
 		}
 
-     
+        private void OnGUI()
+        {
+            IMGUIHelper.SetDesignResolution(600, 300);
+            GUILayout.Space(10);
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("날수 :"+ Global.Days.Value);
+            GUILayout.EndHorizontal();
+        }
+
+
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Global.Days.Value++;
+            }
             var cellPosition = Grid.WorldToCell(transform.position);
 
             var grid = FindObjectOfType<GridController>().ShowGrid;
