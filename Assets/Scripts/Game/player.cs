@@ -10,10 +10,10 @@ namespace projectlndieFem
         public Tilemap Tilemap;
         void Start()
 		{
-			// Code Here
+            Debug.Log("@@@@@");
 		}
 
-
+     
 
         private void Update()
         {
@@ -33,21 +33,22 @@ namespace projectlndieFem
             {
                 TlieSelectController.Instance.Hide();
             }
-                if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-               
+             
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
+                    //땅업음
                     if (grid[cellPosition.x, cellPosition.y] == null)
                     {
-
+                        //땅있음
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
                     }
-                    //씨아
+                    //땅있음 씨앗씨기
                     else if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
                     {
-                       
+                       //씨앗심기
                         ResController.Instance.SeedPrefab
                             .Instantiate()
                             .Position(tileWorldPos);
@@ -65,7 +66,7 @@ namespace projectlndieFem
 
             if (Input.GetMouseButtonDown(1))
             {
-               
+
 
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
@@ -76,7 +77,28 @@ namespace projectlndieFem
                     }
                 }
 
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
 
+                if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
+                {  //땅업음
+                    if (grid[cellPosition.x, cellPosition.y] != null)
+                    {
+                        if (grid[cellPosition.x, cellPosition.y].Watered != true)
+                        {
+                            //물주기
+                            ResController.Instance.WaterPrefab
+                                .Instantiate()
+                                .Position(tileWorldPos);
+
+                            grid[cellPosition.x, cellPosition.y].Watered = true;
+                        }
+
+                    }
+                }
+                  
+                
             }
         }
     }
