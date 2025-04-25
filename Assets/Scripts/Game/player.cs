@@ -76,6 +76,16 @@ namespace projectlndieFem
             GUILayout.Space(10);
             GUILayout.Label("열매 :" + Global.FruitCount.Value);
             GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("물:E");
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("다음날:F " );
+            GUILayout.EndHorizontal();
         }
 
 
@@ -136,7 +146,8 @@ namespace projectlndieFem
                     {
                         if (grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe)
                         {
-                            plantController.Instance.plants[cellPosition.x, cellPosition.y].SetState(PlantStates.Old);
+                            Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
+                            grid[cellPosition.x, cellPosition.y].HasPlant = false;
                             Global.FruitCount.Value++;
                         }
                     }
@@ -181,6 +192,10 @@ namespace projectlndieFem
                 }
                   
                 
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene("GamePass");
             }
         }
     }
