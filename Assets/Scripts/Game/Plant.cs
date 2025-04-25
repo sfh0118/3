@@ -1,0 +1,45 @@
+using UnityEngine;
+using QFramework;
+
+namespace projectlndieFem
+{
+	public partial class Plant : ViewController
+	{
+
+		public int XCell;
+        public int YCell;
+
+        private PlantStates mState = PlantStates.Seed;
+        public PlantStates State => mState;
+        public void SetState(PlantStates newState)
+		{
+			if (newState != mState)
+            {
+                mState = newState;
+
+                if (newState == PlantStates.Small)
+                {
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallplantSprite;
+
+                } else if (newState == PlantStates.Ripe)
+                {
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeSprite;
+                }
+                else if (newState == PlantStates.Seed)
+                {
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedSprite;
+                }
+
+                FindObjectOfType<GridController>().ShowGrid[XCell, YCell].PlantState = newState;
+
+
+
+            }
+        }
+
+        void Start()
+		{
+			// Code Here
+		}
+	}
+}

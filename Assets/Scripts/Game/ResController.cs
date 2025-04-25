@@ -5,9 +5,12 @@ namespace projectlndieFem
 {
     public partial class ResController : ViewController, ISingleton // Added ISingleton interface  
     {
-        public GameObject SeedPrefab;
         public GameObject WaterPrefab;
-        public GameObject SmallPlantPrefab;
+        public GameObject PlantPrefab; // Added PlantPrefab field
+
+        public Sprite SeedSprite;
+        public Sprite SmallplantSprite;
+        public Sprite RipeSprite;
 
         public static ResController Instance => MonoSingletonProperty<ResController>.Instance;
 

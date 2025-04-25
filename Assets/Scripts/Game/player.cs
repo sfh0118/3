@@ -14,27 +14,50 @@ namespace projectlndieFem
         void Start()
 		{
             Debug.Log("@@@@@");
-            Global.Days.Register(day  =>
+            Global.Days.Register( day =>
             {
-                var seeds = SceneManager.GetActiveScene()
-                .GetRootGameObjects()
-                .Where(gameObj => gameObj.name.StartsWith("Seed"));
+                var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
-                foreach (var seed in seeds)
+                plantController.Instance.plants.ForEach((x,y,plant) =>
                 {
-                    var tilePos = Grid.WorldToCell(seed.transform.position);
-
-                    var tileData =  FindObjectOfType<GridController>().ShowGrid[tilePos.x, tilePos.y];
-                    if (tileData != null && tileData.Watered)
+                    if (plant )
                     {
-
-                        ResController.Instance.SmallPlantPrefab.Instantiate()
-                        .Position(seed.transform.position);
-
-                        seed.DestroySelf();
+                        if (plant.State == PlantStates.Seed)
+                        {
+                            if(soilDatas[x,y].Watered)
+                            {
+                                //plant에서 SmallPlant변환
+                                plant.SetState(PlantStates.Small);
+                            }
+                        }
+                        else if (plant.State == PlantStates.Small)
+                        {
+                            if (soilDatas[x,y].Watered)
+                            {
+                                plant.SetState(PlantStates.Ripe);
+                            }
+                        }
+                        
                     }
+                });
 
+                soilDatas.ForEach(soilData =>
+                {
+                    if (soilData != null)
+                    {
+                        soilData.Watered = false;
+                    }
+                });
+                foreach (var water in SceneManager.GetActiveScene().GetRootGameObjects()
+                .Where(gameObj => gameObj
+                .name.StartsWith("water")))
+                {
+                    water.DestroySelf();
                 }
+
+
+
+
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 		}
@@ -87,10 +110,18 @@ namespace projectlndieFem
                     //땅있음 씨앗씨기
                     else if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
                     {
-                       //씨앗심기
-                        ResController.Instance.SeedPrefab
+                        //씨앗심기
+                        var plantGameObj = ResController.Instance.PlantPrefab
                             .Instantiate()
                             .Position(tileWorldPos);
+
+
+                        var plant = plantGameObj.GetComponent<Plant>();
+
+                        plant.XCell = cellPosition.x;
+                        plant.YCell = cellPosition.y;
+
+                        plantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
 
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
                     }

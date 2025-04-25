@@ -15,12 +15,12 @@ MonoBehaviour:
   CurrentTask:
     ShowLog: 0
     Status: 1
-    GameObject: {fileID: 0}
+    GameObject: {fileID: 5380944548219473741, guid: b39cade8e94b56d4ba505db7a08bccee, type: 3}
     From: 0
     NameToFullName: []
     BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: TlieSelectController
+    ClassName: Plant
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

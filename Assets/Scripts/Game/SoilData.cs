@@ -4,5 +4,8 @@ namespace projectlndieFem
     {
         public bool HasPlant { get; set; } = false;
         public bool Watered { get; set; } = false;
+
+        public PlantStates PlantState { get; set; } = PlantStates.Seed;
+      
     }
 }
