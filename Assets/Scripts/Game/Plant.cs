@@ -29,6 +29,10 @@ namespace projectlndieFem
                 {
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedSprite;
                 }
+                else if (newState == PlantStates.Old)
+                {
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.OldSprite;
+                }
 
                 FindObjectOfType<GridController>().ShowGrid[XCell, YCell].PlantState = newState;
 

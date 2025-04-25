@@ -62,12 +62,19 @@ namespace projectlndieFem
 
 		}
 
+
         private void OnGUI()
         {
             IMGUIHelper.SetDesignResolution(600, 300);
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
             GUILayout.Label("날수 :"+ Global.Days.Value);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("열매 :" + Global.FruitCount.Value);
             GUILayout.EndHorizontal();
         }
 
@@ -125,10 +132,15 @@ namespace projectlndieFem
 
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
                     }
-                    else
+                    else if (grid[cellPosition.x, cellPosition.y].HasPlant)
                     {
-                        Debug.Log("이미 심어져 있습니다.");
+                        if (grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe)
+                        {
+                            plantController.Instance.plants[cellPosition.x, cellPosition.y].SetState(PlantStates.Old);
+                            Global.FruitCount.Value++;
+                        }
                     }
+
                 }
                 
 

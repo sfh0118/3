@@ -1164,9 +1164,12 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
-  SeedPrefab: {fileID: 6878054417287794671, guid: 3a929b41e0f9fdb4ca25cf3db7970e96, type: 3}
   WaterPrefab: {fileID: 7562126971696108414, guid: 79429ea6db4a91f4cbd3d2baca92fc34, type: 3}
-  SmallPlantPrefab: {fileID: 5380944548219473741, guid: 21187161c9970f24da13c642ec5f54ee, type: 3}
+  PlantPrefab: {fileID: 5380944548219473741, guid: b39cade8e94b56d4ba505db7a08bccee, type: 3}
+  SeedSprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
+  SmallplantSprite: {fileID: -8902951029311973782, guid: ac185c334c7342740b0077446efbef7c, type: 3}
+  RipeSprite: {fileID: 853675080466277832, guid: 4413ce323f092964fa969e2755b6c1ab, type: 3}
+  OldSprite: {fileID: -6728447469715521605, guid: db75e5fdbdca3044195c22d7a5523a01, type: 3}
 --- !u!4 &1645364259
 Transform:
   m_ObjectHideFlags: 0

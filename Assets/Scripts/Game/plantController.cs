@@ -8,6 +8,7 @@ namespace projectlndieFem
         Seed,
         Small,
         Ripe,
+        Old,
     }
     public partial class plantController : ViewController, ISingleton
 	{
