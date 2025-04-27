@@ -95,7 +95,7 @@ namespace projectlndieFem
 
             GUILayout.FlexibleSpace();
 
-            GUI.Label(new Rect(10, 360-24    ,200 ,24),"[1]손 [2]삽 [3]씨아");
+            GUI.Label(new Rect(10, 360-24    ,200 ,24), "[1]손 [2]삽 [3]씨아 [4물뿌리개");
      
 
 
@@ -125,8 +125,24 @@ namespace projectlndieFem
                     TlieSelectController.Instance.Show();
                 }
                 else if (grid[cellPosition.x, cellPosition.y] != null &&
-                    grid[cellPosition.x, cellPosition.y].HasPlant != true && 
+                    grid[cellPosition.x, cellPosition.y].HasPlant != true &&
                     Global.CurrentTool.Value == Constant.TOOL_SEED)
+                {
+                    TlieSelectController.Instance.Position(tileWorldPos);
+                    TlieSelectController.Instance.Show();
+                }
+                //물주기
+                else if (grid[cellPosition.x, cellPosition.y] != null &&
+                    grid[cellPosition.x, cellPosition.y].Watered != true &&
+                    Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
+                {
+                    TlieSelectController.Instance.Position(tileWorldPos);
+                    TlieSelectController.Instance.Show();
+                }
+                else if (grid[cellPosition.x, cellPosition.y] != null &&
+                        grid[cellPosition.x, cellPosition.y].HasPlant &&
+                        grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe &&
+                        Global.CurrentTool.Value == Constant.TOOL_HAND)
                 {
                     TlieSelectController.Instance.Position(tileWorldPos);
                     TlieSelectController.Instance.Show();
@@ -141,14 +157,17 @@ namespace projectlndieFem
             {
                 TlieSelectController.Instance.Hide();
             }
+
             if (Input.GetMouseButtonDown(0))
             {
              
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
                     //땅업음
-                    if (grid[cellPosition.x, cellPosition.y] == null && Global.CurrentTool.Value == Constant.TOOL_SHOVEL)
+                    if (grid[cellPosition.x, cellPosition.y] == null &&
+                        Global.CurrentTool.Value == Constant.TOOL_SHOVEL)
                     {
+
                         //땅있음
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
@@ -156,8 +175,8 @@ namespace projectlndieFem
                    
                     //땅있음 씨앗씨기
                     else if (grid[cellPosition.x, cellPosition.y] != null &&
-                        grid[cellPosition.x, cellPosition.y].HasPlant != true &&
-                        Global.CurrentTool.Value == Constant.TOOL_SEED)
+                            grid[cellPosition.x, cellPosition.y].HasPlant != true &&
+                            Global.CurrentTool.Value == Constant.TOOL_SEED)
                     {
                         //씨앗심기
                         var plantGameObj = ResController.Instance.PlantPrefab
@@ -171,18 +190,29 @@ namespace projectlndieFem
                         plant.YCell = cellPosition.y;
 
                         plantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
-
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
                     }
-                  
-                    else if (grid[cellPosition.x, cellPosition.y].HasPlant)
+                    else if (grid[cellPosition.x, cellPosition.y] != null&&
+                            grid[cellPosition.x, cellPosition.y].Watered != true &&
+                            Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
                     {
-                        if (grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe)
-                        {
-                            Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
-                            grid[cellPosition.x, cellPosition.y].HasPlant = false;
-                            Global.FruitCount.Value++;
-                        }
+                        //물주기
+                        ResController.Instance.WaterPrefab
+                            .Instantiate()
+                            .Position(tileWorldPos);
+
+                        grid[cellPosition.x, cellPosition.y].Watered = true;
+                    }
+                    //열매 따기
+                    else if (grid[cellPosition.x, cellPosition.y] != null &&
+                            grid[cellPosition.x, cellPosition.y].HasPlant &&
+                            grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe &&
+                            Global.CurrentTool.Value == Constant.TOOL_HAND)
+                    {
+                        Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
+                        grid[cellPosition.x, cellPosition.y].HasPlant = false;
+                        Global.FruitCount.Value++;
+
                     }
 
                 }
@@ -204,28 +234,7 @@ namespace projectlndieFem
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-
-                if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
-                {  //땅업음
-                    if (grid[cellPosition.x, cellPosition.y] != null)
-                    {
-                        if (grid[cellPosition.x, cellPosition.y].Watered != true)
-                        {
-                            //물주기
-                            ResController.Instance.WaterPrefab
-                                .Instantiate()
-                                .Position(tileWorldPos);
-
-                            grid[cellPosition.x, cellPosition.y].Watered = true;
-                        }
-
-                    }
-                }
-                  
-                
-            }
+       
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene("GamePass");
@@ -242,6 +251,10 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 Global.CurrentTool.Value = Constant.TOOL_SEED;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Global.CurrentTool.Value = Constant.TOOL_WATERING_SCAN;
             }
         }
     }

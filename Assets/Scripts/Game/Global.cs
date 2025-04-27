@@ -10,10 +10,10 @@ namespace projectlndieFem
     public class Global
     {
         //첫날
-        public static BindableProperty<int> Days = new BindableProperty<int>(defaultValue:1);
+        public static BindableProperty<int> Days = new BindableProperty<int>(1);
 
         //열매 수량
-        public static BindableProperty<int> FruitCount= new BindableProperty<int>(defaultValue: 0);
+        public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
 
         public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
     }
@@ -23,6 +23,7 @@ namespace projectlndieFem
         public const string TOOL_HAND = "hand";
         public const string TOOL_SHOVEL = "shovel";
         public const string TOOL_SEED = "seed";
+        public const string TOOL_WATERING_SCAN = "watering_scan";
 
         public static string DisplayName(string tool)
         {
@@ -34,14 +35,12 @@ namespace projectlndieFem
                     return "삽";
                 case TOOL_SEED:
                     return "씨아";
+                case TOOL_WATERING_SCAN:
+                    return "물뿌리개";
             }
 
             return string.Empty;
         }
 
-        internal static object DisplayName(BindableProperty<string> currentTool)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
