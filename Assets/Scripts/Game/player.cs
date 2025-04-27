@@ -65,7 +65,7 @@ namespace projectlndieFem
 
         private void OnGUI()
         {
-            IMGUIHelper.SetDesignResolution(600, 300);
+            IMGUIHelper.SetDesignResolution(640, 360);
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
@@ -86,6 +86,18 @@ namespace projectlndieFem
             GUILayout.Space(10);
             GUILayout.Label("다음날:F " );
             GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label($"지금의도구:{Global.CurrentToolName.Value}");
+            GUILayout.EndHorizontal();
+
+            GUILayout.FlexibleSpace();
+
+            GUI.Label(new Rect(10, 360-24    ,200 ,24),"[1]손  [2]삽");
+     
+
+
         }
 
 
@@ -118,14 +130,15 @@ namespace projectlndieFem
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
                     //땅업음
-                    if (grid[cellPosition.x, cellPosition.y] == null)
+                    if (grid[cellPosition.x, cellPosition.y] == null && Global.CurrentToolName.Value == "삽")
                     {
                         //땅있음
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
                     }
+                    return;
                     //땅있음 씨앗씨기
-                    else if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
+                    if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
                     {
                         //씨앗심기
                         var plantGameObj = ResController.Instance.PlantPrefab
@@ -196,6 +209,15 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene("GamePass");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Global.CurrentToolName.Value = "손";
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Global.CurrentToolName.Value = "삽";
             }
         }
     }

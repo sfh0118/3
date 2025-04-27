@@ -13,5 +13,7 @@ namespace projectlndieFem
 
         //열매 수량
         public static BindableProperty<int> FruitCount= new BindableProperty<int>(defaultValue: 0);
+
+        public static BindableProperty<string> CurrentToolName = new BindableProperty<string>(defaultValue: "손");
     }
 }
