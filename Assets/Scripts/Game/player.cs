@@ -89,12 +89,13 @@ namespace projectlndieFem
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label($"지금의도구:{Global.CurrentToolName.Value}");
+
+            GUILayout.Label($"지금의도구:{Constant.DisplayName(Global.CurrentTool.Value)}");
             GUILayout.EndHorizontal();
 
             GUILayout.FlexibleSpace();
 
-            GUI.Label(new Rect(10, 360-24    ,200 ,24),"[1]손  [2]삽");
+            GUI.Label(new Rect(10, 360-24    ,200 ,24),"[1]손 [2]삽 [3]씨아");
      
 
 
@@ -117,8 +118,24 @@ namespace projectlndieFem
 
             if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
             {
-                TlieSelectController.Instance.Position(tileWorldPos);
-                TlieSelectController.Instance.Show();
+                //삽
+                if (Global.CurrentTool.Value == Constant.TOOL_SHOVEL && grid[cellPosition.x, cellPosition.y] == null)
+                {
+                    TlieSelectController.Instance.Position(tileWorldPos);
+                    TlieSelectController.Instance.Show();
+                }
+                else if (grid[cellPosition.x, cellPosition.y] != null &&
+                    grid[cellPosition.x, cellPosition.y].HasPlant != true && 
+                    Global.CurrentTool.Value == Constant.TOOL_SEED)
+                {
+                    TlieSelectController.Instance.Position(tileWorldPos);
+                    TlieSelectController.Instance.Show();
+                }
+                else
+                {
+                    TlieSelectController.Instance.Hide();
+                }
+             
             }
             else
             {
@@ -130,15 +147,17 @@ namespace projectlndieFem
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
                     //땅업음
-                    if (grid[cellPosition.x, cellPosition.y] == null && Global.CurrentToolName.Value == "삽")
+                    if (grid[cellPosition.x, cellPosition.y] == null && Global.CurrentTool.Value == Constant.TOOL_SHOVEL)
                     {
                         //땅있음
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
                     }
-                    return;
+                   
                     //땅있음 씨앗씨기
-                    if (grid[cellPosition.x, cellPosition.y].HasPlant != true)
+                    else if (grid[cellPosition.x, cellPosition.y] != null &&
+                        grid[cellPosition.x, cellPosition.y].HasPlant != true &&
+                        Global.CurrentTool.Value == Constant.TOOL_SEED)
                     {
                         //씨앗심기
                         var plantGameObj = ResController.Instance.PlantPrefab
@@ -155,6 +174,7 @@ namespace projectlndieFem
 
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
                     }
+                  
                     else if (grid[cellPosition.x, cellPosition.y].HasPlant)
                     {
                         if (grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe)
@@ -213,11 +233,15 @@ namespace projectlndieFem
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Global.CurrentToolName.Value = "손";
+                Global.CurrentTool.Value = Constant.TOOL_HAND;
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Global.CurrentToolName.Value = "삽";
+                Global.CurrentTool.Value = Constant.TOOL_SHOVEL;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Global.CurrentTool.Value = Constant.TOOL_SEED;
             }
         }
     }
