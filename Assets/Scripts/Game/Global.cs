@@ -34,7 +34,7 @@ namespace projectlndieFem
                 case TOOL_SHOVEL:
                     return "삽";
                 case TOOL_SEED:
-                    return "씨아";
+                    return "씨앗";
                 case TOOL_WATERING_SCAN:
                     return "물뿌리개";
             }
