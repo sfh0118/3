@@ -16,6 +16,8 @@ namespace projectlndieFem
             Debug.Log("@@@@@");
             Global.Days.Register( day =>
             {
+          
+                Global.RipeAndHarvestCountInCurrentDay = 0;
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
                 plantController.Instance.plants.ForEach((x,y,plant) =>
@@ -34,7 +36,9 @@ namespace projectlndieFem
                         {
                             if (soilDatas[x,y].Watered)
                             {
+                                //plant에서 Ripe변환
                                 plant.SetState(PlantStates.Ripe);
+                                
                             }
                         }
                         
@@ -209,6 +213,18 @@ namespace projectlndieFem
                             grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe &&
                             Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
+                        if (plantController.Instance.plants[cellPosition.x, cellPosition.y].RipeDay == Global.Days.Value)
+                        {
+                            Global.RipeAndHarvestCountInCurrentDay++;
+
+                            if(Global.RipeAndHarvestCountInCurrentDay >= 2)
+                            {
+                                ActionKit.Delay(1.0f, () =>
+                                {
+                                    SceneManager.LoadScene("GamePass");
+                                }).Start(this);
+                            }
+                        }
                         Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;

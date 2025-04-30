@@ -16,6 +16,9 @@ namespace projectlndieFem
         public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
 
         public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
+
+        //당일 열매수량
+        public static int RipeAndHarvestCountInCurrentDay = 0;
     }
 
     public class Constant
