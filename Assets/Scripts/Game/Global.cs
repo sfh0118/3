@@ -1,11 +1,12 @@
-﻿using QFramework;
+﻿using ProjectlndieFarm;
+using QFramework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace projectlndieFem
+namespace ProjectlndieFarm
 {
     public class Global
     {
@@ -18,7 +19,15 @@ namespace projectlndieFem
         public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
 
         //당일 열매수량
-        public static int RipeAndHarvestCountInCurrentDay = 0;
+        public static BindableProperty<int> RipeAndHarvestCountInCurrentDay = new BindableProperty<int>(0);
+
+        public static List<Challenge> Challenges = new List<Challenge>()
+        {
+            new ChallengeRipeAndHarvestTwoFruitslnOneDay()
+        };
+        public static EasyEvent<Plant> OnPlantHarvest= new EasyEvent<Plant>();
+
+        public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
     }
 
     public class Constant

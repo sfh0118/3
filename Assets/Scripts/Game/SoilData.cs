@@ -1,4 +1,4 @@
-namespace projectlndieFem
+namespace ProjectlndieFarm
 {
     public class SoilData
     {

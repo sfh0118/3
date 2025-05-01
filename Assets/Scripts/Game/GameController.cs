@@ -1,27 +1,38 @@
 using UnityEngine;
 using QFramework;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
-namespace projectlndieFem
+namespace ProjectlndieFarm
 {
 	public partial class GameController : ViewController
 	{
 		void Start()
 		{
-			// Code Here
-
-			//Global.FruitCount.Register(fruitCount =>
-			//{
-
-			//	if (fruitCount >= 1)
-			//	{
-			//		ActionKit.Delay(1.0f, () =>
-			//		{
-			//			SceneManager.LoadScene("GamePass");
-
-			//		}).Start(this);
-			//	}
-			//}).UnRegisterWhenGameObjectDestroyed(this);
-		}
-	}
+            Global.OnChallengeFinish.Register(challenge =>
+            {
+                Debug.Log("@@@@@" + challenge.GetType().Name + " ????");
+            });
+        }
+        private void Update()
+        {
+            foreach(var challenge in Global.Challenges.Where(Challenge=>Challenge.State != Challenge.States.Finished))
+            {
+                if (challenge.State ==Challenge.States.NotStart)
+                {
+                    challenge.OnStart();
+                    challenge.State = Challenge.States.Started;
+                }
+                if (challenge.State == Challenge.States.Started)
+                {
+                    if (challenge.CheckFinish())
+                    {
+                        challenge.OnFinish();
+                        challenge.State = Challenge.States.Finished;
+                        Global.OnChallengeFinish.Trigger(challenge);
+                    }
+                }
+            }
+        }
+    }
 }

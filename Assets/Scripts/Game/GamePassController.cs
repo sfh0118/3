@@ -2,7 +2,7 @@ using UnityEngine;
 using QFramework;
 using UnityEngine.SceneManagement;
 
-namespace projectlndieFem
+namespace ProjectlndieFarm
 {
 	public partial class GamePassController : ViewController
 	{
