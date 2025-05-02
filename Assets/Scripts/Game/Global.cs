@@ -15,7 +15,7 @@ namespace ProjectlndieFarm
 
         //열매 수량
         public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
-
+        //현재 도구
         public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
 
         //당일 열매수량
@@ -23,8 +23,13 @@ namespace ProjectlndieFarm
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
-            new ChallengeRipeAndHarvestTwoFruitslnOneDay()
+            new ChallengeHarvestFirstFruit(),
+            new ChallengeRipeAndHarvestTwoFruitslnOneDay(),
+            new ChallengeRipeAndHarvestFiveFruitslnOneDay(),
+
+
         };
+        //식물 수확 
         public static EasyEvent<Plant> OnPlantHarvest= new EasyEvent<Plant>();
 
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();

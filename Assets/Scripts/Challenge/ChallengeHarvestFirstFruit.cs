@@ -1,24 +1,19 @@
 ﻿namespace ProjectlndieFarm
 {
-    public class ChallengeRipeAndHarvestTwoFruitslnOneDay : Challenge
+    public class ChallengeHarvestFirstFruit : Challenge
     {
         public override void OnStart()
         {
             
-
-          
         }
         public override bool CheckFinish()
         {
-            return Global.RipeAndHarvestCountInCurrentDay.Value >= 2;
+            return Global.FruitCount.Value > 0;
         }
-
         public override void OnFinish()
         {
             
-
         }
-        
-    }
 
+    }
 }

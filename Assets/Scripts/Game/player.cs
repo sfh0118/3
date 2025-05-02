@@ -99,7 +99,7 @@ namespace ProjectlndieFarm
 
             GUILayout.FlexibleSpace();
 
-            GUI.Label(new Rect(10, 360-24    ,200 ,24), "[1]손 [2]삽 [3]씨아 [4물뿌리개");
+            GUI.Label(new Rect(10, 360-24    ,200 ,24), "[1]손 [2]삽 [3]씨아 [4]물뿌리개");
      
 
 
