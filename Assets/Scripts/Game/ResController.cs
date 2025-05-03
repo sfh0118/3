@@ -1,6 +1,6 @@
 using UnityEngine;
 using QFramework;
-
+using projectlndieFem;
 namespace ProjectlndieFarm
 {
     public partial class ResController : ViewController, ISingleton // Added ISingleton interface  

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using QFramework;
 using UnityEngine.SceneManagement;
+
 using System.Linq;
+using projectlndieFem;
 
 namespace ProjectlndieFarm
 {
@@ -9,6 +11,7 @@ namespace ProjectlndieFarm
 	{
 		void Start()
 		{
+            
             Global.OnPlantHarvest.Register(print =>
             {
                 if (print.RipeDay == Global.Days.Value)
@@ -45,7 +48,7 @@ namespace ProjectlndieFarm
                     {
                         challenge.OnFinish();
                         challenge.State = Challenge.States.Finished;
-                        Global.OnChallengeFinish.Trigger(challenge);
+
                     }
                 }
             }

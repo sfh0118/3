@@ -1,7 +1,10 @@
-﻿namespace ProjectlndieFarm
+﻿using projectlndieFem;
+
+namespace ProjectlndieFarm
 {
     public class ChallengeHarvestFirstFruit : Challenge
     {
+        public override string Name { get; } = "첫 열매 수확하기";
         public override void OnStart()
         {
             

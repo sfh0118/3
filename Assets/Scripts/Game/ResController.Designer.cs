@@ -2,6 +2,7 @@
 using UnityEngine;
 
 namespace ProjectlndieFarm
+
 { 
 
     public partial class ResController

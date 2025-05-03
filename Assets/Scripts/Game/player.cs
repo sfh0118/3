@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Globalization;
+using projectlndieFem;
 
 namespace ProjectlndieFarm
 {
@@ -213,12 +214,8 @@ namespace ProjectlndieFarm
                             grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe &&
                             Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
-                        Global.OnPlantHarvest.Trigger(plantController.Instance.plants[cellPosition.x, cellPosition.y]);
 
-                        if (plantController.Instance.plants[cellPosition.x, cellPosition.y].RipeDay == Global.Days.Value)
-                        {
-                            Global.RipeAndHarvestCountInCurrentDay.Value++;
-                        }
+
                         Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;

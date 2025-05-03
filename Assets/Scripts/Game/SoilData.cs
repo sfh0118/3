@@ -1,3 +1,5 @@
+using projectlndieFem;
+
 namespace ProjectlndieFarm
 {
     public class SoilData
