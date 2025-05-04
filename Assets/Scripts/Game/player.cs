@@ -83,10 +83,7 @@ namespace projectlndieFem
             GUILayout.Label("열매 :" + Global.FruitCount.Value);
             GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("물:E");
-            GUILayout.EndHorizontal();
+           
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
@@ -101,7 +98,7 @@ namespace projectlndieFem
 
             GUILayout.FlexibleSpace();
 
-            GUI.Label(new Rect(10, 360 - 24, 200, 24), "[1]손 [2]삽 [3]씨아 [4】물뿌리개");
+            GUI.Label(new Rect(10, 360 - 24, 200, 24), "[1]손 [2]삽 [3]씨아 [4]물뿌리개");
 
 
 
@@ -174,9 +171,10 @@ namespace projectlndieFem
                         Global.CurrentTool.Value == Constant.TOOL_SHOVEL)
                     {
 
-                        //땅있음
+                        //땅깨기 땅있음
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
+                        AudioController.Get.SfxShoveDig.Play();
                     }
 
                     //땅있음 씨앗씨기
@@ -255,18 +253,22 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Global.CurrentTool.Value = Constant.TOOL_HAND;
+                AudioController.Get.SfxTake.Play();
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Global.CurrentTool.Value = Constant.TOOL_SHOVEL;
+                AudioController.Get.SfxTake.Play();
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 Global.CurrentTool.Value = Constant.TOOL_SEED;
+                AudioController.Get.SfxTake.Play();
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 Global.CurrentTool.Value = Constant.TOOL_WATERING_SCAN;
+                AudioController.Get.SfxTake.Play();
             }
         }
     }

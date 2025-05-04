@@ -18,9 +18,15 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxTake
+      MemberName: SfxTake
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxShoveDig
+      MemberName: SfxShoveDig
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: ChallengeController
+    ClassName: AudioController
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 
