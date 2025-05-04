@@ -5,6 +5,6 @@ namespace projectlndieFem
 {
     public partial class Plant
     {
-        public int RipeDay { get; internal set; }
+        
     }
 }

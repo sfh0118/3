@@ -1,6 +1,6 @@
 using projectlndieFem;
 
-namespace ProjectlndieFarm
+namespace projectlndieFem
 {
     public class SoilData
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using QFramework;
 
-namespace ProjectlndieFarm
+namespace projectlndieFem
 {
 	public partial class TlieSelectController : ViewController, ISingleton
 	{

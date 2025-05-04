@@ -4,30 +4,29 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Globalization;
-using projectlndieFem;
 
-namespace ProjectlndieFarm
+namespace projectlndieFem
 {
-	public partial class player : ViewController
-	{
+    public partial class player : ViewController
+    {
         public Grid Grid;
         public Tilemap Tilemap;
         void Start()
-		{
+        {
             Debug.Log("@@@@@");
-            Global.Days.Register( day =>
+            Global.Days.Register(day =>
             {
-          
+
                 Global.RipeAndHarvestCountInCurrentDay.Value = 0;
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
-                plantController.Instance.plants.ForEach((x,y,plant) =>
+                plantController.Instance.plants.ForEach((x, y, plant) =>
                 {
-                    if (plant )
+                    if (plant)
                     {
                         if (plant.State == PlantStates.Seed)
                         {
-                            if(soilDatas[x,y].Watered)
+                            if (soilDatas[x, y].Watered)
                             {
                                 //plant에서 SmallPlant변환
                                 plant.SetState(PlantStates.Small);
@@ -35,14 +34,14 @@ namespace ProjectlndieFarm
                         }
                         else if (plant.State == PlantStates.Small)
                         {
-                            if (soilDatas[x,y].Watered)
+                            if (soilDatas[x, y].Watered)
                             {
                                 //plant에서 Ripe변환
                                 plant.SetState(PlantStates.Ripe);
-                                
+
                             }
                         }
-                        
+
                     }
                 });
 
@@ -65,7 +64,7 @@ namespace ProjectlndieFarm
 
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-		}
+        }
 
 
         private void OnGUI()
@@ -74,7 +73,7 @@ namespace ProjectlndieFarm
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("날수 :"+ Global.Days.Value);
+            GUILayout.Label("날수 :" + Global.Days.Value);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
@@ -89,7 +88,7 @@ namespace ProjectlndieFarm
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("다음날:F " );
+            GUILayout.Label("다음날:F ");
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
@@ -100,8 +99,8 @@ namespace ProjectlndieFarm
 
             GUILayout.FlexibleSpace();
 
-            GUI.Label(new Rect(10, 360-24    ,200 ,24), "[1]손 [2]삽 [3]씨아 [4]물뿌리개");
-     
+            GUI.Label(new Rect(10, 360 - 24, 200, 24), "[1]손 [2]삽 [3]씨아 [4】물뿌리개");
+
 
 
         }
@@ -156,7 +155,7 @@ namespace ProjectlndieFarm
                 {
                     TlieSelectController.Instance.Hide();
                 }
-             
+
             }
             else
             {
@@ -165,7 +164,7 @@ namespace ProjectlndieFarm
 
             if (Input.GetMouseButtonDown(0))
             {
-             
+
                 if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
                 {
                     //땅업음
@@ -177,7 +176,7 @@ namespace ProjectlndieFarm
                         Tilemap.SetTile(cellPosition, FindObjectOfType<GridController>().pen);
                         grid[cellPosition.x, cellPosition.y] = new SoilData();
                     }
-                   
+
                     //땅있음 씨앗씨기
                     else if (grid[cellPosition.x, cellPosition.y] != null &&
                             grid[cellPosition.x, cellPosition.y].HasPlant != true &&
@@ -197,7 +196,7 @@ namespace ProjectlndieFarm
                         plantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
                     }
-                    else if (grid[cellPosition.x, cellPosition.y] != null&&
+                    else if (grid[cellPosition.x, cellPosition.y] != null &&
                             grid[cellPosition.x, cellPosition.y].Watered != true &&
                             Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
                     {
@@ -214,8 +213,11 @@ namespace ProjectlndieFarm
                             grid[cellPosition.x, cellPosition.y].PlantState == PlantStates.Ripe &&
                             Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
-
-
+                        //수확
+                        if (plantController.Instance.plants[cellPosition.x, cellPosition.y].RipeDay == Global.Days.Value)
+                        {
+                            Global.RipeAndHarvestCountInCurrentDay.Value++;
+                        }
                         Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;
@@ -223,7 +225,7 @@ namespace ProjectlndieFarm
                     }
 
                 }
-                
+
 
             }
 
@@ -241,7 +243,7 @@ namespace ProjectlndieFarm
                 }
 
             }
-       
+
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene("GamePass");

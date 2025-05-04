@@ -1,4 +1,4 @@
-namespace ProjectlndieFarm
+namespace projectlndieFem
 {
     public abstract class Challenge
     {

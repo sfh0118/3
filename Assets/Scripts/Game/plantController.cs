@@ -1,8 +1,8 @@
 using UnityEngine;
 using QFramework;
 using projectlndieFem;
-using ProjectlndieFarm;
-namespace ProjectlndieFarm
+
+namespace projectlndieFem
 { 
     public enum PlantStates
     {

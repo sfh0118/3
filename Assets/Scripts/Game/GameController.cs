@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using projectlndieFem;
 
-namespace ProjectlndieFarm
+namespace projectlndieFem
 {
 	public partial class GameController : ViewController
 	{
@@ -41,7 +41,7 @@ namespace ProjectlndieFarm
                 {
                     challenge.OnStart();
                     challenge.State = Challenge.States.Started;
-                }
+                }   
                 if (challenge.State == Challenge.States.Started)
                 {
                     if (challenge.CheckFinish())
@@ -49,6 +49,7 @@ namespace ProjectlndieFarm
                         challenge.OnFinish();
                         challenge.State = Challenge.States.Finished;
 
+                        Global.OnChallengeFinish.Trigger(challenge);
                     }
                 }
             }

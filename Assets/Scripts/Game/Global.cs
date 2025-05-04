@@ -1,12 +1,11 @@
-﻿using projectlndieFem;
-using QFramework;
+﻿using QFramework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace ProjectlndieFarm
+namespace projectlndieFem
 
 {
     public class Global

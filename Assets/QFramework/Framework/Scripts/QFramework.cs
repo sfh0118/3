@@ -827,8 +827,6 @@ namespace QFramework
             return Register(Action);
             void Action(T _) => onEvent();
         }
-
-        
     }
 
     public class EasyEvent<T, K> : IEasyEvent
