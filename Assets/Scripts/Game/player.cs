@@ -18,6 +18,8 @@ namespace projectlndieFem
             {
 
                 Global.RipeAndHarvestCountInCurrentDay.Value = 0;
+                Global.HarvestCountInCurrentDay.Value = 0;
+                //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
                 plantController.Instance.plants.ForEach((x, y, plant) =>
@@ -214,10 +216,11 @@ namespace projectlndieFem
                             Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
                         //수확
-                        if (plantController.Instance.plants[cellPosition.x, cellPosition.y].RipeDay == Global.Days.Value)
-                        {
-                            Global.RipeAndHarvestCountInCurrentDay.Value++;
-                        }
+                        Global.OnPlantHarvest.Trigger(plantController.Instance.plants[cellPosition.x, cellPosition.y]);
+
+                        Global.HarvestCountInCurrentDay.Value++;
+
+
                         Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;

@@ -2,7 +2,7 @@
 
 namespace projectlndieFem
 {
-    public class ChallengeHarvestFirstFruit : Challenge
+    public class ChallengeHarvestAFruit : Challenge
     {
         public override string Name { get; } = "첫 열매 수확하기";
         public override void OnStart()
@@ -11,7 +11,7 @@ namespace projectlndieFem
         }
         public override bool CheckFinish()
         {
-            return Global.FruitCount.Value > 0;
+            return Global.Days.Value != StartDate && Global.HarvestCountInCurrentDay.Value > 0;
         }
         public override void OnFinish()
         {
