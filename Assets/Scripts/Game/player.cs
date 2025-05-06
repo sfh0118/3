@@ -111,6 +111,8 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Global.Days.Value++;
+
+                AudioController.Get.SfxNextDay.Play();
             }
             var cellPosition = Grid.WorldToCell(transform.position);
 
@@ -195,6 +197,8 @@ namespace projectlndieFem
 
                         plantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
+
+                        AudioController.Get.SfxSeed.Play();
                     }
                     else if (grid[cellPosition.x, cellPosition.y] != null &&
                             grid[cellPosition.x, cellPosition.y].Watered != true &&
@@ -206,6 +210,8 @@ namespace projectlndieFem
                             .Position(tileWorldPos);
 
                         grid[cellPosition.x, cellPosition.y].Watered = true;
+
+                        AudioController.Get.SfxWater.Play();
                     }
                     //열매 따기
                     else if (grid[cellPosition.x, cellPosition.y] != null &&
@@ -222,6 +228,8 @@ namespace projectlndieFem
                         Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;
+
+                        AudioController.Get.SfxHarvest.Play();
 
                     }
 

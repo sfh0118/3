@@ -24,7 +24,8 @@ namespace projectlndieFem
 
             Global.OnChallengeFinish.Register(challenge =>
             {
-              
+                AudioController.Get.SfxChallengeFinish.Play();
+
 
                 if (Global.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
                 {
