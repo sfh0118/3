@@ -7,12 +7,20 @@ using System.Globalization;
 
 namespace projectlndieFem
 {
-    public partial class player : ViewController
+    public partial class Player : ViewController
     {
         public Grid Grid;
         public Tilemap Tilemap;
+
+        private void Awake()
+        {
+            Global.Player = this;
+
+        }
         void Start()
         {
+
+
             Debug.Log("@@@@@");
             Global.Days.Register(day =>
             {
@@ -90,11 +98,7 @@ namespace projectlndieFem
             GUILayout.Label("다음날:F ");
             GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-
-            GUILayout.Label($"지금의도구:{Constant.DisplayName(Global.CurrentTool.Value)}");
-            GUILayout.EndHorizontal();
+           
 
             GUILayout.FlexibleSpace();
 
@@ -259,6 +263,10 @@ namespace projectlndieFem
             }
 
             
+        }
+        private void OnDestroy()
+        {
+            Global.Player = null;
         }
     }
 }

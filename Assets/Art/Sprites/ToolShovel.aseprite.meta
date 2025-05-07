@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f36276a4a7aa2d4ca39038afdfebef6
+guid: 0bbe37a7d06c6164ebfe0c22cc281fe1
 importerOverride:
   nativeImporterType: 2089858483
   scriptedImporterType:
@@ -17,7 +17,7 @@ ScriptedImporter:
     TextureType: 8
     TextureShape: 1
     SpriteMode: 2
-    PixelsPerUnit: 100
+    PixelsPerUnit: 16
     MeshType: 1
     ExtrudeEdges: 1
     Pivot: 0
