@@ -10,7 +10,10 @@ namespace projectlndieFem
 		{
             HideAllSelect();
             Btn1Select.Hide();
-            Global.Player.Toollcon.sprite = Btn1Icon.sprite;
+            Global.Mouse.Icon.sprite = Btn1Icon.sprite;
+            //툴 초기화
+
+            //툴 버튼 클릭
             Btn1.onClick.AddListener(() =>
             {
                 ChangeTool(Constant.TOOL_HAND,Btn1Select,Btn1Icon.sprite);
@@ -43,7 +46,7 @@ namespace projectlndieFem
 
             HideAllSelect();
             selectimage.Show();
-            Global.Player.Toollcon.sprite = icon;
+            Global.Mouse.Icon.sprite = icon;
 
         }
         private void Update()
