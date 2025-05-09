@@ -32,27 +32,14 @@ namespace projectlndieFem
 
                 PlantController.Instance.plants.ForEach((x, y, plant) =>
                 {
-                    if (plant)
+                    if (plant != null)
                     {
-                        if (plant.State == PlantStates.Seed)
-                        {
-                            if (soilDatas[x, y].Watered)
-                            {
-                                //plant에서 SmallPlant변환
-                                plant.SetState(PlantStates.Small);
-                            }
-                        }
-                        else if (plant.State == PlantStates.Small)
-                        {
-                            if (soilDatas[x, y].Watered)
-                            {
-                                //plant에서 Ripe변환
-                                plant.SetState(PlantStates.Ripe);
-
-                            }
-                        }
+                        //성장
+                        plant.Grow(soilDatas[x,y]);
+                    
 
                     }
+
                 });
                 
 
@@ -92,7 +79,12 @@ namespace projectlndieFem
             GUILayout.Label("열매 :" + Global.FruitCount.Value);
             GUILayout.EndHorizontal();
 
-           
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("무 :" + Global.RadishCount.Value);
+            GUILayout.EndHorizontal();
+
+
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);

@@ -4,27 +4,16 @@ using QFramework;
 
 namespace projectlndieFem
 {
-    public interface IPlant
-    {
-        GameObject GameObject { get; }
-
-        PlantStates State { get; }
-
-        void SetState(PlantStates state);
-
-        void Grow(SoilData soilData);
-
-        int RipeDay { get; }
-    }
-    public partial class Plant : ViewController, IPlant
-    {
+	public partial class PlantRadish : ViewController,IPlant
+	{
 
 		public int XCell;
         public int YCell;
 
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
-        
+
+        public int RipeDay { get; private set; }
         public void SetState(PlantStates newState)
 		{
 			if (newState != mState)
@@ -37,15 +26,15 @@ namespace projectlndieFem
 
                 if (newState == PlantStates.Small)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallplantSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantRadishSprite;
 
                 } else if (newState == PlantStates.Ripe)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeRadishSprite;
                 }
                 else if (newState == PlantStates.Seed)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedRadishSprite;
                 }
                 else if (newState == PlantStates.Old)
                 {
@@ -58,6 +47,7 @@ namespace projectlndieFem
 
             }
         }
+        private int mSmallStateDay = 0;
         public void Grow(SoilData soilData)
         {
             if (State == PlantStates.Seed)
@@ -72,17 +62,20 @@ namespace projectlndieFem
             {
                 if (soilData.Watered)
                 {
-                    //plant에서 Ripe변환
-                    SetState(PlantStates.Ripe);
+                    mSmallStateDay++;
 
+                    if (mSmallStateDay == 2)
+                    {
+                        //plant에서 Ripe변환
+                        SetState(PlantStates.Ripe);
+                    }
+                    
                 }
             }
+        
         }
-        public int RipeDay { get; private set; }
-        void Start()
-		{
-			// Code Here
-		}
+
+        
         public GameObject GameObject => gameObject;
     }
 }

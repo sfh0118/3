@@ -15,6 +15,10 @@ namespace projectlndieFem
 
         //열매 수량
         public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
+      
+        //무 수량
+        public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
+
         //현재 도구
         public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
 
@@ -41,7 +45,7 @@ namespace projectlndieFem
 
         };
         //식물 수확 
-        public static EasyEvent<Plant> OnPlantHarvest= new EasyEvent<Plant>();
+        public static EasyEvent<IPlant> OnPlantHarvest= new EasyEvent<IPlant>();
 
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
 

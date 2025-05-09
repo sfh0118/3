@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
 using UnityEngine.Tilemaps;
+using UnityEditor.Experimental.GraphView;
 
 namespace projectlndieFem
 {
@@ -98,6 +99,32 @@ namespace projectlndieFem
 
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
+                               mShowGrid[cellPos.x, cellPos.y].HasPlant != true &&
+                               Global.CurrentTool.Value == Constant.TOOL_SEED_RADISH)
+                    {
+                        var gridCenterPos = ShowSelect(cellPos);
+                        //무 씨앗 심기
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            //무 씨앗심기
+                            var plantGameObj = ResController.Instance.PlantRadishPrefab
+                                .Instantiate()
+                                .Position(gridCenterPos);
+
+
+                            var plant = plantGameObj.GetComponent<PlantRadish>();
+
+                            plant.XCell = cellPos.x;
+                            plant.YCell = cellPos.y;
+
+                            PlantController.Instance.plants[cellPos.x, cellPos.y] = plant;
+                            mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
+
+                            AudioController.Get.SfxSeed.Play();
+                        }
+
+                    }
+                    else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                 mShowGrid[cellPos.x, cellPos.y].Watered != true &&
                                 Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
                     {
@@ -130,9 +157,18 @@ namespace projectlndieFem
 
                             Global.HarvestCountInCurrentDay.Value++;
 
+                            if (PlantController.Instance.plants[cellPos.x, cellPos.y] as Plant)
+                            {
+                                Global.FruitCount.Value++;
+                            }else if (PlantController.Instance.plants[cellPos.x, cellPos.y] as PlantRadish)
+                            {
+                                Global.FruitCount.Value++;
+                            }
 
-                            Destroy(PlantController.Instance.plants[cellPos.x, cellPos.y].gameObject);
+
+                                Destroy(PlantController.Instance.plants[cellPos.x, cellPos.y].GameObject);
                             mShowGrid[cellPos.x, cellPos.y].HasPlant = false;
+
                             Global.FruitCount.Value++;
 
                             AudioController.Get.SfxHarvest.Play();

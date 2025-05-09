@@ -1,11 +1,9 @@
-// Generate Id:f3c64e0d-09f8-4569-b1c6-9137c77a37ad
+// Generate Id:ee6f8552-2ed9-4b49-b413-0f73bf7fca74
 using UnityEngine;
 
 namespace projectlndieFem
-
-{ 
-
-    public partial class ResController
+{
+	public partial class ResController
 	{
 	}
 }

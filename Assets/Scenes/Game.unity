@@ -1876,7 +1876,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2311659948842064771, guid: 727196769beddcc4885565c7aac170e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1996,6 +1996,9 @@ MonoBehaviour:
   Btn4: {fileID: 1016557937}
   Btn4Icon: {fileID: 75561075}
   Btn4Select: {fileID: 54028263}
+  Btn5: {fileID: 583103797}
+  Btn5Icon: {fileID: 839508869}
+  Btn5Select: {fileID: 1602594827}
 --- !u!1 &664069234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,7 +4219,7 @@ GameObject:
   - component: {fileID: 1602594827}
   - component: {fileID: 1602594826}
   m_Layer: 5
-  m_Name: Btn4Select
+  m_Name: Btn5Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4305,8 +4308,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1633855465}
   - component: {fileID: 1633855464}
+  - component: {fileID: 1633855466}
   m_Layer: 0
-  m_Name: plantController
+  m_Name: PlantController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4346,6 +4350,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633855466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633855463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b84e1bad2b20ed499c0c330dab76876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: projectlndieFem
+  ScriptName: PlantController
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
 --- !u!1 &1645364257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,10 +4407,14 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   WaterPrefab: {fileID: 7562126971696108414, guid: 79429ea6db4a91f4cbd3d2baca92fc34, type: 3}
   PlantPrefab: {fileID: 5380944548219473741, guid: b39cade8e94b56d4ba505db7a08bccee, type: 3}
+  PlantRadishPrefab: {fileID: 5380944548219473741, guid: 5428931f4e369a945a47a543379841f9, type: 3}
   SeedSprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
   SmallplantSprite: {fileID: -8902951029311973782, guid: ac185c334c7342740b0077446efbef7c, type: 3}
   RipeSprite: {fileID: 853675080466277832, guid: 4413ce323f092964fa969e2755b6c1ab, type: 3}
   OldSprite: {fileID: -6728447469715521605, guid: db75e5fdbdca3044195c22d7a5523a01, type: 3}
+  SeedRadishSprite: {fileID: -6257656149191112168, guid: 46d0cddf23a48144490bd5023eeb7081, type: 3}
+  SmallPlantRadishSprite: {fileID: -3689203500237960935, guid: 674b008160a887b43819b67566702564, type: 3}
+  RipeRadishSprite: {fileID: 520748989501480910, guid: 5b2449560dd712b46bec108968cffaa2, type: 3}
 --- !u!4 &1645364259
 Transform:
   m_ObjectHideFlags: 0
