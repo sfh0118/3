@@ -30,7 +30,7 @@ namespace projectlndieFem
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
-                plantController.Instance.plants.ForEach((x, y, plant) =>
+                PlantController.Instance.plants.ForEach((x, y, plant) =>
                 {
                     if (plant)
                     {
@@ -54,6 +54,7 @@ namespace projectlndieFem
 
                     }
                 });
+                
 
                 soilDatas.ForEach(soilData =>
                 {
@@ -199,7 +200,7 @@ namespace projectlndieFem
                         plant.XCell = cellPosition.x;
                         plant.YCell = cellPosition.y;
 
-                        plantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
+                        PlantController.Instance.plants[cellPosition.x, cellPosition.y] = plant;
                         grid[cellPosition.x, cellPosition.y].HasPlant = true;
 
                         AudioController.Get.SfxSeed.Play();
@@ -224,12 +225,12 @@ namespace projectlndieFem
                             Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
                         //수확
-                        Global.OnPlantHarvest.Trigger(plantController.Instance.plants[cellPosition.x, cellPosition.y]);
+                        Global.OnPlantHarvest.Trigger(PlantController.Instance.plants[cellPosition.x, cellPosition.y]);
 
                         Global.HarvestCountInCurrentDay.Value++;
 
 
-                        Destroy(plantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
+                        Destroy(PlantController.Instance.plants[cellPosition.x, cellPosition.y].gameObject);
                         grid[cellPosition.x, cellPosition.y].HasPlant = false;
                         Global.FruitCount.Value++;
 

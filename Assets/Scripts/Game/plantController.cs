@@ -11,9 +11,9 @@ namespace projectlndieFem
         Ripe,
         Old,
     }
-    public partial class plantController : ViewController, ISingleton
+    public partial class PlantController : ViewController, ISingleton
 	{
-		public static plantController Instance => MonoSingletonProperty<plantController>.Instance;
+		public static PlantController Instance => MonoSingletonProperty<PlantController>.Instance;
 
         public EasyGrid<Plant> plants = new EasyGrid<Plant>(10, 10);
 

@@ -1,9 +1,9 @@
-// Generate Id:1d1f5d52-bd3e-4aa3-b415-85c3b03c43a2
+// Generate Id:3b2e063c-a9fd-4b64-9d85-73057ac1f925
 using UnityEngine;
 
 namespace projectlndieFem
 {
-	public partial class plantController
+	public partial class PlantController
 	{
 	}
 }
