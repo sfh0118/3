@@ -19,11 +19,53 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Icon
-      MemberName: Icon
-    ScriptsFolder: Assets\Scripts\Game
-    ClassName: ToolController
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn1
+      MemberName: Btn1
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn1/Btn1Icon
+      MemberName: Btn1Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn1/Btn1Select
+      MemberName: Btn1Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn2
+      MemberName: Btn2
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn2/Btn2Icon
+      MemberName: Btn2Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn2/Btn2Select
+      MemberName: Btn2Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn3
+      MemberName: Btn3
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn3/Btn3Icon
+      MemberName: Btn3Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn3/Btn3Select
+      MemberName: Btn3Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn4
+      MemberName: Btn4
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn4/Btn4Icon
+      MemberName: Btn4Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn4/Btn4Select
+      MemberName: Btn4Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn5
+      MemberName: Btn5
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn5/Btn5Icon
+      MemberName: Btn5Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn5/Btn5Select
+      MemberName: Btn5Select
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: UIToolBar
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

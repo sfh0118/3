@@ -1,4 +1,4 @@
-// Generate Id:919aae7e-e73d-4982-8fcc-3748a788eb82
+// Generate Id:f5f1e40d-a31f-4b7d-9de0-5d2b9ed4600b
 using UnityEngine;
 
 namespace projectlndieFem
@@ -28,6 +28,12 @@ namespace projectlndieFem
 		public UnityEngine.UI.Image Btn4Icon;
 		
 		public UnityEngine.UI.Image Btn4Select;
+		
+		public UnityEngine.UI.Button Btn5;
+		
+		public UnityEngine.UI.Image Btn5Icon;
+		
+		public UnityEngine.UI.Image Btn5Select;
 		
 	}
 }

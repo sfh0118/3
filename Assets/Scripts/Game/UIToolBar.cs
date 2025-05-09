@@ -30,6 +30,10 @@ namespace projectlndieFem
             {
                 ChangeTool(Constant.TOOL_WATERING_SCAN,Btn4Select,Btn4Icon.sprite);
             });
+            Btn5.onClick.AddListener(() =>
+            {
+                ChangeTool(Constant.TOOL_SEED_RADISH, Btn5Select, Btn5Icon.sprite);
+            }); 
         }
         //툴 변경
         void HideAllSelect()
@@ -38,6 +42,7 @@ namespace projectlndieFem
             Btn2Select.Hide();
             Btn3Select.Hide();
             Btn4Select.Hide();
+            Btn5Select.Hide();
         }
         void ChangeTool(string tool,Image selectimage,Sprite icon)
         {
@@ -67,6 +72,10 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 ChangeTool(Constant.TOOL_WATERING_SCAN, Btn4Select,Btn4Icon.sprite);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                ChangeTool(Constant.TOOL_SEED_RADISH, Btn5Select, Btn5Icon.sprite);
             }
         }
     }
