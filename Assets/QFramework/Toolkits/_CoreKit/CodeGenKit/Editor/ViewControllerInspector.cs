@@ -75,7 +75,6 @@ namespace QFramework
 
         private void OnEnable()
         {
-
             if (string.IsNullOrEmpty(ViewController.ScriptsFolder))
             {
                 var setting = CodeGenKitSetting.Load();

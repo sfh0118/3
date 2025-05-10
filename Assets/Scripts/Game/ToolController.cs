@@ -64,7 +64,7 @@ namespace projectlndieFem
                     {
                         ShowSelect(cellPos);
 
-                        if (Input.GetMouseButtonDown(0))
+                        if (Input.GetMouseButton(0))
                         {
                             //땅깨기 땅있음
                             mTilemap.SetTile(cellPos, mGridController.pen);
@@ -78,7 +78,7 @@ namespace projectlndieFem
                     {
                         var gridCenterPos = ShowSelect(cellPos);
                         //씨앗 심기
-                        if (Input.GetMouseButtonDown(0))
+                        if (Input.GetMouseButton(0))
                         {
                             //씨앗심기
                             var plantGameObj = ResController.Instance.PlantPrefab
@@ -104,7 +104,7 @@ namespace projectlndieFem
                     {
                         var gridCenterPos = ShowSelect(cellPos);
                         //무 씨앗 심기
-                        if (Input.GetMouseButtonDown(0))
+                        if (Input.GetMouseButton(0))
                         {
                             //무 씨앗심기
                             var plantGameObj = ResController.Instance.PlantRadishPrefab
@@ -131,7 +131,7 @@ namespace projectlndieFem
 
                         var gridCenterPos = ShowSelect(cellPos);
                         //물주기
-                        if (Input.GetMouseButtonDown(0))
+                        if (Input.GetMouseButton(0))
                         {
                             //물주기
                             ResController.Instance.WaterPrefab
@@ -151,7 +151,7 @@ namespace projectlndieFem
                     {
                         ShowSelect(cellPos);
 
-                        if (Input.GetMouseButtonDown(0))
+                        if (Input.GetMouseButton(0))
                         {   //수확
                             Global.OnPlantHarvest.Trigger(PlantController.Instance.plants[cellPos.x, cellPos.y]);
 

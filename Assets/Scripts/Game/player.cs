@@ -12,14 +12,21 @@ namespace projectlndieFem
         public Grid Grid;
         public Tilemap Tilemap;
 
+        public Font Font;
         private void Awake()
         {
             Global.Player = this;
 
         }
+
+        private GUIStyle mLabelsyle;
+
         void Start()
         {
-
+            mLabelsyle = new GUIStyle("Label")
+            {
+                font = Font,
+            };
 
             Debug.Log("@@@@@");
             Global.Days.Register(day =>
@@ -71,24 +78,24 @@ namespace projectlndieFem
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("날수 :" + Global.Days.Value);
+            GUILayout.Label("날수 :" + Global.Days.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("열매 :" + Global.FruitCount.Value);
+            GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("무 :" + Global.RadishCount.Value);
+            GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
 
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("다음날:F ");
+            GUILayout.Label("다음날:F ", mLabelsyle);
             GUILayout.EndHorizontal();
 
            
