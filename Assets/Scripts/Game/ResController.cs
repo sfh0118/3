@@ -10,7 +10,7 @@ namespace projectlndieFem
         public GameObject PlantRadishPrefab; // Added PlantRadishPrefab field
 
         public Sprite SeedSprite;
-        public Sprite SmallplantSprite;
+        public Sprite SmallPlantSprite;
         public Sprite RipeSprite;
         public Sprite OldSprite;
         public Sprite SeedRadishSprite;

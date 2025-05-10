@@ -60,7 +60,7 @@ namespace projectlndieFem
                 if (cellPos.x < 10 && cellPos.x >= 0 && cellPos.y < 10 && cellPos.y >= 0)
                 {
                     //깽이 땅깨기
-                    if (Global.CurrentTool.Value == Constant.TOOL_SHOVEL && mShowGrid[cellPos.x, cellPos.y] == null)
+                    if (ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SHOVEL && mShowGrid[cellPos.x, cellPos.y] == null)
                     {
                         ShowSelect(cellPos);
 
@@ -74,7 +74,7 @@ namespace projectlndieFem
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                 mShowGrid[cellPos.x, cellPos.y].HasPlant != true &&
-                                Global.CurrentTool.Value == Constant.TOOL_SEED)
+                                ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SEED)
                     {
                         var gridCenterPos = ShowSelect(cellPos);
                         //씨앗 심기
@@ -100,7 +100,7 @@ namespace projectlndieFem
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                mShowGrid[cellPos.x, cellPos.y].HasPlant != true &&
-                               Global.CurrentTool.Value == Constant.TOOL_SEED_RADISH)
+                               ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SEED_RADISH)
                     {
                         var gridCenterPos = ShowSelect(cellPos);
                         //무 씨앗 심기
@@ -126,7 +126,7 @@ namespace projectlndieFem
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                 mShowGrid[cellPos.x, cellPos.y].Watered != true &&
-                                Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
+                                ChallengeComtroller.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
                     {
 
                         var gridCenterPos = ShowSelect(cellPos);
@@ -147,7 +147,7 @@ namespace projectlndieFem
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                             mShowGrid[cellPos.x, cellPos.y].HasPlant &&
                             mShowGrid[cellPos.x, cellPos.y].PlantState == PlantStates.Ripe &&
-                            Global.CurrentTool.Value == Constant.TOOL_HAND)
+                            ChallengeComtroller.CurrentTool.Value == Constant.TOOL_HAND)
                     {
                         ShowSelect(cellPos);
 

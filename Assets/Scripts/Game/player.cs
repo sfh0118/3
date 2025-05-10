@@ -33,10 +33,10 @@ namespace projectlndieFem
             Global.Days.Register(day =>
             {
                 //다음날
-                Global.RipeAndHarvestCountInCurrentDay.Value = 0;
-                Global.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
-                Global.HarvestCountInCurrentDay.Value = 0;
-                Global.RadishHarvestCountInCurrentDay.Value = 0;
+                ChallengeComtroller.RipeAndHarvestCountInCurrentDay.Value = 0;
+                ChallengeComtroller.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
+                ChallengeComtroller.HarvestCountInCurrentDay.Value = 0;
+                ChallengeComtroller.RadishHarvestCountInCurrentDay.Value = 0;
 
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
@@ -58,7 +58,8 @@ namespace projectlndieFem
                 {
                     if (soilData != null)
                     {
-                        soilData.Watered = false;
+                        soilData.Watered= false;
+
                     }
                 });
                 foreach (var water in SceneManager.GetActiveScene().GetRootGameObjects()

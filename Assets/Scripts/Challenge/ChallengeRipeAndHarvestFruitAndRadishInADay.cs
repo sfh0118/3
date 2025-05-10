@@ -13,8 +13,8 @@ namespace projectlndieFem
         }
         public override bool CheckFinish()
         {
-            return Global.Days.Value != StartDate && Global.RipeAndHarvestCountInCurrentDay.Value >= 1 && 
-                Global.RipeAndHarvestRadishCountInCurrentDay.Value >= 1;
+            return Global.Days.Value != StartDate && ChallengeComtroller.RipeAndHarvestCountInCurrentDay.Value >= 1 &&
+                ChallengeComtroller.RipeAndHarvestRadishCountInCurrentDay.Value >= 1;
         }
         public override void OnFinish()
         {

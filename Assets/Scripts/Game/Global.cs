@@ -19,43 +19,11 @@ namespace projectlndieFem
         //무 수량
         public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
 
-        //현재 도구
-        public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
-
-        //당일 열매수량
-        public static BindableProperty<int> RipeAndHarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 무 수량
-        public static BindableProperty<int> RipeAndHarvestRadishCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 수확한 식물 수량
-        public static BindableProperty<int> HarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 수확한 무 수량
-        public static BindableProperty<int> RadishHarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        public static List<Challenge> Challenges = new List<Challenge>()
-        {
-            new ChallengeHarvestAFruit(),
-            new ChallengeRipeAndHarvestTwoFruitslnADay(),
-            new ChallengeRipeAndHarvestFiveFruitslnADay(),
-            new ChallengeHarvestARadish(),
-            new ChallengeRipeAndHarvestFruitAndRadishInADay(),
-
-        };
-        public static List<Challenge> ActiveChallenges = new List<Challenge>()
-        {
-
-        };
-
-        public static List<Challenge> FinishedChallenges = new List<Challenge>()
-        {
-
-        };
+        
         //식물 수확 
         public static EasyEvent<IPlant> OnPlantHarvest= new EasyEvent<IPlant>();
 
-        public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
+       
 
         public static Player Player =null;
         public static ToolController Mouse = null;

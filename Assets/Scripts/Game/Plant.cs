@@ -37,7 +37,7 @@ namespace projectlndieFem
 
                 if (newState == PlantStates.Small)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallplantSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantSprite;
 
                 } else if (newState == PlantStates.Ripe)
                 {
