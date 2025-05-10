@@ -4,7 +4,7 @@ namespace projectlndieFem
 {
     public class ChallengeHarvestAFruit : Challenge
     {
-        public override string Name { get; } = "첫 열매 수확하기";
+        public override string Name { get; } = " 열매 하나 수확하기";
         public override void OnStart()
         {
             

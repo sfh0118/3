@@ -14,11 +14,25 @@ namespace projectlndieFem
             var randomItem = Global.Challenges.GetRandomItem();
             Global.ActiveChallenges.Add(randomItem);
 
-            Global.OnPlantHarvest.Register(print =>
+            
+            Global.OnPlantHarvest.Register(plant =>
             {
-                if (print.RipeDay == Global.Days.Value)
+                if (plant is Plant)
                 {
-                    Global.RipeAndHarvestCountInCurrentDay.Value++;
+                    Global.HarvestCountInCurrentDay.Value++;
+
+                    if (plant.RipeDay == Global.Days.Value)
+                    {
+                        Global.RipeAndHarvestCountInCurrentDay.Value++;
+                    }
+                }else if (plant is PlantRadish)
+                {
+                    Global.RadishHarvestCountInCurrentDay.Value++;
+                    if (plant.RipeDay == Global.Days.Value)
+                    {
+                        Global.RipeAndHarvestRadishCountInCurrentDay.Value++;
+                    }
+
                 }
             }).UnRegisterWhenGameObjectDestroyed(this);
 

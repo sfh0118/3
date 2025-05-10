@@ -25,14 +25,22 @@ namespace projectlndieFem
         //당일 열매수량
         public static BindableProperty<int> RipeAndHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
+        //당일 무 수량
+        public static BindableProperty<int> RipeAndHarvestRadishCountInCurrentDay = new BindableProperty<int>(0);
+
         //당일 수확한 식물 수량
         public static BindableProperty<int> HarvestCountInCurrentDay = new BindableProperty<int>(0);
+
+        //당일 수확한 무 수량
+        public static BindableProperty<int> RadishHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
             new ChallengeHarvestAFruit(),
             new ChallengeRipeAndHarvestTwoFruitslnADay(),
             new ChallengeRipeAndHarvestFiveFruitslnADay(),
+            new ChallengeHarvestARadish(),
+            new ChallengeRipeAndHarvestFruitAndRadishInADay(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()

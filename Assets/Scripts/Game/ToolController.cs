@@ -91,7 +91,7 @@ namespace projectlndieFem
                             plant.XCell = cellPos.x;
                             plant.YCell = cellPos.y;
 
-                            PlantController.Instance.plants[cellPos.x, cellPos.y] = plant;
+                            PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
                             mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
 
                             AudioController.Get.SfxSeed.Play();
@@ -117,7 +117,7 @@ namespace projectlndieFem
                             plant.XCell = cellPos.x;
                             plant.YCell = cellPos.y;
 
-                            PlantController.Instance.plants[cellPos.x, cellPos.y] = plant;
+                            PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
                             mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
 
                             AudioController.Get.SfxSeed.Play();
@@ -153,23 +153,23 @@ namespace projectlndieFem
 
                         if (Input.GetMouseButton(0))
                         {   //수확
-                            Global.OnPlantHarvest.Trigger(PlantController.Instance.plants[cellPos.x, cellPos.y]);
+                            Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[cellPos.x, cellPos.y]);
 
-                            Global.HarvestCountInCurrentDay.Value++;
 
-                            if (PlantController.Instance.plants[cellPos.x, cellPos.y] as Plant)
+                            if (PlantController.Instance.Plants[cellPos.x, cellPos.y] as Plant)
                             {
                                 Global.FruitCount.Value++;
-                            }else if (PlantController.Instance.plants[cellPos.x, cellPos.y] as PlantRadish)
+
+                            }else if (PlantController.Instance.Plants[cellPos.x, cellPos.y] as PlantRadish)
                             {
-                                Global.FruitCount.Value++;
+                                Global.RadishCount.Value++;
+                               
+
                             }
 
 
-                                Destroy(PlantController.Instance.plants[cellPos.x, cellPos.y].GameObject);
+                            Destroy(PlantController.Instance.Plants[cellPos.x, cellPos.y].GameObject);
                             mShowGrid[cellPos.x, cellPos.y].HasPlant = false;
-
-                            Global.FruitCount.Value++;
 
                             AudioController.Get.SfxHarvest.Play();
                         }

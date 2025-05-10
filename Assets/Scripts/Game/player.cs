@@ -29,15 +29,19 @@ namespace projectlndieFem
             };
 
             Debug.Log("@@@@@");
+
             Global.Days.Register(day =>
             {
-
+                //다음날
                 Global.RipeAndHarvestCountInCurrentDay.Value = 0;
+                Global.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
                 Global.HarvestCountInCurrentDay.Value = 0;
+                Global.RadishHarvestCountInCurrentDay.Value = 0;
+
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
 
-                PlantController.Instance.plants.ForEach((x, y, plant) =>
+                PlantController.Instance.Plants.ForEach((x, y, plant) =>
                 {
                     if (plant != null)
                     {
