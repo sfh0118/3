@@ -18,9 +18,15 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnBuyFruitSeed
+      MemberName: BtnBuyFruitSeed
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnBuyRadishSeed
+      MemberName: BtnBuyRadishSeed
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: ResController
+    ClassName: UIShop
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

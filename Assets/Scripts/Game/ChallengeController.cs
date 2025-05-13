@@ -7,8 +7,6 @@ namespace projectlndieFem
 {
     public partial class ChallengeComtroller : ViewController
     {
-        //현재 도구
-        public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
 
         //당일 열매수량
         public static BindableProperty<int> RipeAndHarvestCountInCurrentDay = new BindableProperty<int>(0);

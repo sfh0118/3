@@ -46,7 +46,7 @@ namespace projectlndieFem
         }
         void ChangeTool(string tool,Image selectimage,Sprite icon)
         {
-            ChallengeComtroller.CurrentTool.Value = tool;
+            Global.CurrentTool.Value = tool;
             AudioController.Get.SfxTake.Play();
 
             HideAllSelect();

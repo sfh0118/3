@@ -15,11 +15,20 @@ namespace projectlndieFem
 
         //열매 수량
         public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
+
+        //
+        public static BindableProperty<int> FruitSeedCount = new BindableProperty<int>(5);
       
         //무 수량
         public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
-
         
+        //
+        public static BindableProperty<int> RadishSeedCount = new BindableProperty<int>(5);
+
+        //;
+        public static BindableProperty<string> CurrentTool = new BindableProperty<string>(Constant.TOOL_HAND);
+
+
         //식물 수확 
         public static EasyEvent<IPlant> OnPlantHarvest= new EasyEvent<IPlant>();
 
@@ -47,7 +56,7 @@ namespace projectlndieFem
                 case TOOL_HAND:
                     return "손";
                 case TOOL_SHOVEL:
-                    return "삽";
+                    return "깽이";
                 case TOOL_SEED:
                     return "씨앗";
                 case TOOL_WATERING_SCAN:

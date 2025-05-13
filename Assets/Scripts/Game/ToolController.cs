@@ -60,7 +60,7 @@ namespace projectlndieFem
                 if (cellPos.x < 10 && cellPos.x >= 0 && cellPos.y < 10 && cellPos.y >= 0)
                 {
                     //깽이 땅깨기
-                    if (ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SHOVEL && mShowGrid[cellPos.x, cellPos.y] == null)
+                    if (Global.CurrentTool.Value == Constant.TOOL_SHOVEL && mShowGrid[cellPos.x, cellPos.y] == null)
                     {
                         ShowSelect(cellPos);
 
@@ -74,59 +74,68 @@ namespace projectlndieFem
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                 mShowGrid[cellPos.x, cellPos.y].HasPlant != true &&
-                                ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SEED)
+                                Global.CurrentTool.Value == Constant.TOOL_SEED)
                     {
-                        var gridCenterPos = ShowSelect(cellPos);
-                        //씨앗 심기
-                        if (Input.GetMouseButton(0))
+                        if (Global.FruitSeedCount.Value > 0)
                         {
-                            //씨앗심기
-                            var plantGameObj = ResController.Instance.PlantPrefab
-                                .Instantiate()
-                                .Position(gridCenterPos);
+
+                            var gridCenterPos = ShowSelect(cellPos);
+
+                            //씨앗 심기
+                            if (Input.GetMouseButton(0))
+                            {
+                                Global.FruitSeedCount.Value--;
+                                //씨앗심기
+                                var plantGameObj = ResController.Instance.PlantPrefab
+                                    .Instantiate()
+                                    .Position(gridCenterPos);
 
 
-                            var plant = plantGameObj.GetComponent<Plant>();
+                                var plant = plantGameObj.GetComponent<Plant>();
 
-                            plant.XCell = cellPos.x;
-                            plant.YCell = cellPos.y;
+                                plant.XCell = cellPos.x;
+                                plant.YCell = cellPos.y;
 
-                            PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
-                            mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
+                                PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
+                                mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
 
-                            AudioController.Get.SfxSeed.Play();
+                                AudioController.Get.SfxSeed.Play();
+                            }
                         }
-
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                mShowGrid[cellPos.x, cellPos.y].HasPlant != true &&
-                               ChallengeComtroller.CurrentTool.Value == Constant.TOOL_SEED_RADISH)
+                               Global.CurrentTool.Value == Constant.TOOL_SEED_RADISH)
                     {
-                        var gridCenterPos = ShowSelect(cellPos);
-                        //무 씨앗 심기
-                        if (Input.GetMouseButton(0))
+                        if (Global.RadishSeedCount.Value > 0)
                         {
-                            //무 씨앗심기
-                            var plantGameObj = ResController.Instance.PlantRadishPrefab
-                                .Instantiate()
-                                .Position(gridCenterPos);
+                            //씨앗 심기
+                            //무 씨앗 심기
+                            var gridCenterPos = ShowSelect(cellPos);
+                            //무 씨앗 심기
+                            if (Input.GetMouseButton(0))
+                            {
+                                Global.RadishSeedCount.Value--;
+                                //씨앗심기
+                                //무 씨앗심기
+                                var plantGameObj = ResController.Instance.PlantRadishPrefab
+                                    .Instantiate()
+                                    .Position(gridCenterPos);
 
+                                var plant = plantGameObj.GetComponent<PlantRadish>();
+                                plant.XCell = cellPos.x;
+                                plant.YCell = cellPos.y;
 
-                            var plant = plantGameObj.GetComponent<PlantRadish>();
+                                PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
+                                mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
 
-                            plant.XCell = cellPos.x;
-                            plant.YCell = cellPos.y;
-
-                            PlantController.Instance.Plants[cellPos.x, cellPos.y] = plant;
-                            mShowGrid[cellPos.x, cellPos.y].HasPlant = true;
-
-                            AudioController.Get.SfxSeed.Play();
+                                AudioController.Get.SfxSeed.Play();
+                            }
                         }
-
                     }
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                                 mShowGrid[cellPos.x, cellPos.y].Watered != true &&
-                                ChallengeComtroller.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
+                                Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN)
                     {
 
                         var gridCenterPos = ShowSelect(cellPos);
@@ -139,7 +148,6 @@ namespace projectlndieFem
                                 .Position(gridCenterPos);
 
                             mShowGrid[cellPos.x, cellPos.y].Watered = true;
-
                             AudioController.Get.SfxWater.Play();
 
                         }
@@ -147,14 +155,13 @@ namespace projectlndieFem
                     else if (mShowGrid[cellPos.x, cellPos.y] != null &&
                             mShowGrid[cellPos.x, cellPos.y].HasPlant &&
                             mShowGrid[cellPos.x, cellPos.y].PlantState == PlantStates.Ripe &&
-                            ChallengeComtroller.CurrentTool.Value == Constant.TOOL_HAND)
+                            Global.CurrentTool.Value == Constant.TOOL_HAND)
                     {
                         ShowSelect(cellPos);
 
                         if (Input.GetMouseButton(0))
                         {   //수확
                             Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[cellPos.x, cellPos.y]);
-
 
                             if (PlantController.Instance.Plants[cellPos.x, cellPos.y] as Plant)
                             {
@@ -163,10 +170,7 @@ namespace projectlndieFem
                             }else if (PlantController.Instance.Plants[cellPos.x, cellPos.y] as PlantRadish)
                             {
                                 Global.RadishCount.Value++;
-                               
-
                             }
-
 
                             Destroy(PlantController.Instance.Plants[cellPos.x, cellPos.y].GameObject);
                             mShowGrid[cellPos.x, cellPos.y].HasPlant = false;
