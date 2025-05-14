@@ -20,6 +20,11 @@ namespace projectlndieFem
         //당일 수확한 무 수량
         public static BindableProperty<int> RadishHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
+        //수확한 열매의 수량
+        public static int HarvestedFruitCount = 0;
+        //수확한 무의 수량
+        public static int HarvestedRadishCount = 0;
+
         public static List<Challenge> Challenges = new List<Challenge>()
         {
             new ChallengeHarvestAFruit(),
@@ -27,6 +32,10 @@ namespace projectlndieFem
             new ChallengeRipeAndHarvestFiveFruitslnADay(),
             new ChallengeHarvestARadish(),
             new ChallengeRipeAndHarvestFruitAndRadishInADay(),
+            new ChallengeHarvest10thFruit(),
+            new ChallengeHarvest10thRadish(),
+            new ChallengeFruitCountGreaterOrEqual10(),
+            new ChallengeRadishCountGreaterOrEqual10(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()
@@ -58,6 +67,8 @@ namespace projectlndieFem
                 {
                     ChallengeComtroller.HarvestCountInCurrentDay.Value++;
 
+                    HarvestedFruitCount++;
+
                     if (plant.RipeDay == Global.Days.Value)
                     {
                         ChallengeComtroller.RipeAndHarvestCountInCurrentDay.Value++;
@@ -66,6 +77,9 @@ namespace projectlndieFem
                 else if (plant is PlantRadish)
                 {
                     ChallengeComtroller.RadishHarvestCountInCurrentDay.Value++;
+
+                    HarvestedRadishCount++;
+
                     if (plant.RipeDay == Global.Days.Value)
                     {
                         ChallengeComtroller.RipeAndHarvestRadishCountInCurrentDay.Value++;
@@ -122,24 +136,24 @@ namespace projectlndieFem
         {
             IMGUIHelper.SetDesignResolution(960, 540);
 
-            GUI.Label(new Rect(960 - 300, 20 + -24, 300, 20), "@@ 도전 @@", mLabelsyle);
+            GUI.Label(new Rect(960 - 300, 24 + -24, 300, 24), "@@ 도전 @@", mLabelsyle);
 
             for (var i = 0; i < ChallengeComtroller.ActiveChallenges.Count; i++)
             {
                 var challenge = ChallengeComtroller.ActiveChallenges[i];
 
-                GUI.Label(new Rect(960 - 300, 20 + i * 20, 300, 20), challenge.Name, mLabelsyle);
+                GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), challenge.Name, mLabelsyle);
 
                 if (challenge.State == Challenge.States.Finished)
                 {
-                    GUI.Label(new Rect(960 - 300, 20 + i * 20, 300, 20), "<color=green>" + challenge.Name + "</color>", mLabelsyle);
+                    GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), "<color=green>" + challenge.Name + "</color>", mLabelsyle);
                 }
             }
             for (var i = 0; i < ChallengeComtroller.FinishedChallenges.Count; i++)
             {
                 var challenge = ChallengeComtroller.FinishedChallenges[i];
 
-                GUI.Label(new Rect(960 - 300, 20 + (i + ChallengeComtroller.ActiveChallenges.Count) * 20, 300, 20),
+                GUI.Label(new Rect(960 - 300, 24 + (i + ChallengeComtroller.ActiveChallenges.Count) * 24, 300, 24),
                 "<color=green>" + challenge.Name + "</color>", mLabelsyle);
 
             }
