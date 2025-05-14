@@ -1,9 +1,8 @@
 using UnityEngine;
 using QFramework;
-using projectlndieFem;
 
 namespace projectlndieFem
-{ 
+{
     public enum PlantStates
     {
         Seed,
@@ -11,15 +10,17 @@ namespace projectlndieFem
         Ripe,
         Old,
     }
-    public partial class PlantController : ViewController, ISingleton
-	{
-		public static PlantController Instance => MonoSingletonProperty<PlantController>.Instance;
+   
+       
+    public partial class PlantController : ViewController,ISingleton
+    {
+        public static PlantController Instance => MonoSingletonProperty<PlantController>.Instance;
 
         public EasyGrid<IPlant> Plants = new EasyGrid<IPlant>(10, 10);
 
         public void OnSingletonInit()
         {
-           
+
         }
     }
 }

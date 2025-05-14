@@ -1,4 +1,5 @@
 ﻿using projectlndieFem;
+using UnityEngine;
 
 namespace projectlndieFem
 {
@@ -13,9 +14,11 @@ namespace projectlndieFem
         {
             return Global.Days.Value != StartDate && ChallengeComtroller.HarvestCountInCurrentDay.Value > 0;
         }
+
         public override void OnFinish()
         {
-            
+           
+
         }
 
     }

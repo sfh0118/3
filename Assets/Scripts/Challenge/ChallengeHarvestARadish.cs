@@ -1,4 +1,6 @@
-﻿namespace projectlndieFem
+﻿using UnityEngine;
+
+namespace projectlndieFem
 {
     public class ChallengeHarvestARadish : Challenge
     {
@@ -12,8 +14,11 @@
         {
             return Global.Days.Value != StartDate && ChallengeComtroller.RadishHarvestCountInCurrentDay.Value > 0;
         }
+        
         public override void OnFinish()
         {
+
+            
         }
     }
 }
