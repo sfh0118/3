@@ -19,32 +19,14 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxTake
-      MemberName: SfxTake
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxShoveDig
-      MemberName: SfxShoveDig
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxSeed
-      MemberName: SfxSeed
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxWater
-      MemberName: SfxWater
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxHarvest
-      MemberName: SfxHarvest
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxChallengeFinish
-      MemberName: SfxChallengeFinish
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxNextDay
-      MemberName: SfxNextDay
-    - TypeName: UnityEngine.AudioSource
-      PathToRoot: SfxBuy
-      MemberName: SfxBuy
-    ScriptsFolder: Assets\Scripts\Game
-    ClassName: AudioController
+    - TypeName: UnityEngine.Tilemaps.Tilemap
+      PathToRoot: Ground
+      MemberName: Ground
+    - TypeName: UnityEngine.Tilemaps.Tilemap
+      PathToRoot: Soil
+      MemberName: Soil
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: GridController
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

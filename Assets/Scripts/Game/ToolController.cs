@@ -28,7 +28,7 @@ namespace projectlndieFem
 
             mGrid = mGridController.GetComponent<Grid>();
             mMainCamera = Camera.main;
-            mTilemap = mGridController.Tilemap;
+            mTilemap = mGridController.Soil;
             mSprite = GetComponent<SpriteRenderer>();
             mSprite.enabled = false;
         }
@@ -67,7 +67,7 @@ namespace projectlndieFem
                         if (Input.GetMouseButton(0))
                         {
                             //땅깨기 땅있음
-                            mTilemap.SetTile(cellPos, mGridController.pen);
+                            mTilemap.SetTile(cellPos, mGridController.Pen);
                             mShowGrid[cellPos.x, cellPos.y] = new SoilData();
                             AudioController.Get.SfxShoveDig.Play();
                         }

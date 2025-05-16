@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,4 +106,3 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   XCell: 0
   YCell: 0
-  RipeDay: -1

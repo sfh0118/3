@@ -1,11 +1,13 @@
-// Generate Id:d86fd599-5c7e-4836-8abf-d0c89c3f1a7b
+// Generate Id:9459c212-4570-4611-87dc-b3e1f56d8c7b
 using UnityEngine;
 
 namespace projectlndieFem
 {
 	public partial class GridController
 	{
-		public UnityEngine.Tilemaps.Tilemap Tilemap;
+		public UnityEngine.Tilemaps.Tilemap Ground;
+		
+		public UnityEngine.Tilemaps.Tilemap Soil;
 		
 	}
 }
