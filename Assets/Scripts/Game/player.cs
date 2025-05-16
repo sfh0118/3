@@ -108,12 +108,12 @@ namespace projectlndieFem
 
 
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("다음날:F ", mLabelsyle);
-            GUILayout.EndHorizontal();
+            //GUILayout.BeginHorizontal();
+            //GUILayout.Space(10);
+            //GUILayout.Label("다음날:F ", mLabelsyle);
+            //GUILayout.EndHorizontal();
 
-           
+
 
             GUILayout.FlexibleSpace();
 
@@ -127,12 +127,7 @@ namespace projectlndieFem
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Global.Days.Value++;
-
-                AudioController.Get.SfxNextDay.Play();
-            }
+           
             var cellPosition = Grid.WorldToCell(transform.position);
 
             var grid = FindObjectOfType<GridController>().ShowGrid;

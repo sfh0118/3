@@ -53,7 +53,8 @@ namespace projectlndieFem
                 cellPos.x - playerCellPos.x == 1 && cellPos.y - playerCellPos.y == -1 ||
                 cellPos.x - playerCellPos.x == 0 && cellPos.y - playerCellPos.y == -1 ||
                 cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == -1 ||
-                cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == 0
+                cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == 0 ||
+                cellPos.x - playerCellPos.x == 0 && cellPos.y - playerCellPos.y == 0
                 )
             {
                 if (cellPos.x < 10 && cellPos.x >= 0 && cellPos.y < 10 && cellPos.y >= 0)
