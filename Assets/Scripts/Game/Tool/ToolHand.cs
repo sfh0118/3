@@ -1,0 +1,39 @@
+using QFramework;
+using UnityEngine;
+using UnityEngine.Tilemaps;
+
+namespace projectlndieFem
+{
+    public class ToolHand : ITool
+    {
+        public bool Selectable(ToolData toolData)
+        {
+            return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
+                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant &&
+                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantState == PlantStates.Ripe &&
+                   Global.CurrentTool.Value == Constant.TOOL_HAND;
+
+        }
+        public void Use(ToolData toolData)
+        {
+            Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y]);
+
+            if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant)
+            {
+                Global.FruitCount.Value++;
+
+            }
+            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
+            {
+                Global.RadishCount.Value++;
+            }
+
+            Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);
+            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant = false;
+
+            AudioController.Get.SfxHarvest.Play();
+        }
+    }
+
+
+}
