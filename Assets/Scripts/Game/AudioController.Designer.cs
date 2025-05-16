@@ -1,4 +1,4 @@
-// Generate Id:f08e01a3-e97b-478f-8d68-3612562f0017
+// Generate Id:06f9c85e-e5fc-4ca1-a0e5-360c99cdbabc
 using UnityEngine;
 
 namespace projectlndieFem
@@ -18,6 +18,8 @@ namespace projectlndieFem
 		public UnityEngine.AudioSource SfxChallengeFinish;
 		
 		public UnityEngine.AudioSource SfxNextDay;
+		
+		public UnityEngine.AudioSource SfxBuy;
 		
 	}
 }

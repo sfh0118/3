@@ -18,9 +18,33 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Home
+    BindInfos:
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxTake
+      MemberName: SfxTake
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxShoveDig
+      MemberName: SfxShoveDig
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxSeed
+      MemberName: SfxSeed
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxWater
+      MemberName: SfxWater
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxHarvest
+      MemberName: SfxHarvest
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxChallengeFinish
+      MemberName: SfxChallengeFinish
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxNextDay
+      MemberName: SfxNextDay
+    - TypeName: UnityEngine.AudioSource
+      PathToRoot: SfxBuy
+      MemberName: SfxBuy
+    ScriptsFolder: Assets\Scripts\Game
+    ClassName: AudioController
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

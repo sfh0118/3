@@ -54,22 +54,26 @@ namespace projectlndieFem
 			{
 				Global.FruitSeedCount.Value += 2;
 				Global.FruitCount.Value -= 1;
-			});
+                AudioController.Get.SfxBuy.Play();
+            });
 
 			BtnBuyRadishSeed.onClick.AddListener( () =>
 			{
 				Global.RadishSeedCount.Value += 2;
 				Global.RadishCount.Value -= 1;
-			});
+                AudioController.Get.SfxBuy.Play();
+            });
             BtnBuyFruit.onClick.AddListener(() =>
             {
                 Global.RadishCount.Value -= 2;
                 Global.FruitCount.Value += 1;
+                AudioController.Get.SfxBuy.Play();
             });
             BtnBuyRadish.onClick.AddListener(() =>
             {
                 Global.FruitCount.Value -= 2;
                 Global.RadishCount.Value += 1;
+                AudioController.Get.SfxBuy.Play();
             });
 
         }
