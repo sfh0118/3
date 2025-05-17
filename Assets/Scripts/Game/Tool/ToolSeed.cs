@@ -4,11 +4,11 @@ namespace projectlndieFem
 {
     public class ToolSeed : ITool
     {
+        public string Name { get; set; } = "seed";
         public bool Selectable(ToolData toolData)
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
                    toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant != true &&
-                   Global.CurrentTool.Value == Constant.TOOL_SEED && 
                    Global.FruitSeedCount.Value > 0;
         }
         public void Use(ToolData toolData) 

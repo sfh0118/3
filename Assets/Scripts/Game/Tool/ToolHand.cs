@@ -6,12 +6,12 @@ namespace projectlndieFem
 {
     public class ToolHand : ITool
     {
+        public string Name { get; set; } = "hand";
         public bool Selectable(ToolData toolData)
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
                    toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant &&
-                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantState == PlantStates.Ripe &&
-                   Global.CurrentTool.Value == Constant.TOOL_HAND;
+                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantState == PlantStates.Ripe;
 
         }
         public void Use(ToolData toolData)

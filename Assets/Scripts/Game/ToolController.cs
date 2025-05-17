@@ -33,11 +33,7 @@ namespace projectlndieFem
             mSprite.enabled = false;
         }
 
-        private ITool mShovel = new ToolShovel();
-        private ITool mSeed = new ToolSeed();
-        private ITool mSeedRadish = new ToolSeedRadish();
-        private ITool mWateringCan = new ToolWateringCan();
-        private ITool mHand = new ToolHand();
+       
 
         private ToolData mToolData = new ToolData();
 
@@ -73,64 +69,19 @@ namespace projectlndieFem
                     mToolData.Pen = mGridController.Pen;
                     mToolData.SoilTilemap = mTilemap;
                     //깽이 땅깨기
-                    if (Global.CurrentTool.Value == Constant.TOOL_SHOVEL && mShovel.Selectable(mToolData))
+                    if (Global.CurrentTool.Value.Selectable(mToolData))
                     {
                         mToolData.GridCenterPos = ShowSelect(cellPos);
 
                         if (Input.GetMouseButton(0))
                         {
-                            mShovel.Use(mToolData);
+                            Global.CurrentTool.Value.Use(mToolData);
                             //땅깨기 땅있음
                            
                         }
                     }
-                    else if (Global.CurrentTool.Value == Constant.TOOL_SEED && mSeed.Selectable(mToolData))
-                    {
-                        mToolData.GridCenterPos = ShowSelect(cellPos);
-
-                        //씨앗 심기
-                        if (Input.GetMouseButton(0))
-                        {
-                           mSeed.Use(mToolData);
-                        }
-
-
-
-                    }
-                    else if (Global.CurrentTool.Value == Constant.TOOL_SEED_RADISH && mSeedRadish.Selectable(mToolData))
-                    {
-
-                        //씨앗 심기
-                        //무 씨앗 심기
-                        mToolData.GridCenterPos = ShowSelect(cellPos);
-                            //무 씨앗 심기
-                            if (Input.GetMouseButton(0))
-                            {
-                                mSeedRadish.Use(mToolData);
-                            }
-                        
-                    }
-                    else if (Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN && mWateringCan.Selectable(mToolData))
-                    {
-
-                        mToolData.GridCenterPos = ShowSelect(cellPos);
-                        //물주기
-                        if (Input.GetMouseButton(0))
-                        {
-                           mWateringCan.Use(mToolData);
-
-                        }
-                    }
-                    else if (Global.CurrentTool.Value == Constant.TOOL_HAND && mHand.Selectable(mToolData))
-                    {
-                        mToolData.GridCenterPos = ShowSelect(cellPos);
-
-                        if (Input.GetMouseButton(0))
-                        {   //수확
-                            mHand.Use(mToolData);
-                        }
-
-                    }
+                   
+                    
                 }
             }
             else

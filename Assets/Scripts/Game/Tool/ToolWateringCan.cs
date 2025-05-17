@@ -6,11 +6,11 @@ namespace projectlndieFem
 {
     public class ToolWateringCan : ITool
     {
+        public string Name { get; set; } = "watering_can";
         public bool Selectable(ToolData toolData)
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
-                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].Watered != true &&
-                   Global.CurrentTool.Value == Constant.TOOL_WATERING_SCAN;
+                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].Watered != true ;
                 
         }
         public void Use(ToolData toolData)
