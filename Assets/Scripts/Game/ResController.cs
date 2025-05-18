@@ -1,6 +1,8 @@
 using UnityEngine;
 using QFramework;
 using projectlndieFem;
+using System.Collections.Generic;
+using System.Linq;
 namespace projectlndieFem
 {
     public partial class ResController : ViewController, ISingleton // Added ISingleton interface  
@@ -21,6 +23,13 @@ namespace projectlndieFem
         public Sprite SeedChineseCabbageSprite;
         public Sprite SmallPlantChineseCabbageSprite;
         public Sprite RipeChineseCabbageSprite;
+
+        public List<Sprite> Sprites = new List<Sprite>();
+
+        public Sprite LoadSprite(string spriteName)
+        {
+            return Sprites.Single(spr => spr.name == spriteName);
+        }
         public static ResController Instance => MonoSingletonProperty<ResController>.Instance;
 
         void Start()

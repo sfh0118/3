@@ -18,9 +18,93 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn1
+      MemberName: Btn1
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn1/Btn1Icon
+      MemberName: Btn1Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn1/Btn1Select
+      MemberName: Btn1Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn2
+      MemberName: Btn2
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn2/Btn2Select
+      MemberName: Btn2Select
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn2/Btn2Icon
+      MemberName: Btn2Icon
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn3
+      MemberName: Btn3
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn3/Btn3Icon
+      MemberName: Btn3Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn3/Btn3Select
+      MemberName: Btn3Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn4
+      MemberName: Btn4
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn4/Btn4Icon
+      MemberName: Btn4Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn4/Btn4Select
+      MemberName: Btn4Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn5
+      MemberName: Btn5
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn5/Btn5Icon
+      MemberName: Btn5Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn5/Btn5Select
+      MemberName: Btn5Select
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: Btn6
+      MemberName: Btn6
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn6/Btn6Icon
+      MemberName: Btn6Icon
+    - TypeName: UnityEngine.UI.Image
+      PathToRoot: Btn6/Btn6Select
+      MemberName: Btn6Select
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot1
+      MemberName: ToolbarSlot1
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot2
+      MemberName: ToolbarSlot2
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot3
+      MemberName: ToolbarSlot3
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot4
+      MemberName: ToolbarSlot4
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot5
+      MemberName: ToolbarSlot5
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot6
+      MemberName: ToolbarSlot6
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot7
+      MemberName: ToolbarSlot7
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot8
+      MemberName: ToolbarSlot8
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot9
+      MemberName: ToolbarSlot9
+    - TypeName: projectlndieFem.UISlot
+      PathToRoot: ToolbarSlot10
+      MemberName: ToolbarSlot10
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: PlantChineseCabbage
+    ClassName: UIToolBar
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

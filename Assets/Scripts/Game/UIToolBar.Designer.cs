@@ -1,4 +1,4 @@
-// Generate Id:24a47b15-4aaf-43d8-9d8d-4efc2a34319d
+// Generate Id:4f9ffb2d-30b8-411f-b0bf-8d863fd412b1
 using UnityEngine;
 
 namespace projectlndieFem
@@ -40,6 +40,26 @@ namespace projectlndieFem
 		public UnityEngine.UI.Image Btn6Icon;
 		
 		public UnityEngine.UI.Image Btn6Select;
+		
+		public projectlndieFem.UISlot ToolbarSlot1;
+		
+		public projectlndieFem.UISlot ToolbarSlot2;
+		
+		public projectlndieFem.UISlot ToolbarSlot3;
+		
+		public projectlndieFem.UISlot ToolbarSlot4;
+		
+		public projectlndieFem.UISlot ToolbarSlot5;
+		
+		public projectlndieFem.UISlot ToolbarSlot6;
+		
+		public projectlndieFem.UISlot ToolbarSlot7;
+		
+		public projectlndieFem.UISlot ToolbarSlot8;
+		
+		public projectlndieFem.UISlot ToolbarSlot9;
+		
+		public projectlndieFem.UISlot ToolbarSlot10;
 		
 	}
 }
