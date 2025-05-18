@@ -7,7 +7,8 @@ namespace projectlndieFem
     {
         public GameObject WaterPrefab;
         public GameObject PlantPrefab; // Added PlantPrefab field
-        public GameObject PlantRadishPrefab; // Added PlantRadishPrefab field
+        public GameObject PlantRadishPrefab; 
+        public GameObject PlantChineseCabbagePrefab;
 
         public Sprite SeedSprite;
         public Sprite SmallPlantSprite;
@@ -16,6 +17,10 @@ namespace projectlndieFem
         public Sprite SeedRadishSprite;
         public Sprite SmallPlantRadishSprite;
         public Sprite RipeRadishSprite;
+
+        public Sprite SeedChineseCabbageSprite;
+        public Sprite SmallPlantChineseCabbageSprite;
+        public Sprite RipeChineseCabbageSprite;
         public static ResController Instance => MonoSingletonProperty<ResController>.Instance;
 
         void Start()

@@ -18,15 +18,9 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: UnityEngine.Tilemaps.Tilemap
-      PathToRoot: Ground
-      MemberName: Ground
-    - TypeName: UnityEngine.Tilemaps.Tilemap
-      PathToRoot: Soil
-      MemberName: Soil
+    BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: GridController
+    ClassName: PlantChineseCabbage
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

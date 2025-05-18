@@ -21,9 +21,11 @@ namespace projectlndieFem
       
         //무 수량
         public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
-        
+        public static BindableProperty<int> ChineseCabbageCount = new BindableProperty<int>(0);
+
         //
         public static BindableProperty<int> RadishSeedCount = new BindableProperty<int>(5);
+        public static BindableProperty<int> ChineseCabbageSeedCount = new BindableProperty<int>(5);
 
         //;
         public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(Constant.ToolHand);

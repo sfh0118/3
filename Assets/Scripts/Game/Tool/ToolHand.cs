@@ -26,6 +26,9 @@ namespace projectlndieFem
             else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
             {
                 Global.RadishCount.Value++;
+            }else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantChineseCabbage)
+            {
+                Global.ChineseCabbageCount.Value++;
             }
 
             Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);

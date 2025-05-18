@@ -2,14 +2,14 @@ namespace projectlndieFem
 {
     public class Constant
     {
-        public readonly static ITool ToolHand = new ToolHand();
-        public readonly static ITool ToolShovel = new ToolShovel();
-        public readonly static ITool ToolSeed = new ToolSeed();
-        public readonly static ITool ToolWateringCan = new ToolWateringCan();
-        public readonly static ITool ToolSeedRadish = new ToolSeedRadish();
+        public static readonly ITool ToolHand = new ToolHand();
+        public static readonly ITool ToolShovel = new ToolShovel();
+        public static readonly ITool ToolSeed = new ToolSeed();
+        public static readonly ITool ToolWateringCan = new ToolWateringCan();
+        public static readonly ITool ToolSeedRadish = new ToolSeedRadish();
+        public static readonly ITool ToolSeedChineseCabbage = new ToolSeedChineseCabbage();
 
-        
-        
+
 
     }
 }

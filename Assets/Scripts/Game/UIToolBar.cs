@@ -14,11 +14,18 @@ namespace projectlndieFem
             //툴 초기화
 
             //툴 버튼 클릭
-            Btn1.onClick.AddListener(() => {ChangeTool(Constant.ToolHand, Btn1Select, Btn1Icon.sprite);}); 
+            
+            Btn1.onClick.AddListener(() => { ChangeTool(Constant.ToolHand,Btn1Select, Btn1Icon.sprite); });
+
             Btn2.onClick.AddListener(() => { ChangeTool(Constant.ToolShovel, Btn2Select, Btn2Icon.sprite); });
-            Btn3.onClick.AddListener(() => { ChangeTool(Constant.ToolSeed, Btn3Select, Btn3Icon.sprite);});
-            Btn4.onClick.AddListener(() =>{ChangeTool(Constant.ToolWateringCan, Btn4Select, Btn4Icon.sprite);});
-            Btn5.onClick.AddListener(() =>{ChangeTool(Constant.ToolSeedRadish, Btn5Select, Btn5Icon.sprite);});
+
+            Btn3.onClick.AddListener(() => { ChangeTool(Constant.ToolSeed, Btn3Select, Btn3Icon.sprite); });
+
+            Btn4.onClick.AddListener(() => { ChangeTool(Constant.ToolWateringCan, Btn4Select, Btn4Icon.sprite); });
+
+            Btn5.onClick.AddListener(() => { ChangeTool(Constant.ToolSeedRadish, Btn5Select, Btn5Icon.sprite); });
+
+            Btn6.onClick.AddListener(() => { ChangeTool(Constant.ToolSeedChineseCabbage, Btn6Select, Btn6Icon.sprite); });
         }
         //툴 변경
         void HideAllSelect()
@@ -28,6 +35,7 @@ namespace projectlndieFem
             Btn3Select.Hide();
             Btn4Select.Hide();
             Btn5Select.Hide();
+            Btn6Select.Hide();
         }
         void ChangeTool(ITool tool, Image selectimage, Sprite icon)
         {
@@ -63,6 +71,10 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 ChangeTool(Constant.ToolSeedRadish, Btn5Select, Btn5Icon.sprite);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                ChangeTool(Constant.ToolSeedChineseCabbage, Btn6Select, Btn6Icon.sprite);
             }
         }
     }

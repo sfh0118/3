@@ -98,6 +98,11 @@ namespace projectlndieFem
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
+            GUILayout.Label("배추씨앗 :" + Global.ChineseCabbageSeedCount.Value, mLabelsyle);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
             GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
@@ -106,6 +111,10 @@ namespace projectlndieFem
             GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("배추 :" + Global.ChineseCabbageCount.Value, mLabelsyle);
+            GUILayout.EndHorizontal();
 
 
             //GUILayout.BeginHorizontal();
