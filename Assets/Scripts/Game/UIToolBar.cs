@@ -18,36 +18,6 @@ namespace projectlndieFem
         void Start()
         {
 
-            ToolbarSlot1.SetData(new SlotData()
-            {
-                Icon= ResController.Instance.LoadSprite("ToolHand_0"),
-                OnSelect =() => {ChangeTool(Constant.ToolHand, ToolbarSlot1.Select, ToolbarSlot1.Icon.sprite); }
-            },"1손");
-            ToolbarSlot2.SetData(new SlotData()
-            {
-                Icon = ResController.Instance.LoadSprite("ToolShovel_0"),
-                OnSelect = () => { ChangeTool(Constant.ToolShovel, ToolbarSlot2.Select, ToolbarSlot2.Icon.sprite); }
-            },"2깽이");
-            ToolbarSlot3.SetData(new SlotData()
-            {
-                Icon = ResController.Instance.LoadSprite("ToolSeed_0"),
-                OnSelect = () => { ChangeTool(Constant.ToolSeed, ToolbarSlot3.Select, ToolbarSlot3.Icon.sprite); }
-            },"3 열매");
-            ToolbarSlot4.SetData(new SlotData()
-            {
-                Icon = ResController.Instance.LoadSprite("ToolWateringCan_0"),
-                OnSelect = () => { ChangeTool(Constant.ToolWateringCan, ToolbarSlot4.Select, ToolbarSlot4.Icon.sprite); }
-            },"4 물");
-            ToolbarSlot5.SetData(new SlotData()
-            {
-                Icon = ResController.Instance.LoadSprite("ToolSeedRadish_0"),
-                OnSelect = () => { ChangeTool(Constant.ToolSeedRadish, ToolbarSlot5.Select, ToolbarSlot5.Icon.sprite); }
-            },"5 무");
-            ToolbarSlot6.SetData(new SlotData()
-            {
-                Icon = ResController.Instance.LoadSprite("ToolSeedChineseCabbage_0"),
-                OnSelect = () => { ChangeTool(Constant.ToolSeedChineseCabbage, ToolbarSlot6.Select, ToolbarSlot6.Icon.sprite); }
-            },"6 배추");
             // 도구
             // (순서0~9)
             ToolbarSlots.Add(ToolbarSlot1);
@@ -61,6 +31,30 @@ namespace projectlndieFem
             ToolbarSlots.Add(ToolbarSlot9);
             ToolbarSlots.Add(ToolbarSlot10);
 
+            for (var i = 0; i < ToolbarSlots.Count; i++)
+            {
+                var slot = ToolbarSlots[i];
+
+                if(i < Config.Items.Count)
+                {
+                    var item = Config.Items[i];
+
+                    slot.SetData(new SlotData()
+                    {
+                        
+                        Icon = ResController.Instance.LoadSprite(item.IconName),
+                        OnSelect = () =>
+                        {
+                            ChangeTool(item.Tool, slot.Select, slot.Icon.sprite);
+                        }
+                    }, (i + 1).ToString());
+                }
+                else
+                {
+                    ToolbarSlots[i].Hide();
+                }
+               
+            }
 
             HideAllSelect();
             ToolbarSlots[0].Select.Hide();
