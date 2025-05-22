@@ -4,21 +4,21 @@ using QFramework;
 
 namespace projectlndieFem
 {
-	public partial class PlantRadish : ViewController,IPlant
-	{
+    public partial class PlantChineseCabbage : ViewController, IPlant
+    {
 
-		public int XCell;
-        public int YCell;
+        public int XCell { get; set; }
+        public int YCell { get; set; }
 
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
 
         public int RipeDay { get; private set; }
         public void SetState(PlantStates newState)
-		{
-			if (newState != mState)
+        {
+            if (newState != mState)
             {
-                if(mState == PlantStates.Small && newState == PlantStates.Ripe)
+                if (mState == PlantStates.Small && newState == PlantStates.Ripe)
                 {
                     RipeDay = Global.Days.Value;
                 }
@@ -26,15 +26,16 @@ namespace projectlndieFem
 
                 if (newState == PlantStates.Small)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantRadishSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantChineseCabbageSprite;
 
-                } else if (newState == PlantStates.Ripe)
+                }
+                else if (newState == PlantStates.Ripe)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeRadishSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeChineseCabbageSprite;
                 }
                 else if (newState == PlantStates.Seed)
                 {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedRadishSprite;
+                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedChineseCabbageSprite;
                 }
                 else if (newState == PlantStates.Old)
                 {
@@ -47,6 +48,8 @@ namespace projectlndieFem
 
             }
         }
+
+        private int mSeedStateDay = 0;
         private int mSmallStateDay = 0;
         public void Grow(SoilData soilData)
         {
@@ -54,8 +57,12 @@ namespace projectlndieFem
             {
                 if (soilData.Watered)
                 {
-                    //plant에서 SmallPlant변환
-                    SetState(PlantStates.Small);
+                    mSeedStateDay++;
+                    if (mSeedStateDay == 2)
+                    {
+                        //plant에서 SmallPlant변환
+                        SetState(PlantStates.Small);
+                    }
                 }
             }
             else if (State == PlantStates.Small)
@@ -69,13 +76,13 @@ namespace projectlndieFem
                         //plant에서 Ripe변환
                         SetState(PlantStates.Ripe);
                     }
-                    
+
                 }
             }
-        
+
         }
 
-        
+
         public GameObject GameObject => gameObject;
     }
 }

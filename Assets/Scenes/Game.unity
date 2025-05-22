@@ -7992,9 +7992,6 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   WaterPrefab: {fileID: 7562126971696108414, guid: 79429ea6db4a91f4cbd3d2baca92fc34, type: 3}
-  PlantPrefab: {fileID: 5380944548219473741, guid: b39cade8e94b56d4ba505db7a08bccee, type: 3}
-  PlantRadishPrefab: {fileID: 5380944548219473741, guid: 5428931f4e369a945a47a543379841f9, type: 3}
-  PlantChineseCabbagePrefab: {fileID: 5380944548219473741, guid: 3e3cb9c72bf47c444bbb99d9c9be44d3, type: 3}
   SeedSprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
   SmallPlantSprite: {fileID: -8902951029311973782, guid: ac185c334c7342740b0077446efbef7c, type: 3}
   RipeSprite: {fileID: 853675080466277832, guid: 4413ce323f092964fa969e2755b6c1ab, type: 3}
@@ -8012,6 +8009,10 @@ MonoBehaviour:
   - {fileID: 2971062254677532018, guid: 865e048160dfb154f807b382d35e7668, type: 3}
   - {fileID: -4100675368256277520, guid: c0a990f6c1d12894985ec398fb71a4ea, type: 3}
   - {fileID: 4142115752542023154, guid: 0ae65c29879de5840b11b3c37abb51cf, type: 3}
+  Prefabs:
+  - {fileID: 5380944548219473741, guid: b39cade8e94b56d4ba505db7a08bccee, type: 3}
+  - {fileID: 5380944548219473741, guid: 3e3cb9c72bf47c444bbb99d9c9be44d3, type: 3}
+  - {fileID: 5380944548219473741, guid: 5428931f4e369a945a47a543379841f9, type: 3}
 --- !u!4 &1645364259
 Transform:
   m_ObjectHideFlags: 0
@@ -9474,8 +9475,8 @@ SceneRoots:
   - {fileID: 620399334}
   - {fileID: 423588851}
   - {fileID: 239619725}
-  - {fileID: 314213423}
   - {fileID: 1645364259}
+  - {fileID: 314213423}
   - {fileID: 736230412}
   - {fileID: 1809623953}
   - {fileID: 1764843410}

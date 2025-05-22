@@ -28,7 +28,7 @@ namespace projectlndieFem
         public static BindableProperty<int> ChineseCabbageSeedCount = new BindableProperty<int>(5);
 
         //;
-        public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(Constant.ToolHand);
+        public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(Config.Items[0].Tool);
 
 
         //식물 수확 

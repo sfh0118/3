@@ -55,8 +55,12 @@ namespace projectlndieFem
             ShortCut.text = shortCut;
             if (data.Countable)
             {
-                Count.text = data.Count.ToString();
-                
+                data.Count.RegisterWithInitValue(count =>
+                {
+                    Count.text = count.ToString();
+
+                } ).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             }
            
         }

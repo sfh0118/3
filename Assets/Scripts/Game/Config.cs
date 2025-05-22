@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using QFramework;
+using System.Collections.Generic;
 
 namespace projectlndieFem
 {
@@ -10,64 +11,74 @@ namespace projectlndieFem
             {
 
                 IconName = "ToolHand_0",
-                Count = 1,
+                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "손",
                 PlantPrefabName = string.Empty,
-                Tool = Constant.ToolHand
+                Tool = new ToolHand()
             },
             new Item()
             {
                 IconName = "ToolShovel_0",
-                Count = 1,
+                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "삽",
                 PlantPrefabName = string.Empty,
-                Tool = Constant.ToolShovel
+                Tool = new ToolShovel()
 
             },
             new Item()
-            {
-                IconName = "ToolSeed_0",
-                Count = 1,
-                Countable = true,
-                IsPlant = true,
-                Name = "씨앗",
-                PlantPrefabName = "Plant",
-                Tool = Constant.ToolSeed
-            },
+                {
+                    IconName = "ToolSeed_0",
+                    Count = new BindableProperty<int>(5),
+                    Countable = true,
+                    IsPlant = true,
+                    Name = "씨앗",
+                    PlantPrefabName = "Plant",
+
+                }
+                .Self(item =>item.Tool = new ToolSeed()
+                {
+                   Item = item
+                }),
             new Item()
             {
                 IconName = "ToolWateringCan_0",
-                Count = 1,
+                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "물뿌리개",
                 PlantPrefabName = string.Empty,
-                Tool = Constant.ToolWateringCan
+                Tool = new ToolWateringCan()
             },
             new Item()
             {
                 IconName = "ToolSeedRadish_0",
-                Count = 1,
+                Count = new BindableProperty<int>(5),
                 Countable = true,
                 IsPlant = true,
                 Name = "무 씨앗",
                 PlantPrefabName = "PlantRadish",
-                Tool = Constant.ToolSeedRadish
-            },
+                
+            }.Self(item =>item.Tool = new ToolSeed()
+            {
+                   Item = item
+            }),
             new Item()
             {
                 IconName = "ToolSeedChineseCabbage_0",
-                Count = 1,
+                Count = new BindableProperty<int>(5),
                 Countable = true,
                 IsPlant = true,
                 Name = "배추 씨앗",
                 PlantPrefabName = "PlantChineseCabbage",
-                Tool = Constant.ToolSeedChineseCabbage
-            },
+                
+            }.Self(item =>item.Tool = new ToolSeed()
+            {
+                   Item = item
+            }),
         };
         
     }
