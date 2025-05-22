@@ -10,36 +10,58 @@ namespace projectlndieFem
 
     public class UISlot : MonoBehaviour
     {
+        public static Func<string, Sprite> IconLoader;
+        public static Action<UISlot> OnItemSelect;
+
         public Image Icon;
         public Image Select;
         public Text ShortCut;
+        public Text Count;
 
-        private ISlotData mData;
-        public ISlotData Data => mData;
+        public Button Button;
+        private Item mData;
+        public Item Data => mData;
         
         public void Awake()
         {
             Icon.sprite = null;
             Select.Hide();
             ShortCut.text = string.Empty;
+            Count.text = string.Empty;
+            Button.onClick.AddListener(() =>
+            {
+               
+                OnItemSelect?.Invoke(this);
+                
+            });
         }
-        public void SetData(ISlotData data,string shortCut)
+
+#if UNITY_EDITOR
+        public void OnValidate()
+        {
+            if(transform.Find("Count"))
+            {
+
+                Count = transform.Find("Count").GetComponent<Text>();
+            }
+
+            Button = GetComponent<Button>();
+        }
+#endif
+        public void SetData(Item data,string shortCut)
         {
             mData = data;
-            Icon.sprite = mData.Icon;
+            Icon.sprite = IconLoader?.Invoke(mData.IconName);
             ShortCut.text = shortCut;
+            if (data.Countable)
+            {
+                Count.text = data.Count.ToString();
+                
+            }
+           
         }
         // Start is called before the first frame update
        
     }
-    public interface ISlotData
-    {
-        public Sprite Icon { get; set; }
-        public Action OnSelect { get; set; }
-    }
-    public class SlotData : ISlotData
-    {
-        public Sprite Icon { get; set; }
-        public Action OnSelect { get; set; }
-    }
+   
 }

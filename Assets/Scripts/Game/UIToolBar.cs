@@ -10,13 +10,18 @@ namespace projectlndieFem
     {
         public List<UISlot> ToolbarSlots = new List<UISlot>();
 
-        public interface ISlotData
-        {
-            public Image Icon { get; set; }
-            public Action OnSelect { get; set; }
-        }
+       
         void Start()
         {
+            UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);
+            UISlot.OnItemSelect = slot =>
+            {
+                if (slot.Data != null)
+                {
+                    ChangeTool(slot.Data.Tool, slot.Select, slot.Icon.sprite);
+                }
+            };
+            
 
             // 도구
             // (순서0~9)
@@ -37,17 +42,8 @@ namespace projectlndieFem
 
                 if(i < Config.Items.Count)
                 {
-                    var item = Config.Items[i];
 
-                    slot.SetData(new SlotData()
-                    {
-                        
-                        Icon = ResController.Instance.LoadSprite(item.IconName),
-                        OnSelect = () =>
-                        {
-                            ChangeTool(item.Tool, slot.Select, slot.Icon.sprite);
-                        }
-                    }, (i + 1).ToString());
+                    slot.SetData(Config.Items[i], (i + 1).ToString());
                 }
                 else
                 {
@@ -59,17 +55,8 @@ namespace projectlndieFem
             HideAllSelect();
             ToolbarSlots[0].Select.Hide();
             Global.Mouse.Icon.sprite = ToolbarSlots[0].Icon.sprite;
-            //툴 초기화
+           
 
-            foreach (var toolbarSlot in ToolbarSlots)
-            {
-                var data = toolbarSlot.Data;
-                toolbarSlot.GetComponent<Button>().onClick.AddListener(() =>
-                {
-                   data?.OnSelect?.Invoke();
-                
-                });
-            }
 
         }
         //툴 변경
@@ -93,16 +80,16 @@ namespace projectlndieFem
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) ToolbarSlots[0].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha2)) ToolbarSlots[1].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha3)) ToolbarSlots[2].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha4)) ToolbarSlots[3].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha5)) ToolbarSlots[4].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha6)) ToolbarSlots[5].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha7)) ToolbarSlots[6].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha8)) ToolbarSlots[7].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha9)) ToolbarSlots[8].Data?.OnSelect?.Invoke();
-            if (Input.GetKeyDown(KeyCode.Alpha0)) ToolbarSlots[9].Data?.OnSelect?.Invoke();
+            if (Input.GetKeyDown(KeyCode.Alpha1)) UISlot.OnItemSelect(ToolbarSlots[0]);
+            if (Input.GetKeyDown(KeyCode.Alpha2)) UISlot.OnItemSelect(ToolbarSlots[1]);
+            if (Input.GetKeyDown(KeyCode.Alpha3)) UISlot.OnItemSelect(ToolbarSlots[2]);
+            if (Input.GetKeyDown(KeyCode.Alpha4)) UISlot.OnItemSelect(ToolbarSlots[3]);
+            if (Input.GetKeyDown(KeyCode.Alpha6)) UISlot.OnItemSelect(ToolbarSlots[4]);
+            if (Input.GetKeyDown(KeyCode.Alpha8)) UISlot.OnItemSelect(ToolbarSlots[5]);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[6]);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[7]);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[8]);
+            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[9]);
 
         }
     }
