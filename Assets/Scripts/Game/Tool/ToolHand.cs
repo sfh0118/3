@@ -5,9 +5,11 @@ using UnityEngine.Tilemaps;
 
 namespace projectlndieFem
 {
-    public class ToolHand : ITool
+    public class ToolHand  : ITool
     {
         public string Name { get; set; } = "hand";
+        public Item Item { get; set; }
+
         public bool Selectable(ToolData toolData)
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&

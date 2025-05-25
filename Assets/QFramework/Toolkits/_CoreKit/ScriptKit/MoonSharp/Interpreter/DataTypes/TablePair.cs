@@ -14,8 +14,8 @@ namespace MoonSharp.Interpreter
 		/// </summary>
 		public DynValue Key 
 		{
-			get => key;
-			private set => key = value;
+			get { return key; }
+			private set { Key = key; }
 		}
 
 		/// <summary>
@@ -23,8 +23,8 @@ namespace MoonSharp.Interpreter
 		/// </summary>
 		public DynValue Value
 		{
-			get => value;
-			set { if (key.IsNotNil()) value = value; }
+			get { return value; }
+			set { if (key.IsNotNil()) Value = value; }
 		}
 
 

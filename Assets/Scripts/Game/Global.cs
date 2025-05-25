@@ -13,6 +13,9 @@ namespace projectlndieFem
         //첫날
         public static BindableProperty<int> Days = new BindableProperty<int>(1);
 
+        //금화(돈)
+        public static BindableProperty<int> Coin = new BindableProperty<int>();
+
         //열매 수량
         public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
 
@@ -23,11 +26,7 @@ namespace projectlndieFem
         public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
         public static BindableProperty<int> ChineseCabbageCount = new BindableProperty<int>(0);
 
-        //
-        public static BindableProperty<int> RadishSeedCount = new BindableProperty<int>(5);
-        public static BindableProperty<int> ChineseCabbageSeedCount = new BindableProperty<int>(5);
-
-        //;
+        //지금 도구
         public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(Config.Items[0].Tool);
 
 

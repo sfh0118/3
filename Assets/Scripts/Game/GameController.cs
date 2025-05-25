@@ -13,12 +13,12 @@ namespace projectlndieFem
 		{
 
 
-            ChallengeComtroller.OnChallengeFinish.Register(challenge =>
+            ChallengeController.OnChallengeFinish.Register(challenge =>
             {
                 AudioController.Get.SfxChallengeFinish.Play();
 
 
-                if (ChallengeComtroller.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
+                if (ChallengeController.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
                 {
                     ActionKit.Delay(0.5f, () =>
                      {

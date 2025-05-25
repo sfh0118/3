@@ -1,4 +1,0 @@
-repository "33/33@14569501926116@cloud"
-  path "/"
-    br "/main"
-    co "/main"

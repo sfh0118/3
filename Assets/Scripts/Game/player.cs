@@ -20,6 +20,7 @@ namespace projectlndieFem
         }
 
         private GUIStyle mLabelsyle;
+        private GUIStyle mCoinStyle;
 
         void Start()
         {
@@ -28,15 +29,22 @@ namespace projectlndieFem
                 font = Font,
             };
 
-            Debug.Log("@@@@@");
+            mCoinStyle = new GUIStyle("Label")
+            {
+                font = Font,
+                normal = { textColor = Color.yellow },
+            };
+
+            Debug.Log("게임 시작");
 
             Global.Days.Register(day =>
             {
                 //다음날
-                ChallengeComtroller.RipeAndHarvestCountInCurrentDay.Value = 0;
-                ChallengeComtroller.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
-                ChallengeComtroller.HarvestCountInCurrentDay.Value = 0;
-                ChallengeComtroller.RadishHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.RipeAndHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
+                ChallengeController.HarvestCountInCurrentDay.Value = 0;
+                ChallengeController.RadishHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.ChineseCabbageHarvestCountInCurrentDay.Value = 0;
 
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
@@ -47,35 +55,24 @@ namespace projectlndieFem
                     {
                         //성장
                         plant.Grow(soilDatas[x,y]);
-                    
-
                     }
-
                 });
                 
-
                 soilDatas.ForEach(soilData =>
                 {
                     if (soilData != null)
                     {
                         soilData.Watered= false;
-
                     }
                 });
                 foreach (var water in SceneManager.GetActiveScene().GetRootGameObjects()
-                .Where(gameObj => gameObj
-                .name.StartsWith("water")))
+                .Where(gameObj => gameObj .name.StartsWith("water")))
                 {
                     water.DestroySelf();
                 }
 
-
-
-
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
-
         }
-
 
         private void OnGUI()
         {
@@ -89,7 +86,7 @@ namespace projectlndieFem
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
+            GUILayout.Label("$"+ Global.Coin.Value, mCoinStyle);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();

@@ -14,7 +14,7 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
-                Name = "손",
+                Name = "Hand",
                 PlantPrefabName = string.Empty,
                 Tool = new ToolHand()
             },
@@ -24,18 +24,19 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
-                Name = "삽",
+                Name = "Shovel",
                 PlantPrefabName = string.Empty,
                 Tool = new ToolShovel()
 
             },
-            new Item()
+
+                new Item()
                 {
                     IconName = "ToolSeed_0",
                     Count = new BindableProperty<int>(5),
                     Countable = true,
                     IsPlant = true,
-                    Name = "씨앗",
+                    Name = "Seed",
                     PlantPrefabName = "Plant",
 
                 }
@@ -49,7 +50,7 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
-                Name = "물뿌리개",
+                Name = "watering_can",
                 PlantPrefabName = string.Empty,
                 Tool = new ToolWateringCan()
             },
@@ -59,10 +60,11 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(5),
                 Countable = true,
                 IsPlant = true,
-                Name = "무 씨앗",
+                Name = "seed_radish",
                 PlantPrefabName = "PlantRadish",
-                
-            }.Self(item =>item.Tool = new ToolSeed()
+
+            }
+            .Self(item =>item.Tool = new ToolSeed()
             {
                    Item = item
             }),
@@ -72,10 +74,11 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(5),
                 Countable = true,
                 IsPlant = true,
-                Name = "배추 씨앗",
+                Name = "",
                 PlantPrefabName = "PlantChineseCabbage",
-                
-            }.Self(item =>item.Tool = new ToolSeed()
+
+            }
+            .Self(item =>item.Tool = new ToolSeed()
             {
                    Item = item
             }),

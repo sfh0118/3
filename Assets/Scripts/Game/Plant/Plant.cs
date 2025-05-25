@@ -15,24 +15,24 @@ namespace projectlndieFem
         void Grow(SoilData soilData);
 
         int RipeDay { get; }
-
         public int XCell { get; set; }
         public int YCell { get; set; }
+
     }
     public partial class Plant : ViewController, IPlant
     {
 
-		public int XCell { get; set; }
+        public int XCell { get; set; }
         public int YCell { get; set; }
 
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
-        
+
         public void SetState(PlantStates newState)
-		{
-			if (newState != mState)
+        {
+            if (newState != mState)
             {
-                if(mState == PlantStates.Small && newState == PlantStates.Ripe)
+                if (mState == PlantStates.Small && newState == PlantStates.Ripe)
                 {
                     RipeDay = Global.Days.Value;
                 }
@@ -42,7 +42,8 @@ namespace projectlndieFem
                 {
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantSprite;
 
-                } else if (newState == PlantStates.Ripe)
+                }
+                else if (newState == PlantStates.Ripe)
                 {
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeSprite;
                 }
@@ -83,9 +84,9 @@ namespace projectlndieFem
         }
         public int RipeDay { get; private set; }
         void Start()
-		{
-			// Code Here
-		}
+        {
+            // Code Here
+        }
         public GameObject GameObject => gameObject;
     }
 }

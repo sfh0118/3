@@ -1,4 +1,4 @@
-// Generate Id:920864d5-bbff-4140-84a6-4e49fee1eb19
+// Generate Id:c9786862-8f04-40c5-8789-d6f8f066329d
 using UnityEngine;
 
 namespace projectlndieFem
@@ -9,9 +9,13 @@ namespace projectlndieFem
 		
 		public UnityEngine.UI.Button BtnBuyRadishSeed;
 		
-		public UnityEngine.UI.Button BtnBuyFruit;
+		public UnityEngine.UI.Button BtnBuyChineseCabbageSeed;
 		
-		public UnityEngine.UI.Button BtnBuyRadish;
+		public UnityEngine.UI.Button BtnSellFruit;
+		
+		public UnityEngine.UI.Button BtnSellRadish;
+		
+		public UnityEngine.UI.Button BtnSellChineseCabbage;
 		
 	}
 }

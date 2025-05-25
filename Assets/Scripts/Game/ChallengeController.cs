@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace projectlndieFem
 {
-    public partial class ChallengeComtroller : ViewController
+    public partial class ChallengeController : ViewController
     {
 
         //당일 열매수량
@@ -20,6 +20,9 @@ namespace projectlndieFem
         //당일 수확한 무 수량
         public static BindableProperty<int> RadishHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
+        //당일 수확한 배추 수량
+        public static BindableProperty<int> ChineseCabbageHarvestCountInCurrentDay = new BindableProperty<int>(0);
+
         //수확한 열매의 수량
         public static int HarvestedFruitCount = 0;
         //수확한 무의 수량
@@ -27,15 +30,16 @@ namespace projectlndieFem
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
-            new ChallengeHarvestAFruit(),
-            new ChallengeRipeAndHarvestTwoFruitslnADay(),
-            new ChallengeRipeAndHarvestFiveFruitslnADay(),
-            new ChallengeHarvestARadish(),
-            new ChallengeRipeAndHarvestFruitAndRadishInADay(),
-            new ChallengeHarvest10thFruit(),
-            new ChallengeHarvest10thRadish(),
-            new ChallengeFruitCountGreaterOrEqual10(),
-            new ChallengeRadishCountGreaterOrEqual10(),
+            //new ChallengeHarvestAFruit(),
+            //new ChallengeRipeAndHarvestTwoFruitslnADay(),
+            //new ChallengeRipeAndHarvestFiveFruitslnADay(),
+            //new ChallengeHarvestARadish(),
+            //new ChallengeRipeAndHarvestFruitAndRadishInADay(),
+            //new ChallengeHarvest10thFruit(),
+            //new ChallengeHarvest10thRadish(),
+            //new ChallengeFruitCountGreaterOrEqual10(),
+            //new ChallengeRadishCountGreaterOrEqual10(),
+            new ChallengeHarvestAChineseCabbage(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()
@@ -57,34 +61,38 @@ namespace projectlndieFem
             };
 
 
-            var randomItem = ChallengeComtroller.Challenges.GetRandomItem();
-            ChallengeComtroller.ActiveChallenges.Add(randomItem);
+            var randomItem = ChallengeController.Challenges.GetRandomItem();
+            ChallengeController.ActiveChallenges.Add(randomItem);
 
 
             Global.OnPlantHarvest.Register(plant =>
             {
                 if (plant is Plant)
                 {
-                    ChallengeComtroller.HarvestCountInCurrentDay.Value++;
+                    ChallengeController.HarvestCountInCurrentDay.Value++;
 
                     HarvestedFruitCount++;
 
                     if (plant.RipeDay == Global.Days.Value)
                     {
-                        ChallengeComtroller.RipeAndHarvestCountInCurrentDay.Value++;
+                        ChallengeController.RipeAndHarvestCountInCurrentDay.Value++;
                     }
                 }
                 else if (plant is PlantRadish)
                 {
-                    ChallengeComtroller.RadishHarvestCountInCurrentDay.Value++;
+                    ChallengeController.RadishHarvestCountInCurrentDay.Value++;
 
                     HarvestedRadishCount++;
 
                     if (plant.RipeDay == Global.Days.Value)
                     {
-                        ChallengeComtroller.RipeAndHarvestRadishCountInCurrentDay.Value++;
+                        ChallengeController.RipeAndHarvestRadishCountInCurrentDay.Value++;
                     }
 
+                }
+                else if(plant is PlantChineseCabbage)
+                {
+                    ChineseCabbageHarvestCountInCurrentDay.Value++;
                 }
             }).UnRegisterWhenGameObjectDestroyed(this);
         }
@@ -95,7 +103,7 @@ namespace projectlndieFem
         private void Update()
         {
             var hasFinishChallenge = false;
-            foreach (var challenge in ChallengeComtroller.ActiveChallenges)
+            foreach (var challenge in ChallengeController.ActiveChallenges)
             {
                 if (challenge.State == Challenge.States.NotStart)
                 {
@@ -110,23 +118,23 @@ namespace projectlndieFem
                         challenge.OnFinish();
                         challenge.State = Challenge.States.Finished;
 
-                        ChallengeComtroller.OnChallengeFinish.Trigger(challenge);
-                        ChallengeComtroller.FinishedChallenges.Add(challenge);
+                        ChallengeController.OnChallengeFinish.Trigger(challenge);
+                        ChallengeController.FinishedChallenges.Add(challenge);
                         hasFinishChallenge = true;
                     }
                 }
             }
             if (hasFinishChallenge)
             {
-                ChallengeComtroller.ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
+                ChallengeController.ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
 
             }
 
 
-            if (ChallengeComtroller.ActiveChallenges.Count == 0 && ChallengeComtroller.FinishedChallenges.Count != ChallengeComtroller.Challenges.Count)
+            if (ChallengeController.ActiveChallenges.Count == 0 && ChallengeController.FinishedChallenges.Count != ChallengeController.Challenges.Count)
             {
-                var randomItem = ChallengeComtroller.Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
-                ChallengeComtroller.ActiveChallenges.Add(randomItem);
+                var randomItem = ChallengeController.Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
+                ChallengeController.ActiveChallenges.Add(randomItem);
             }
         }
 
@@ -138,9 +146,9 @@ namespace projectlndieFem
 
             GUI.Label(new Rect(960 - 300, 24 + -24, 300, 24), "@@ 도전 @@", mLabelsyle);
 
-            for (var i = 0; i < ChallengeComtroller.ActiveChallenges.Count; i++)
+            for (var i = 0; i < ChallengeController.ActiveChallenges.Count; i++)
             {
-                var challenge = ChallengeComtroller.ActiveChallenges[i];
+                var challenge = ChallengeController.ActiveChallenges[i];
 
                 GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), challenge.Name, mLabelsyle);
 
@@ -149,11 +157,11 @@ namespace projectlndieFem
                     GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), "<color=green>" + challenge.Name + "</color>", mLabelsyle);
                 }
             }
-            for (var i = 0; i < ChallengeComtroller.FinishedChallenges.Count; i++)
+            for (var i = 0; i < ChallengeController.FinishedChallenges.Count; i++)
             {
-                var challenge = ChallengeComtroller.FinishedChallenges[i];
+                var challenge = ChallengeController.FinishedChallenges[i];
 
-                GUI.Label(new Rect(960 - 300, 24 + (i + ChallengeComtroller.ActiveChallenges.Count) * 24, 300, 24),
+                GUI.Label(new Rect(960 - 300, 24 + (i + ChallengeController.ActiveChallenges.Count) * 24, 300, 24),
                 "<color=green>" + challenge.Name + "</color>", mLabelsyle);
 
             }

@@ -9,7 +9,7 @@
         }
         public override bool CheckFinish()
         {
-            return ChallengeComtroller.HarvestedFruitCount >= 10;
+            return ChallengeController.HarvestedFruitCount >= 10;
         }
 
         public override void OnFinish()

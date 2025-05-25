@@ -12,7 +12,7 @@ namespace projectlndieFem
         }
         public override bool CheckFinish()
         {
-            return Global.Days.Value != StartDate && ChallengeComtroller.HarvestCountInCurrentDay.Value > 0;
+            return Global.Days.Value != StartDate && ChallengeController.HarvestCountInCurrentDay.Value > 0;
         }
 
         public override void OnFinish()

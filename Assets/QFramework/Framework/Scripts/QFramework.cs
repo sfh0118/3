@@ -746,6 +746,8 @@ namespace QFramework
         }
 
         public override string ToString() => Value.ToString();
+
+       
     }
 
     internal class ComparerAutoRegister
