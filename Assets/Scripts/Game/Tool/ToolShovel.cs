@@ -7,7 +7,9 @@ namespace projectlndieFem
     public class ToolShovel : ITool
     {
         public string Name { get; set; } = "shovel";
-        public Item Item { get; set; }
+
+
+        public int Range => Global.ShovelRangelUnlock ? 2 : 1;
 
         public bool Selectable(ToolData toolData)
         {

@@ -11,8 +11,6 @@ namespace projectlndieFem
 
         public EasyGrid<SoilData> ShowGrid => mShowGrid;
 
-      
-
         public TileBase Pen;
 
         public TileBase PlantablePen;

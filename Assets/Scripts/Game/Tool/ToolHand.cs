@@ -8,7 +8,8 @@ namespace projectlndieFem
     public class ToolHand  : ITool
     {
         public string Name { get; set; } = "hand";
-        public Item Item { get; set; }
+      
+        public int Range => Global.HandRangelUnlock ? 2 : 1;
 
         public bool Selectable(ToolData toolData)
         {

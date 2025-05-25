@@ -7,7 +7,8 @@ namespace projectlndieFem
     public class ToolWateringCan : ITool
     {
         public string Name { get; set; } = "watering_can";
-        public Item Item { get; set; }
+
+        public int Range => Global.WateringCanRangelUnlock ? 2 : 1;
 
 
         public bool Selectable(ToolData toolData)

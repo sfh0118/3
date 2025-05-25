@@ -37,7 +37,31 @@ namespace projectlndieFem
 
         private ToolData mToolData = new ToolData();
 
+        bool ToolInRange(Vector3Int mouseCellPos,Vector3Int playerCellPos,int range =1)
+        {
+            //range 1 3x3
+            //range 2 5x5
+            //range 3 7x7
+            //1 + 2 * range
+            var offsetCellx = -range;
+            var offsetCelly = -range;
+            var borderwidth = 1 + 2 * range;
 
+            for (var i = 0; i < 1 + 2 * range; i++)
+            {
+                for (var j = 0; j < 1 + 2 * range; j++)
+                {
+                    var cellx = offsetCellx + i;
+                    var celly = offsetCelly + j;
+
+                    if (mouseCellPos.x - playerCellPos.x == cellx && mouseCellPos.y - playerCellPos.y == celly)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         private void Update()
 		{
             var playerCellPos = mGrid.WorldToCell(Global.Player.Position());
@@ -46,32 +70,25 @@ namespace projectlndieFem
 
             Icon.Position(worldMousePos.x + 0.5f, worldMousePos.y - 0.5f);
 
-            var cellPos = mGrid.WorldToCell(worldMousePos);
+            var mouseCellPos = mGrid.WorldToCell(worldMousePos);
 
             mSprite.enabled = false;
 
-            if (
-                cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == 1 ||
-                cellPos.x - playerCellPos.x == 0 && cellPos.y - playerCellPos.y == 1 ||
-                cellPos.x - playerCellPos.x == 1 && cellPos.y - playerCellPos.y == 1 ||
-                cellPos.x - playerCellPos.x == 1 && cellPos.y - playerCellPos.y == 0 ||
-                cellPos.x - playerCellPos.x == 1 && cellPos.y - playerCellPos.y == -1 ||
-                cellPos.x - playerCellPos.x == 0 && cellPos.y - playerCellPos.y == -1 ||
-                cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == -1 ||
-                cellPos.x - playerCellPos.x == -1 && cellPos.y - playerCellPos.y == 0 ||
-                cellPos.x - playerCellPos.x == 0 && cellPos.y - playerCellPos.y == 0
-                )
+
+            
+
+            if (ToolInRange(mouseCellPos, playerCellPos,Global.CurrentTool.Value.Range))
             {
-                if (cellPos.x < 10 && cellPos.x >= 0 && cellPos.y < 10 && cellPos.y >= 0)
+                if (mouseCellPos.x < 10 && mouseCellPos.x >= 0 && mouseCellPos.y < 10 && mouseCellPos.y >= 0)
                 {
                     mToolData.ShowGrid = mShowGrid;
-                    mToolData.CellPos = cellPos;
+                    mToolData.CellPos = mouseCellPos;
                     mToolData.Pen = mGridController.Pen;
                     mToolData.SoilTilemap = mTilemap;
                     //깽이 땅깨기
                     if (Global.CurrentTool.Value.Selectable(mToolData))
                     {
-                        mToolData.GridCenterPos = ShowSelect(cellPos);
+                        mToolData.GridCenterPos = ShowSelect(mouseCellPos);
 
                         if (Input.GetMouseButton(0))
                         {
