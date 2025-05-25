@@ -2432,7 +2432,7 @@ MonoBehaviour:
   BtnHandRange1: {fileID: 64291515}
   BtnShoveRange1: {fileID: 41032636}
   BtnWateringCan1: {fileID: 2092565315}
-  BtnSellFruit: {fileID: 2076975235}
+  BtnSeedRange1: {fileID: 2076975235}
   BtnSellRadish: {fileID: 781692612}
 --- !u!1 &485049824
 GameObject:
@@ -4132,7 +4132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9E4\uCD9C:\uC5F4\uB9E4 $3"
+  m_Text: "\uC528\uC557 \uBC94\uC704+1 $25"
 --- !u!222 &652755659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10496,12 +10496,12 @@ GameObject:
   - component: {fileID: 2076975235}
   - component: {fileID: 2076975234}
   m_Layer: 5
-  m_Name: BtnSellFruit
+  m_Name: BtnSeedRange1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2076975233
 RectTransform:
   m_ObjectHideFlags: 0

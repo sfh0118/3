@@ -29,8 +29,8 @@ MonoBehaviour:
       PathToRoot: BtnWateringCan1
       MemberName: BtnWateringCan1
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnSellFruit
-      MemberName: BtnSellFruit
+      PathToRoot: BtnSeedRange1
+      MemberName: BtnSeedRange1
     - TypeName: UnityEngine.UI.Button
       PathToRoot: BtnSellRadish
       MemberName: BtnSellRadish

@@ -9,7 +9,7 @@ namespace projectlndieFem
         public string Name { get; set; } = "shovel";
 
 
-        public int Range => Global.ShovelRangelUnlock ? 2 : 1;
+        public int Range => Global.ShovelRange1Unlock ? 2 : 1;
 
         public bool Selectable(ToolData toolData)
         {

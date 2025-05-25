@@ -9,7 +9,7 @@ namespace projectlndieFem
     {
         public string Name { get; set; } = "hand";
       
-        public int Range => Global.HandRangelUnlock ? 2 : 1;
+        public int Range => Global.HandRange1Unlock ? 2 : 1;
 
         public bool Selectable(ToolData toolData)
         {

@@ -39,9 +39,10 @@ namespace projectlndieFem
         public static ToolController Mouse = null;
 
 
-        public static bool HandRangelUnlock = false;
-        public static bool ShovelRangelUnlock = false;
-        public static bool WateringCanRangelUnlock = false;
+        public static bool HandRange1Unlock = false;
+        public static bool ShovelRange1Unlock = false;
+        public static bool WateringCanRange1Unlock = false;
+        public static bool SeedRange1Unlock = false;
     }
 
     

@@ -8,7 +8,7 @@ namespace projectlndieFem
     {
         public string Name { get; set; } = "watering_can";
 
-        public int Range => Global.WateringCanRangelUnlock ? 2 : 1;
+        public int Range => Global.WateringCanRange1Unlock ? 2 : 1;
 
 
         public bool Selectable(ToolData toolData)
