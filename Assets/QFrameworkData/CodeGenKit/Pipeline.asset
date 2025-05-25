@@ -15,12 +15,27 @@ MonoBehaviour:
   CurrentTask:
     ShowLog: 0
     Status: 1
-    GameObject: {fileID: 7562126971696108414, guid: 0bc85da0f269d4043bb198bb2e8e02c9, type: 3}
+    GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game/Plant
-    ClassName: PlantChineseCabbage
+    BindInfos:
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnHandRange1
+      MemberName: BtnHandRange1
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnShoveRange1
+      MemberName: BtnShoveRange1
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnWateringCan1
+      MemberName: BtnWateringCan1
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnSellFruit
+      MemberName: BtnSellFruit
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnSellRadish
+      MemberName: BtnSellRadish
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: UIPowerUp
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

@@ -13,7 +13,7 @@ namespace projectlndieFem
         //첫날
         public static BindableProperty<int> Days = new BindableProperty<int>(1);
 
-        //금화(돈)
+        //금화(돈)코인
         public static BindableProperty<int> Coin = new BindableProperty<int>();
 
         //열매 수량
@@ -37,6 +37,11 @@ namespace projectlndieFem
 
         public static Player Player =null;
         public static ToolController Mouse = null;
+
+
+        public static bool HandRangelUnlock = false;
+        public static bool ShovelRangelUnlock = false;
+        public static bool WateringCanRangelUnlock = false;
     }
 
     
