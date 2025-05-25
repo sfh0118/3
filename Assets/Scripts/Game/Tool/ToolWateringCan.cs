@@ -1,4 +1,4 @@
-using QFramework;
+﻿using QFramework;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -18,13 +18,22 @@ namespace projectlndieFem
         }
         public void Use(ToolData toolData)
         {
-            //???
-            ResController.Instance.WaterPrefab
+
+            var water = ResController.Instance.WaterPrefab
                 .Instantiate()
                 .Position(toolData.GridCenterPos);
 
-            toolData.ShowGrid[toolData.CellPos.x,toolData.CellPos.y].Watered = true;
+            water.name = "water"; 
+
+            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].Watered = true;
             AudioController.Get.SfxWater.Play();
+            //???
+            //ResController.Instance.WaterPrefab
+            //    .Instantiate()
+            //    .Position(toolData.GridCenterPos);
+
+            //toolData.ShowGrid[toolData.CellPos.x,toolData.CellPos.y].Watered = true;
+            //AudioController.Get.SfxWater.Play();
         }
     }
 

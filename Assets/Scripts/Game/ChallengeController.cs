@@ -45,6 +45,7 @@ namespace projectlndieFem
             new ChallengeHarvestAChineseCabbage(),
             new ChallengeCoin100(),
             new ChallengeHarvest10thChineseCabbage(),
+            new ChallengeChineseCabbageCountGreaterOrEqual10()
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()

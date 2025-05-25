@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4761676623421609691}
   - component: {fileID: 7118703067016022717}
+  - component: {fileID: 3124829624599469619}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: PlantRadish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
+  m_Sprite: {fileID: -6257656149191112168, guid: 46d0cddf23a48144490bd5023eeb7081, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,3 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3124829624599469619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562126971696108414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2476b26de0c1a49bab362a51ac2fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: projectlndieFem
+  ScriptName: PlantRadish
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 

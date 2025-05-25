@@ -36,7 +36,7 @@ namespace projectlndieFem
                     Count = new BindableProperty<int>(5),
                     Countable = true,
                     IsPlant = true,
-                    Name = "Seed",
+                    Name = "seed",
                     PlantPrefabName = "Plant",
 
                 }
@@ -74,7 +74,7 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(5),
                 Countable = true,
                 IsPlant = true,
-                Name = "",
+                Name = "seed_chinese_cabbage",
                 PlantPrefabName = "PlantChineseCabbage",
 
             }

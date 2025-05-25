@@ -62,7 +62,9 @@ namespace projectlndieFem
                 {
                     if (soilData != null)
                     {
-                        soilData.Watered= false;
+                        Debug.Log($"[물 제거] 이전 상태: {soilData.Watered}");
+                        soilData.Watered = false;
+                        Debug.Log($"[물 제거] 이후 상태: {soilData.Watered}");
                     }
                 });
                 foreach (var water in SceneManager.GetActiveScene().GetRootGameObjects()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4761676623421609691}
   - component: {fileID: 7118703067016022717}
+  - component: {fileID: -3877469006538970501}
   m_Layer: 0
   m_Name: PlantChineseCabbage
   m_TagString: Untagged
@@ -84,3 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3877469006538970501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562126971696108414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb4f9ae32b74634f8af91fc72c21ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: projectlndieFem
+  ScriptName: PlantChineseCabbage
+  ScriptsFolder: Assets/Scripts/Game/Plant
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 

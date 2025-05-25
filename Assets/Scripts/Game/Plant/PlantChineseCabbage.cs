@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using QFramework;
 
 
 namespace projectlndieFem
 {
-    public partial class PlantChineseCabbage : ViewController, IPlant
+    public partial class PlantChineseCabbage : ViewController, IPlant        
     {
 
         public int XCell { get; set; }
@@ -60,7 +60,7 @@ namespace projectlndieFem
                     mSeedStateDay++;
                     if (mSeedStateDay == 2)
                     {
-                        //plant에서 SmallPlant변환
+                        //plant?? SmallPlant??
                         SetState(PlantStates.Small);
                     }
                 }
@@ -73,7 +73,7 @@ namespace projectlndieFem
 
                     if (mSmallStateDay == 2)
                     {
-                        //plant에서 Ripe변환
+                        //plant?? Ripe??
                         SetState(PlantStates.Ripe);
                     }
 

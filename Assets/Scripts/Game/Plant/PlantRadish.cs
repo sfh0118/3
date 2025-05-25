@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+using UnityEngine;
 using QFramework;
 
 
 namespace projectlndieFem
 {
-	public partial class PlantRadish : ViewController,IPlant
-	{
+    public partial class PlantRadish : ViewController, IPlant
+    {
 
-        public int XCell { get;  set; }
-        public int YCell { get;  set; }
+        public int XCell { get; set; }
+        public int YCell { get; set; }
 
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
 
         public int RipeDay { get; private set; }
         public void SetState(PlantStates newState)
-		{
-			if (newState != mState)
+        {
+            if (newState != mState)
             {
-                if(mState == PlantStates.Small && newState == PlantStates.Ripe)
+                if (mState == PlantStates.Small && newState == PlantStates.Ripe)
                 {
                     RipeDay = Global.Days.Value;
                 }
@@ -28,7 +28,8 @@ namespace projectlndieFem
                 {
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantRadishSprite;
 
-                } else if (newState == PlantStates.Ripe)
+                }
+                else if (newState == PlantStates.Ripe)
                 {
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeRadishSprite;
                 }
@@ -54,7 +55,7 @@ namespace projectlndieFem
             {
                 if (soilData.Watered)
                 {
-                    //plant에서 SmallPlant변환
+                    //plant?? SmallPlant??
                     SetState(PlantStates.Small);
                 }
             }
@@ -66,16 +67,16 @@ namespace projectlndieFem
 
                     if (mSmallStateDay == 2)
                     {
-                        //plant에서 Ripe변환
+                        //plant?? Ripe??
                         SetState(PlantStates.Ripe);
                     }
-                    
+
                 }
             }
-        
+
         }
 
-        
+
         public GameObject GameObject => gameObject;
     }
 }
