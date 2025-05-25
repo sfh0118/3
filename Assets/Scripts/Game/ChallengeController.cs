@@ -27,6 +27,9 @@ namespace projectlndieFem
         public static int HarvestedFruitCount = 0;
         //수확한 무의 수량
         public static int HarvestedRadishCount = 0;
+        //수확한 배추의 수량
+
+        public static int HarvestChineseCabbageCount = 0;
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
@@ -40,6 +43,8 @@ namespace projectlndieFem
             //new ChallengeFruitCountGreaterOrEqual10(),
             //new ChallengeRadishCountGreaterOrEqual10(),
             new ChallengeHarvestAChineseCabbage(),
+            new ChallengeCoin100(),
+            new ChallengeHarvest10thChineseCabbage(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()
@@ -93,6 +98,7 @@ namespace projectlndieFem
                 else if(plant is PlantChineseCabbage)
                 {
                     ChineseCabbageHarvestCountInCurrentDay.Value++;
+                    HarvestChineseCabbageCount++;
                 }
             }).UnRegisterWhenGameObjectDestroyed(this);
         }
