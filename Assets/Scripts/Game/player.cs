@@ -93,6 +93,11 @@ namespace projectlndieFem
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
+            GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
             GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
