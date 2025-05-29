@@ -140,7 +140,7 @@ namespace projectlndieFem
             {
 
 
-                if (cellPosition.x < 10 && cellPosition.x >= 0 && cellPosition.y < 10 && cellPosition.y >= 0)
+                if (cellPosition.x < grid.Width && cellPosition.x >= 0 && cellPosition.y < grid.Height && cellPosition.y >= 0)
                 {
                     if (grid[cellPosition.x, cellPosition.y] != null)
                     {

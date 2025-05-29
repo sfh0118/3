@@ -19,6 +19,15 @@ namespace projectlndieFem
         public int YCell { get; set; }
 
     }
+
+    public static class PlantExtensions
+    {
+        public static void ClearSoilDigState(this IPlant self)
+        {
+            Object.FindObjectOfType<GridController>().Soil.SetTile(new Vector3Int(self.XCell, self.YCell), null);
+        }
+        
+    }
     public partial class Plant : ViewController, IPlant
     {
 
@@ -27,7 +36,7 @@ namespace projectlndieFem
 
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
-
+        
         public void SetState(PlantStates newState)
         {
             if (newState != mState)
@@ -38,8 +47,10 @@ namespace projectlndieFem
                 }
                 mState = newState;
 
+                //
                 if (newState == PlantStates.Small)
                 {
+                    this.ClearSoilDigState();
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantSprite;
 
                 }

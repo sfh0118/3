@@ -7,7 +7,7 @@ namespace projectlndieFem
 {
     public partial class GridController : ViewController
     {
-        private EasyGrid<SoilData> mShowGrid = new EasyGrid<SoilData>(10, 10);
+        private EasyGrid<SoilData> mShowGrid = new EasyGrid<SoilData>(5, 4);
 
         public EasyGrid<SoilData> ShowGrid => mShowGrid;
 
@@ -24,9 +24,9 @@ namespace projectlndieFem
             mShowGrid[2, 2] = new SoilData();
 
 
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < ShowGrid.Width; i++)
             {
-                for (var j = 0; j < 10; j++)
+                for (var j = 0; j < ShowGrid.Height; j++)
                 {
                     Ground.SetTile(new Vector3Int(i, j), PlantablePen);
                 }

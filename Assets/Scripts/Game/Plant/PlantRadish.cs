@@ -26,6 +26,7 @@ namespace projectlndieFem
 
                 if (newState == PlantStates.Small)
                 {
+                    this.ClearSoilDigState();
                     GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantRadishSprite;
 
                 }
