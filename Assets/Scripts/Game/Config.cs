@@ -82,6 +82,20 @@ namespace projectlndieFem
             {
                    Item = item
             }),
+            new Item()
+            {
+                IconName = "CarrotSeedIcon",
+                Count = new BindableProperty<int>(5),
+                Countable = true,
+                IsPlant = true,
+                Name = "seed_carrot",
+                PlantPrefabName = "PlantCarrot",
+
+            }
+            .Self(item =>item.Tool = new ToolSeed()
+            {
+                   Item = item
+            }),
         };
         
     }

@@ -27,7 +27,7 @@ namespace projectlndieFem
 
         public Sprite LoadSprite(string spriteName)
         {
-            return Sprites.Single(spr => spr.name == spriteName);
+            return Sprites.FirstOrDefault(spr => spr.name == spriteName);
         }
 
         public List<GameObject> Prefabs = new List<GameObject>();

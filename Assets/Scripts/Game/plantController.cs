@@ -7,6 +7,8 @@ namespace projectlndieFem
     {
         Seed,
         Small,
+        Middle,
+        Big,
         Ripe,
         Old,
     }

@@ -106,12 +106,16 @@ namespace projectlndieFem
             GUILayout.Label("배추 :" + Global.ChineseCabbageCount.Value, mLabelsyle);
             GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(10);
+            GUILayout.Label("당근 :" + Global.CarrotCount.Value, mLabelsyle);
+            GUILayout.EndHorizontal();
 
             //GUILayout.BeginHorizontal();
             //GUILayout.Space(10);
             //GUILayout.Label("다음날:F ", mLabelsyle);
             //GUILayout.EndHorizontal();
-            
+
 
 
 
