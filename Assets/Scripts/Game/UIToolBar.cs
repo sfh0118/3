@@ -3,6 +3,7 @@ using QFramework;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace projectlndieFem
 {
@@ -10,7 +11,15 @@ namespace projectlndieFem
     {
         public List<UISlot> ToolbarSlots = new List<UISlot>();
 
-       
+        public void AddItem(Item item)
+        {
+            var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == null);
+            if (slot != null)
+            {
+                slot.SetData(item, string.Empty);
+            }
+        }
+
         void Start()
         {
             UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);

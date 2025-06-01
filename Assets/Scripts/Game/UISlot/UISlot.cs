@@ -56,9 +56,7 @@ namespace projectlndieFem
                     Count.text = count.ToString();
 
                 } ).UnRegisterWhenGameObjectDestroyed(gameObject);
-
             }
-           
         }
         // Start is called before the first frame update
        

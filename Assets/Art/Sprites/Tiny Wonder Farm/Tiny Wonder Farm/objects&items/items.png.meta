@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_2
+      name: CarrotIcon
       rect:
         serializedVersion: 2
         x: 32
@@ -1172,6 +1172,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      CarrotIcon: 367596268
       CarrotSeedIcon: 525519537
       items_0: 963513473
       items_1: -2115969071
@@ -1184,7 +1185,6 @@ TextureImporter:
       items_17: -1723461982
       items_18: 138818680
       items_19: 82038380
-      items_2: 367596268
       items_20: -228390391
       items_21: 1779568606
       items_22: -1146890811

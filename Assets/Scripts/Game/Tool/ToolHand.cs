@@ -1,4 +1,5 @@
 using QFramework;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -37,7 +38,20 @@ namespace projectlndieFem
             }
             else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantCarrot)
             {
+                var carrotItem = Config.Items.FirstOrDefault(item => item.Name == "Carrot");
+                if (carrotItem != null)
+                {
+                    carrotItem = Config.CreateCarrot(1);
+                    Config.Items.Add(carrotItem);
+                    Object.FindObjectOfType<UIToolBar>().AddItem(carrotItem);
+                }
+                else
+                {
+
+                    carrotItem.Count.Value++;
+                }
                 Global.CarrotCount.Value++;
+
             }
 
             Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);
