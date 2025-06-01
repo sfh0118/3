@@ -6,6 +6,45 @@ namespace projectlndieFem
 {
     public class Config
     {
+        public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
+
+        public static Item CreateItem(string itemName, int count = 1)
+        {
+            if(itemName == "hand")
+            {
+                return CreateHand();
+            }
+            else if(itemName == "shovel")
+            {
+                return CreateShovel();
+            }
+            else if (itemName == "seed")
+            {
+                return CreateSeed(count);
+            }
+            else if (itemName == "watering_can")
+            {
+                return CreateWateringCan();
+            }
+            else if (itemName == "seed_radish")
+            {
+                return CreateSeedRadish(count);
+            }
+            else if (itemName == "seed_chinese_cabbage")
+            {
+                return CreateSeedChineseCabbage(count);
+            }
+            else if (itemName == "seed_carrot")
+            {
+                return CreateSeedCarrot(count);
+            }
+            else if (itemName == "carrot")
+            {
+                return CreateCarrot(count);
+            }
+            return null;
+
+        }
         public static Item CreateHand()
         {
             return new Item()
@@ -14,7 +53,7 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
-                Name = "Hand",
+                Name = "hand",
                 PlantPrefabName = string.Empty,
                 Tool = new ToolHand()
             };
@@ -27,7 +66,7 @@ namespace projectlndieFem
                 Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
-                Name = "Shovel",
+                Name = "shovel",
                 PlantPrefabName = string.Empty,
                 Tool = new ToolShovel()
             };
@@ -42,8 +81,7 @@ namespace projectlndieFem
                 Countable = true,
                 IsPlant = true,
                 Name = "seed",
-                PlantPrefabName = "Plant",
-                Tool = new ToolSeed()
+                PlantPrefabName = "Plant"
 
             }
             .Self(item => item.Tool = new ToolSeed()
@@ -75,8 +113,7 @@ namespace projectlndieFem
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_radish",
-                PlantPrefabName = "PlantRadish",
-                Tool = new ToolSeed()   
+                PlantPrefabName = "PlantRadish"
 
             }
             .Self(item => item.Tool = new ToolSeed()
@@ -133,20 +170,5 @@ namespace projectlndieFem
 
 
         }
-
-
-        // 게임 설정 및 아이템 목록을 정의하는 클래스
-        public static List<Item> Items = new List<Item>()
-        {
-            CreateHand(),
-            CreateShovel(),
-            CreateSeed(),
-            CreateWateringCan(),
-            CreateSeedRadish(),
-            CreateSeedChineseCabbage(),
-            CreateSeedCarrot(),
-
-        };
-        
     }
 }

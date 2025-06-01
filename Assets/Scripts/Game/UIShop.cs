@@ -6,7 +6,7 @@ using System;
 
 namespace projectlndieFem
 {
-	public partial class UIShop : ViewController
+	public partial class UIShop : ViewController,IController
 	{
         public static void SetupBtnShowCheck(BindableProperty<int> itemCount,Button btn,Func<int,bool> showCondition,GameObject gameObject)
         {
@@ -38,10 +38,7 @@ namespace projectlndieFem
 
             BtnBuyFruitSeed.onClick.AddListener( () =>
 			{
-
-                var seedItem = Config.Items.Single(i => i.Name == "seed");
-                seedItem.Count.Value += 1;
-
+                this.SendCommand(new AddItemCountCommand("Seed",1));
                 //수확한 열매씨앗 Item를 ++ 동작
                 Global.Coin.Value -= 1;
                 AudioController.Get.SfxBuy.Play();
@@ -49,16 +46,14 @@ namespace projectlndieFem
 
 			BtnBuyRadishSeed.onClick.AddListener( () =>
 			{
-                var seedItem = Config.Items.Single(i => i.Name == "seed_radish");
-                seedItem.Count.Value += 1;
+                this.SendCommand(new AddItemCountCommand("seed_radish", 1));
                 Global.Coin.Value -= 2;
                 AudioController.Get.SfxBuy.Play();
             });
 
             BtnBuyChineseCabbageSeed.onClick.AddListener(() =>
             {
-                var seedItem = Config.Items.Single(i => i.Name == "seed_chinese_cabbage");
-                seedItem.Count.Value += 1;
+                this.SendCommand(new AddItemCountCommand("eed_chinese_cabbage", 1));
                 Global.Coin.Value -= 3;
                 AudioController.Get.SfxBuy.Play();
             });
@@ -82,6 +77,10 @@ namespace projectlndieFem
                 AudioController.Get.SfxBuy.Play();
             });
 
+        }
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
         }
 	}
 }

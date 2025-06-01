@@ -7,14 +7,15 @@ using System.Linq;
 
 namespace projectlndieFem
 {
-    public partial class UIToolBar : ViewController
+    
+    public partial class UIToolBar : ViewController, IController
     {
         public List<UISlot> ToolbarSlots = new List<UISlot>();
 
         public void AddItem(Item item)
         {
             var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == null);
-            if (!slot)
+            if (slot)
             {
                 slot.SetData(item);
             }
@@ -34,6 +35,7 @@ namespace projectlndieFem
 
         void Start()
         {
+
             UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);
             UISlot.OnItemSelect = slot =>
             {
@@ -57,23 +59,25 @@ namespace projectlndieFem
             ToolbarSlots.Add(ToolbarSlot9);
             ToolbarSlots.Add(ToolbarSlot10);
 
+            var toolBarConfig = this.GetSystem<IToolBarSystem>();
+
             for (var i = 0; i < ToolbarSlots.Count; i++)
             {
                 var slot = ToolbarSlots[i];
 
                 slot.ShortCut.text = (i + 1).ToString();
 
-                if (i < Config.Items.Count)
+                if (i < toolBarConfig.Items.Count)
                 {
-                    slot.SetData(Config.Items[i]);
+                    slot.SetData(toolBarConfig.Items[i]);
                 }
 
 
             }
 
             HideAllSelect();
-            ToolbarSlots[0].Select.Hide();
-            Global.Mouse.Icon.sprite = ToolbarSlots[0].Icon.sprite;
+
+            SelectDefault();
 
 
 
@@ -115,5 +119,12 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[9]);
 
         }
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
+        }
+
     }
 }
+
+

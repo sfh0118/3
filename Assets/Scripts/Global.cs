@@ -8,7 +8,8 @@ using UnityEngine;
 namespace projectlndieFem
 
 {
-    public class Global
+    public class Global : Architecture<Global>
+   
     {
         //첫날
         public static BindableProperty<int> Days = new BindableProperty<int>(1);
@@ -27,11 +28,10 @@ namespace projectlndieFem
         //무 씨앗 수량
         public static BindableProperty<int> ChineseCabbageCount = new BindableProperty<int>(0);
         //당근 수량
-        public static BindableProperty<int> CarrotCount = new BindableProperty<int>(0);
 
 
         //지금 도구
-        public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(Config.Items[0].Tool);
+        public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(null);
 
 
         //식물 수확 
@@ -47,6 +47,11 @@ namespace projectlndieFem
         public static bool ShovelRange1Unlock = false;
         public static bool WateringCanRange1Unlock = false;
         public static bool SeedRange1Unlock = false;
+
+        protected override void Init()
+        {
+            this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
+        }
     }
 
     
