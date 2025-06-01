@@ -13,14 +13,19 @@ namespace projectlndieFem
         public Tilemap Tilemap;
 
         public Font Font;
+
+        public Rigidbody2D mRigidbody2D;
+        public Animator Animator;
         private void Awake()
         {
             Global.Player = this;
-
+            mRigidbody2D = GetComponent<Rigidbody2D>();
+            Animator = GetComponent<Animator>();
         }
 
         private GUIStyle mLabelsyle;
         private GUIStyle mCoinStyle;
+
 
         void Start()
         {
@@ -39,6 +44,7 @@ namespace projectlndieFem
 
             Global.Days.Register(day =>
             {
+
                 //다음날
                 ChallengeController.RipeAndHarvestCountInCurrentDay.Value = 0;
                 ChallengeController.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
@@ -79,32 +85,25 @@ namespace projectlndieFem
         private void OnGUI()
         {
             IMGUIHelper.SetDesignResolution(640, 360);
-            GUILayout.Space(10);
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("날수 :" + Global.Days.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
+           
 
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("$"+ Global.Coin.Value, mCoinStyle);
-            GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
+            //GUILayout.BeginHorizontal();
+            //GUILayout.Space(10);
+            //GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
+            //GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("배추 :" + Global.ChineseCabbageCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
+            //GUILayout.BeginHorizontal();
+            //GUILayout.Space(10);
+            //GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
+            //GUILayout.EndHorizontal();
+
+            //GUILayout.BeginHorizontal();
+            //GUILayout.Space(10);
+            //GUILayout.Label("배추 :" + Global.ChineseCabbageCount.Value, mLabelsyle);
+            //GUILayout.EndHorizontal();
 
            
 
@@ -157,7 +156,37 @@ namespace projectlndieFem
                 SceneManager.LoadScene("GamePass");
             }
 
-            
+            var horizontalInput = Input.GetAxisRaw("Horizontal");
+            var verticalInput = Input.GetAxisRaw("Vertical");
+
+            var direction = new Vector2(horizontalInput, verticalInput).normalized;
+
+            var targetVelocity = direction * 5; // Adjust speed as needed
+            mRigidbody2D.velocity = Vector2.Lerp(mRigidbody2D.velocity, targetVelocity, 1 - Mathf.Exp(-Time.deltaTime * 10));
+
+            if (horizontalInput == 0  && verticalInput == 0)
+            {
+                if(Animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerRightWalk"))
+                {
+                    Animator.Play("PlayerRightIdle");
+                }
+                else if (Animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLeftWalk"))
+                {
+                    Animator.Play("PlayerLeftIdle");
+
+                }
+            }
+            else 
+            {
+                if (horizontalInput > 0)
+                {
+                    Animator.Play("PlayerRightWalk");
+                }
+                else
+                {
+                    Animator.Play("PlayerLeftWalk");
+                }
+            }
         }
         private void OnDestroy()
         {

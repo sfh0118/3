@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk and idle_0
+      name: Leftldle1
       rect:
         serializedVersion: 2
         x: 0
@@ -183,7 +183,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_1
+      name: Leftldle2
       rect:
         serializedVersion: 2
         x: 24
@@ -204,7 +204,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_2
+      name: Rightldle1
       rect:
         serializedVersion: 2
         x: 48
@@ -225,7 +225,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_3
+      name: Rightldle2
       rect:
         serializedVersion: 2
         x: 72
@@ -246,7 +246,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_4
+      name: Leftwalk1
       rect:
         serializedVersion: 2
         x: 0
@@ -267,7 +267,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_5
+      name: Leftwalk2
       rect:
         serializedVersion: 2
         x: 24
@@ -288,7 +288,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_6
+      name: Leftwalk3
       rect:
         serializedVersion: 2
         x: 48
@@ -309,7 +309,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,7 +322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_7
+      name: Leftwalk4
       rect:
         serializedVersion: 2
         x: 72
@@ -330,7 +330,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,7 +343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_8
+      name: Leftwalk5
       rect:
         serializedVersion: 2
         x: 96
@@ -351,7 +351,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,7 +364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_9
+      name: Leftwalk6
       rect:
         serializedVersion: 2
         x: 120
@@ -372,7 +372,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,7 +385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_10
+      name: Leftwalk7
       rect:
         serializedVersion: 2
         x: 144
@@ -393,7 +393,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,7 +406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_11
+      name: Leftwalk8
       rect:
         serializedVersion: 2
         x: 168
@@ -414,7 +414,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -427,7 +427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_12
+      name: Rightwalk1
       rect:
         serializedVersion: 2
         x: 0
@@ -435,7 +435,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -448,7 +448,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_13
+      name: Rightwalk2
       rect:
         serializedVersion: 2
         x: 24
@@ -456,7 +456,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -469,7 +469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_14
+      name: Rightwalk3
       rect:
         serializedVersion: 2
         x: 48
@@ -477,7 +477,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -490,7 +490,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_15
+      name: Rightwalk4
       rect:
         serializedVersion: 2
         x: 72
@@ -498,7 +498,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -511,7 +511,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_16
+      name: Rightwalk5
       rect:
         serializedVersion: 2
         x: 96
@@ -519,7 +519,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -532,7 +532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_17
+      name: Rightwalk6
       rect:
         serializedVersion: 2
         x: 120
@@ -540,7 +540,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,7 +553,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_18
+      name: Rightwalk7
       rect:
         serializedVersion: 2
         x: 144
@@ -561,7 +561,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -574,7 +574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk and idle_19
+      name: Rightwalk8
       rect:
         serializedVersion: 2
         x: 168
@@ -582,7 +582,7 @@ TextureImporter:
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -605,26 +605,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walk and idle_0: -2065005296
-      walk and idle_1: 770940619
-      walk and idle_10: -1772334586
-      walk and idle_11: -908892463
-      walk and idle_12: 1415463717
-      walk and idle_13: 328163053
-      walk and idle_14: -2083354169
-      walk and idle_15: 727262228
-      walk and idle_16: -1073565799
-      walk and idle_17: -1118342008
-      walk and idle_18: -896630775
-      walk and idle_19: 395070217
-      walk and idle_2: -245330178
-      walk and idle_3: 1151917707
-      walk and idle_4: 517295979
-      walk and idle_5: 1504485083
-      walk and idle_6: 810275120
-      walk and idle_7: -1634056213
-      walk and idle_8: -1156695478
-      walk and idle_9: -1811568796
+      Leftldle1: -2065005296
+      Leftldle2: 770940619
+      Leftwalk1: 517295979
+      Leftwalk2: 1504485083
+      Leftwalk3: 810275120
+      Leftwalk4: -1634056213
+      Leftwalk5: -1156695478
+      Leftwalk6: -1811568796
+      Leftwalk7: -1772334586
+      Leftwalk8: -908892463
+      Rightldle1: -245330178
+      Rightldle2: 1151917707
+      Rightwalk1: 1415463717
+      Rightwalk2: 328163053
+      Rightwalk3: -2083354169
+      Rightwalk4: 727262228
+      Rightwalk5: -1073565799
+      Rightwalk6: -1118342008
+      Rightwalk7: -896630775
+      Rightwalk8: 395070217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

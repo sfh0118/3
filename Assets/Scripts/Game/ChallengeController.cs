@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace projectlndieFem
 {
-    public partial class ChallengeController : ViewController
+    public partial class ChallengeController : ViewController,IController
     {
 
         //당일 열매수량
@@ -58,6 +58,18 @@ namespace projectlndieFem
 
         };
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
+
+        //private IChallengeSystem mUIChallengeSystem;
+        //private void Awake()
+        //{
+        //    mIChallengeSystem = this.GetSystem<IChallengeSystem>();
+        //}
+        //public override void OnDestroy()
+        //{
+        //    mUIChallengeSystem = null;
+        //}
+       
+
         void Start()
         {
             // Code Here
@@ -96,7 +108,7 @@ namespace projectlndieFem
                     }
 
                 }
-                else if(plant is PlantChineseCabbage)
+                else if (plant is PlantChineseCabbage)
                 {
                     ChineseCabbageHarvestCountInCurrentDay.Value++;
                     HarvestChineseCabbageCount++;
@@ -172,6 +184,10 @@ namespace projectlndieFem
                 "<color=green>" + challenge.Name + "</color>", mLabelsyle);
 
             }
+        }
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace projectlndieFem
 
             BtnBuyChineseCabbageSeed.onClick.AddListener(() =>
             {
-                this.SendCommand(new AddItemCountCommand("eed_chinese_cabbage", 1));
+                this.SendCommand(new AddItemCountCommand("seed_chinese_cabbage", 1));
                 Global.Coin.Value -= 3;
                 AudioController.Get.SfxBuy.Play();
             });
