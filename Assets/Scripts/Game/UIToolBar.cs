@@ -14,9 +14,21 @@ namespace projectlndieFem
         public void AddItem(Item item)
         {
             var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == null);
-            if (slot != null)
+            if (!slot)
             {
-                slot.SetData(item, string.Empty);
+                slot.SetData(item);
+            }
+        }
+        public void RemoveItem(Item item)
+        {
+            var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == item);
+            if (slot)
+            {
+                slot.SetData(null);
+                if (ToolbarSlots.IndexOf(slot) == 0)
+                {
+                    ChangeTool(Config.CreateHand().Tool, slot.Select, slot.Icon.sprite);
+                }
             }
         }
 
@@ -30,7 +42,7 @@ namespace projectlndieFem
                     ChangeTool(slot.Data.Tool, slot.Select, slot.Icon.sprite);
                 }
             };
-            
+
 
             // 도구
             // (순서0~9)
@@ -49,22 +61,20 @@ namespace projectlndieFem
             {
                 var slot = ToolbarSlots[i];
 
-                if(i < Config.Items.Count)
-                {
+                slot.ShortCut.text = (i + 1).ToString();
 
-                    slot.SetData(Config.Items[i], (i + 1).ToString());
-                }
-                else
+                if (i < Config.Items.Count)
                 {
-                    ToolbarSlots[i].Hide();
+                    slot.SetData(Config.Items[i]);
                 }
-               
+
+
             }
 
             HideAllSelect();
             ToolbarSlots[0].Select.Hide();
             Global.Mouse.Icon.sprite = ToolbarSlots[0].Icon.sprite;
-           
+
 
 
         }
@@ -86,6 +96,10 @@ namespace projectlndieFem
             selectimage.Show();
             Global.Mouse.Icon.sprite = icon;
 
+        }
+        public void SelectDefault()
+        {
+            UISlot.OnItemSelect(ToolbarSlots[0]);
         }
         private void Update()
         {

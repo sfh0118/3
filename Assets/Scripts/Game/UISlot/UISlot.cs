@@ -17,6 +17,7 @@ namespace projectlndieFem
         public Text Count;
 
         public Button Button;
+        
         private Item mData;
         public Item Data => mData;
         
@@ -24,7 +25,7 @@ namespace projectlndieFem
         {
             Icon.sprite = null;
             Select.Hide();
-            ShortCut.text = string.Empty;
+            ShortCut.Hide();
             Count.text = string.Empty;
             Button.onClick.AddListener(() =>
             {
@@ -44,18 +45,27 @@ namespace projectlndieFem
             Button = GetComponent<Button>();
         }
 #endif
-        public void SetData(Item data,string shortCut)
+        public void SetData(Item data)
         {
-            mData = data;
-            Icon.sprite = IconLoader?.Invoke(mData.IconName);
-            ShortCut.text = shortCut;
-            if (data.Countable)
+            if (data == null)
             {
-                data.Count.RegisterWithInitValue(count =>
-                {
-                    Count.text = count.ToString();
+                Icon.sprite = null;
+                ShortCut.Hide();
+                mData = null;
+                Count.text = string.Empty;
 
-                } ).UnRegisterWhenGameObjectDestroyed(gameObject);
+            }
+            else
+            { 
+                mData = data;
+                Icon.sprite = IconLoader?.Invoke(mData.IconName);
+                ShortCut.Show();
+
+                if (data.Countable)
+                {
+                    data.Count.RegisterWithInitValue(count => { Count.text = count.ToString(); })
+                        .UnRegisterWhenGameObjectDestroyed(gameObject);
+                } 
             }
         }
         // Start is called before the first frame update

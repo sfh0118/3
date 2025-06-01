@@ -4,8 +4,8 @@ using UnityEngine.Tilemaps;
 
 namespace projectlndieFem
 {
-	public partial class ToolController : ViewController
-	{
+    public partial class ToolController : ViewController
+    {
         private GridController mGridController;
         private Grid mGrid;
         private EasyGrid<SoilData> mShowGrid;
@@ -33,11 +33,11 @@ namespace projectlndieFem
             mSprite.enabled = false;
         }
 
-       
+
 
         private ToolData mToolData = new ToolData();
 
-        bool ToolInRange(Vector3Int mouseCellPos,Vector3Int playerCellPos,int range =1)
+        bool ToolInRange(Vector3Int mouseCellPos, Vector3Int playerCellPos, int range = 1)
         {
             //range 1 3x3
             //range 2 5x5
@@ -63,7 +63,7 @@ namespace projectlndieFem
             return false;
         }
         private void Update()
-		{
+        {
             var playerCellPos = mGrid.WorldToCell(Global.Player.Position());
 
             var worldMousePos = mMainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -75,9 +75,9 @@ namespace projectlndieFem
             mSprite.enabled = false;
 
 
-            
 
-            if (ToolInRange(mouseCellPos, playerCellPos,Global.CurrentTool.Value.Range))
+
+            if (ToolInRange(mouseCellPos, playerCellPos, Global.CurrentTool.Value.Range))
             {
                 if (mouseCellPos.x < mShowGrid.Width && mouseCellPos.x >= 0 && mouseCellPos.y < mShowGrid.Height && mouseCellPos.y >= 0)
                 {
@@ -94,21 +94,21 @@ namespace projectlndieFem
                         {
                             Global.CurrentTool.Value.Use(mToolData);
                             //땅깨기 땅있음
-                           
+
                         }
                     }
-                   
-                    
+
+
                 }
             }
             else
             {
                 mSprite.enabled = false;
             }
-            
+
 
         }
-		
+
         Vector3 ShowSelect(Vector3Int cellPos)
         {
             var gridOriginPos = mGrid.CellToWorld(cellPos);
@@ -117,5 +117,5 @@ namespace projectlndieFem
             mSprite.enabled = true;
             return gridCenterPos;
         }
-	}
+    }
 }

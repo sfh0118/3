@@ -38,6 +38,12 @@ namespace projectlndieFem
 
             AudioController.Get.SfxSeed.Play();
 
+            if(Item.Count.Value ==0)
+            {
+                Config.Items.Remove(Item);
+                Object.FindObjectOfType<UIToolBar>().RemoveItem(Item);
+                Object.FindObjectOfType<UIToolBar>().SelectDefault();
+            }
 
         }
 

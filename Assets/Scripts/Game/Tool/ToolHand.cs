@@ -1,45 +1,109 @@
+﻿//using QFramework;
+//using System.Linq;
+//using UnityEngine;
+//using UnityEngine.Tilemaps;
+
+
+//namespace projectlndieFem
+//{
+//    public class ToolHand : ITool
+//    {
+//        public string Name { get; set; } = "hand";
+
+//        public int Range => Global.HandRange1Unlock ? 2 : 1;
+
+//        public bool Selectable(ToolData toolData)
+//        {
+//            return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
+//                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant &&
+//                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantState == PlantStates.Ripe;
+
+//        }
+//        public void Use(ToolData toolData)
+//        {
+//            Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y]);
+
+//            if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant)
+//            {
+//                Global.FruitCount.Value++;
+
+//            }
+//            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
+//            {
+//                Global.RadishCount.Value++;
+//            }
+//            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantChineseCabbage)
+//            {
+//                Global.ChineseCabbageCount.Value++;
+//            }
+//            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantCarrot)
+//            {
+//                var carrotItem = Config.Items.FirstOrDefault(item => item.Name == "Carrot");
+//                if (carrotItem != null)
+//                {
+//                    carrotItem = Config.CreateCarrot(1);
+//                    Config.Items.Add(carrotItem);
+//                    Object.FindObjectOfType<UIToolBar>().AddItem(carrotItem);
+//                }
+//                else
+//                {
+
+//                    carrotItem.Count.Value++;
+//                }
+//                Global.CarrotCount.Value++;
+
+//            }
+
+//            Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);
+//            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] = null;
+
+//            AudioController.Get.SfxHarvest.Play();
+//        }
+//    }
+
+//}
+
 using QFramework;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
 namespace projectlndieFem
 {
-    public class ToolHand  : ITool
+    public class ToolHand : ITool
     {
         public string Name { get; set; } = "hand";
-      
+
         public int Range => Global.HandRange1Unlock ? 2 : 1;
 
         public bool Selectable(ToolData toolData)
         {
-            return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
-                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant &&
-                   toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantState == PlantStates.Ripe;
-
+            var cell = toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y];
+            return cell != null && cell.HasPlant && cell.PlantState == PlantStates.Ripe;
         }
+
         public void Use(ToolData toolData)
         {
-            Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y]);
+            var plant = PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y];
 
-            if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant)
+            Global.OnPlantHarvest.Trigger(plant);
+
+            if (plant is Plant)
             {
                 Global.FruitCount.Value++;
-
             }
-            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
+            else if (plant is PlantRadish)
             {
                 Global.RadishCount.Value++;
             }
-            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantChineseCabbage)
+            else if (plant is PlantChineseCabbage)
             {
                 Global.ChineseCabbageCount.Value++;
             }
-            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantCarrot)
+            else if (plant is PlantCarrot)
             {
                 var carrotItem = Config.Items.FirstOrDefault(item => item.Name == "Carrot");
-                if (carrotItem != null)
+                if (carrotItem == null)
                 {
                     carrotItem = Config.CreateCarrot(1);
                     Config.Items.Add(carrotItem);
@@ -47,19 +111,15 @@ namespace projectlndieFem
                 }
                 else
                 {
-
                     carrotItem.Count.Value++;
                 }
                 Global.CarrotCount.Value++;
-
             }
 
-            Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);
-            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y]= null;
+            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] = null;
+            Object.Destroy(plant.GameObject);
 
             AudioController.Get.SfxHarvest.Play();
         }
     }
-
-
 }
