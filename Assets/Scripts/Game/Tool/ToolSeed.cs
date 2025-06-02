@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace projectlndieFem
 {
-    public class ToolSeed : ITool
+    public class ToolSeed : ITool,IController
     {
         public string Name { get; set; } = "seed";
         
@@ -23,7 +23,7 @@ namespace projectlndieFem
         }
         public void Use(ToolData toolData)
         {
-            Item.Count.Value--;
+            this.SendCommand(new SubItemCountCommand(Item.Name, 1));
 
             var plantGameObj = ResController.Instance.LoadPrefab(Item.PlantPrefabName)
                 .Instantiate()
@@ -38,13 +38,11 @@ namespace projectlndieFem
 
             AudioController.Get.SfxSeed.Play();
 
-            if(Item.Count.Value ==0)
-            {
-                Config.Items.Remove(Item);
-                Object.FindObjectOfType<UIToolBar>().RemoveItem(Item);
-                Object.FindObjectOfType<UIToolBar>().SelectDefault();
-            }
-
+          
+        }
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
         }
 
     }

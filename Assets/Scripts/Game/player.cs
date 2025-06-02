@@ -175,6 +175,11 @@ namespace projectlndieFem
                     Animator.Play("PlayerLeftIdle");
 
                 }
+                if (AudioController.Get.IsWalkPlaying) 
+                {
+                    AudioController.Get.StopWalk();
+                }
+
             }
             else 
             {
@@ -185,6 +190,10 @@ namespace projectlndieFem
                 else
                 {
                     Animator.Play("PlayerLeftWalk");
+                }
+                if (!AudioController.Get.IsWalkPlaying) 
+                {
+                    AudioController.Get.PlayWalk();
                 }
             }
         }

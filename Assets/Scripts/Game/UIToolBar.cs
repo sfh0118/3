@@ -35,7 +35,17 @@ namespace projectlndieFem
 
         void Start()
         {
-
+            ToolBarSystem.OnAddItem.Register(Item =>
+            {
+                
+                    AddItem(Item);
+                
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            ToolBarSystem.OnRemoveItem.Register(Item =>
+            {
+                RemoveItem(Item);
+                SelectDefault();
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
             UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);
             UISlot.OnItemSelect = slot =>
             {

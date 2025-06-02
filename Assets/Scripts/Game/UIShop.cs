@@ -31,6 +31,8 @@ namespace projectlndieFem
             SetupBtnShowCheck(Global.Coin, BtnBuyFruitSeed, (count) => count >= 1, gameObject);
             SetupBtnShowCheck(Global.Coin, BtnBuyRadishSeed, (count) => count >= 2, gameObject);
             SetupBtnShowCheck(Global.Coin,BtnBuyChineseCabbageSeed, (count) => count >= 3, gameObject);
+            SetupBtnShowCheck(Global.Coin, BtnBuyCarrotSeed, (count) => count >= 4, gameObject);
+
 
 
 
@@ -57,7 +59,13 @@ namespace projectlndieFem
                 Global.Coin.Value -= 3;
                 AudioController.Get.SfxBuy.Play();
             });
-           
+            BtnBuyCarrotSeed.onClick.AddListener(() =>
+            {
+                this.SendCommand(new AddItemCountCommand("seed_carrot", 1));
+                Global.Coin.Value -= 4;
+                AudioController.Get.SfxBuy.Play();
+            });
+
             BtnSellFruit.onClick.AddListener(() =>
             {
                 Global.Coin.Value += 3;
@@ -74,6 +82,19 @@ namespace projectlndieFem
             {
                 Global.Coin.Value += 8;
                 Global.ChineseCabbageCount.Value -= 1;
+                AudioController.Get.SfxBuy.Play();
+            });
+            BtnSellCarrot.onClick.AddListener(() =>
+            {
+                var toolBarSystem = this.GetSystem<IToolBarSystem>();
+                var carrotItem = toolBarSystem.Items.FirstOrDefault(Item => Item.Name == "carrot");
+                if (carrotItem != null)
+                {
+                    Global.Coin.Value += 12;
+                    this.SendCommand(new SubItemCountCommand("Carrot", 1));
+                }
+               
+                
                 AudioController.Get.SfxBuy.Play();
             });
 
