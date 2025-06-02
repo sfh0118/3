@@ -24,14 +24,21 @@ namespace projectlndieFem
         public static BindableProperty<int> ChineseCabbageHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
         public static BindableProperty<int> CarrotHarvestCountInCurrentDay = new BindableProperty<int>(0);
+        public static BindableProperty<int> PotatoHarvestCountInCurrentDay = new BindableProperty<int>(0);
+        public static BindableProperty<int> TomatoHarvestCountInCurrentDay = new BindableProperty<int>(0);
+        public static BindableProperty<int> PumpkinHarvestCountInCurrentDay = new BindableProperty<int>(0);
+        public static BindableProperty<int> BeanHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
         //수확한 열매의 수량
         public static int HarvestedFruitCount = 0;
-        //수확한 무의 수량
-        public static int HarvestedRadishCount = 0;
 
+        public static int HarvestedRadishCount = 0;
         public static int HarvestChineseCabbageCount = 0;
         public static int HarvestCarrotCount = 0;
+        public static int HarvestPotatoCount = 0;
+        public static int HarvestTomatoCount = 0;
+        public static int HarvestPumpkinCount = 0;
+        public static int HarvestBeanCount = 0;
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
@@ -47,10 +54,10 @@ namespace projectlndieFem
             //new ChallengeHarvestAChineseCabbage(),
             //new ChallengeCoin100(),
             //new ChallengeHarvest10thChineseCabbage(),
-            //new ChallengeChineseCabbageCountGreaterOrEqual10(),
-            new ChallengeHarvestACarrot(),
-            new ChallengeHarvest10thCarrot(),
-            new ChallengeCarrotCountGreatorOrEqual10(),
+            ////new ChallengeChineseCabbageCountGreaterOrEqual10(),
+            //new ChallengeHarvestACarrot(),
+            //new ChallengeHarvest10thCarrot(),
+            //new ChallengeCarrotCountGreatorOrEqual10(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()
@@ -64,16 +71,28 @@ namespace projectlndieFem
         };
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
 
+
         //private IChallengeSystem mUIChallengeSystem;
-        //private void Awake()
-        //{
-        //    mIChallengeSystem = this.GetSystem<IChallengeSystem>();
-        //}
+        private void Awake()
+        {
+            Challenges.Add(new GenericChallenge()
+                .Key("감자하나수확")
+                .OnCheckFinish(self => Global.Days.Value != self.StartDate && PotatoHarvestCountInCurrentDay.Value > 0));
+            Challenges.Add(new GenericChallenge()
+                .Key("토마토하나수확")
+                .OnCheckFinish(self => Global.Days.Value != self.StartDate && TomatoHarvestCountInCurrentDay.Value > 0));
+            Challenges.Add(new GenericChallenge()
+                .Key("호박하나수확")
+                .OnCheckFinish(self => Global.Days.Value != self.StartDate && PumpkinHarvestCountInCurrentDay.Value > 0));
+            Challenges.Add(new GenericChallenge()
+                .Key("단콩하나수확")
+                .OnCheckFinish(self => Global.Days.Value != self.StartDate && BeanHarvestCountInCurrentDay.Value > 0));
+        }
         //public override void OnDestroy()
         //{
         //    mUIChallengeSystem = null;
         //}
-       
+
 
         void Start()
         {
@@ -90,16 +109,44 @@ namespace projectlndieFem
 
             Global.OnPlantHarvest.Register(plant =>
             {
+                
                 if (plant is Plant)
                 {
-                    ChallengeController.HarvestCountInCurrentDay.Value++;
-
-                    HarvestedFruitCount++;
-
-                    if (plant.RipeDay == Global.Days.Value)
+                    var plantObj = plant as Plant;
+                    if (plantObj.Name == "fruit")
                     {
-                        ChallengeController.RipeAndHarvestCountInCurrentDay.Value++;
+
+                        HarvestCountInCurrentDay.Value++;
+
+                        HarvestedFruitCount++;
+
+                        if (plant.RipeDay == Global.Days.Value)
+                        {
+                            RipeAndHarvestCountInCurrentDay.Value++;
+                        }
                     }
+                    else if(plantObj.Name == "potato")
+                    {
+                        PotatoHarvestCountInCurrentDay.Value++;
+
+                        HarvestPotatoCount++;
+                    }
+                    else if (plantObj.Name == "tomato")
+                    {
+                        TomatoHarvestCountInCurrentDay.Value++;
+                        HarvestTomatoCount++;
+                    }
+                    else if (plantObj.Name == "pumkin")
+                    {
+                        PumpkinHarvestCountInCurrentDay.Value++;
+                        HarvestTomatoCount++;
+                    }
+                    else if (plantObj.Name == "bean")
+                    {
+                        BeanHarvestCountInCurrentDay.Value++;
+                        HarvestTomatoCount++;
+                    }
+
                 }
                 else if (plant is PlantRadish)
                 {
