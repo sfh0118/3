@@ -75,6 +75,29 @@ namespace projectlndieFem
         //private IChallengeSystem mUIChallengeSystem;
         private void Awake()
         {
+            var potatoCount = 0;
+            var tomatoCount = 0;
+            var pumpkinCount = 0;
+            var beanCount = 0;
+            ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
+            {
+                if (Item.Name == "potato")
+                {
+                    potatoCount = count;
+                }
+                else if (Item.Name == "tomato")
+                {
+                    tomatoCount = count;
+                }
+                else if (Item.Name == "pumpkin")
+                {
+                    pumpkinCount = count;
+                }
+                else if (Item.Name == "bean")
+                {
+                    beanCount = count;
+                }
+            }).UnRegisterWhenGameObjectDestroyed(this);
             Challenges.Add(new GenericChallenge()
                 .Key("감자하나수확")
                 .OnCheckFinish(self => Global.Days.Value != self.StartDate && PotatoHarvestCountInCurrentDay.Value > 0));
@@ -87,6 +110,32 @@ namespace projectlndieFem
             Challenges.Add(new GenericChallenge()
                 .Key("단콩하나수확")
                 .OnCheckFinish(self => Global.Days.Value != self.StartDate && BeanHarvestCountInCurrentDay.Value > 0));
+            Challenges.Add(new GenericChallenge()
+                .Key("10번째감자수확하기")
+                .OnCheckFinish(self => HarvestPotatoCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10번째토마토수확하기")
+                .OnCheckFinish(self => HarvestTomatoCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10번째호박수확하기")
+                .OnCheckFinish(self => HarvestPumpkinCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10번째단콩수확하기")
+                .OnCheckFinish(self => HarvestBeanCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10개감자보요하기")
+                .OnCheckFinish(self => potatoCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10개토마토보요하기")
+                .OnCheckFinish(self => tomatoCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10개호박보요하기")
+                .OnCheckFinish(self => pumpkinCount >= 10));
+            Challenges.Add(new GenericChallenge()
+                .Key("10개단콩보요하기")
+                .OnCheckFinish(self => beanCount >= 10));
+
+
         }
         //public override void OnDestroy()
         //{
