@@ -104,3 +104,17 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+  Name: frult
+  States:
+  - State: 0
+    Sprite: {fileID: -7866928900747384746, guid: 64decf034626e184a9b9a13e77531058, type: 3}
+    ShowDigState: 1
+    Days: 1
+  - State: 1
+    Sprite: {fileID: -8902951029311973782, guid: ac185c334c7342740b0077446efbef7c, type: 3}
+    ShowDigState: 0
+    Days: 1
+  - State: 4
+    Sprite: {fileID: 853675080466277832, guid: 4413ce323f092964fa969e2755b6c1ab, type: 3}
+    ShowDigState: 0
+    Days: 1

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace projectlndieFem
@@ -30,6 +32,17 @@ namespace projectlndieFem
     }
     public partial class Plant : ViewController, IPlant
     {
+        [System.Serializable]
+        public class PlantState
+        {
+            public PlantStates State;
+            public Sprite Sprite;
+            public bool ShowDigState = false;
+            public int Days = 1;
+        }
+        public string Name;
+        public List<PlantState> States = new List<PlantState>();
+        
 
         public int XCell { get; set; }
         public int YCell { get; set; }
@@ -45,59 +58,51 @@ namespace projectlndieFem
                 {
                     RipeDay = Global.Days.Value;
                 }
+
+                var plantState = States.FirstOrDefault(s => s.State == newState);
+
                 mState = newState;
-
-                //
-                if (newState == PlantStates.Small)
+                if (plantState != null)
                 {
-                    this.ClearSoilDigState();
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SmallPlantSprite;
 
-                }
-                else if (newState == PlantStates.Ripe)
-                {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.RipeSprite;
-                }
-                else if (newState == PlantStates.Seed)
-                {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.SeedSprite;
-                }
-                else if (newState == PlantStates.Old)
-                {
-                    GetComponent<SpriteRenderer>().sprite = ResController.Instance.OldSprite;
-                }
+                    if (plantState.ShowDigState)
+                    {
 
-                FindObjectOfType<GridController>().ShowGrid[XCell, YCell].PlantState = newState;
+                    }
+                    else
+                    {
+                        this.ClearSoilDigState();
+                    }
+                    GetComponent<SpriteRenderer>().sprite = plantState.Sprite;
 
+                    FindObjectOfType<GridController>().ShowGrid[XCell, YCell].PlantState = newState;
+                }
 
 
             }
         }
+        private int mDayInCurrentState = 0;
         public void Grow(SoilData soilData)
         {
-            if (State == PlantStates.Seed)
+            if (mState == PlantStates.Ripe) return;
+            if (soilData.Watered)
             {
-                if (soilData.Watered)
-                {
-                    //plant에서 SmallPlant변환
-                    SetState(PlantStates.Small);
-                }
-            }
-            else if (State == PlantStates.Small)
-            {
-                if (soilData.Watered)
-                {
-                    //plant에서 Ripe변환
-                    SetState(PlantStates.Ripe);
+                mDayInCurrentState++;
+                var plantState = States.FirstOrDefault(s => s.State == mState);
 
+                if (mDayInCurrentState >= plantState.Days)
+                {
+                    var currentStateIndex = States.FindIndex(s => s.State == mState);
+                    currentStateIndex++;
+                    var nexPlantState = States[currentStateIndex];
+                    SetState(nexPlantState.State);
+                    mDayInCurrentState = 0;
                 }
             }
+
         }
         public int RipeDay { get; private set; }
-        void Start()
-        {
-            // Code Here
-        }
+       
         public GameObject GameObject => gameObject;
     }
 }
