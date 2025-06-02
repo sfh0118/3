@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_4
+      name: PotatoIcon
       rect:
         serializedVersion: 2
         x: 64
@@ -301,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_6
+      name: TomatoIcon
       rect:
         serializedVersion: 2
         x: 96
@@ -469,7 +469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_14
+      name: PotatoSeedIcon
       rect:
         serializedVersion: 2
         x: 64
@@ -511,7 +511,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_16
+      name: TomatoSeedIcon
       rect:
         serializedVersion: 2
         x: 96
@@ -742,7 +742,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_27
+      name: BeanIcon
       rect:
         serializedVersion: 2
         x: 144
@@ -931,7 +931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_36
+      name: BeanSeedIcon
       rect:
         serializedVersion: 2
         x: 144
@@ -1172,16 +1172,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BeanIcon: 2102790549
+      BeanSeedIcon: -881877026
       CarrotIcon: 367596268
       CarrotSeedIcon: 525519537
+      PotatoIcon: -407067966
+      PotatoSeedIcon: -1882720316
       PumpkinIcon: 963513473
       PumpkinSeedIcon: 1708910668
+      TomatoIcon: -2098133836
+      TomatoSeedIcon: 519715333
       items_1: -2115969071
       items_11: 1365172483
       items_13: -1439495350
-      items_14: -1882720316
       items_15: -1488988909
-      items_16: 519715333
       items_17: -1723461982
       items_18: 138818680
       items_19: 82038380
@@ -1192,7 +1196,6 @@ TextureImporter:
       items_24: -1304276480
       items_25: -2023179441
       items_26: -883091564
-      items_27: 2102790549
       items_28: -975135769
       items_29: -1807482589
       items_3: -1499462557
@@ -1202,11 +1205,9 @@ TextureImporter:
       items_33: 455293204
       items_34: -897268735
       items_35: 1519275383
-      items_36: -881877026
       items_37: -2046285781
       items_38: -1293132858
       items_39: 1334623236
-      items_4: -407067966
       items_40: -1246144132
       items_41: -77124665
       items_42: 1814283718
@@ -1215,7 +1216,6 @@ TextureImporter:
       items_45: 986959323
       items_46: -201010091
       items_5: -262028249
-      items_6: -2098133836
       items_7: -2009027676
       items_8: -599652981
       items_9: -1958149868

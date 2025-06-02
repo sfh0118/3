@@ -24,10 +24,11 @@ namespace projectlndieFem
             Config.CreateShovel(),
             Config.CreateSeed(),
             Config.CreateWateringCan(),
-            Config.CreateSeedRadish(),
-            Config.CreateSeedChineseCabbage(),
             Config.CreateSeedCarrot(),
             Config.CreateSeedPumpkin(),
+            Config.CreateSeedPotato(),
+            Config.CreateSeedTomato(),
+            Config.CreateSeedBean(),
 
 
         };

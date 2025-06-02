@@ -53,9 +53,21 @@ namespace projectlndieFem
             {
                 return CreateSeedChineseCabbage(count);
             }
+            else if (itemName == "seed_potato")
+            {
+                return CreateSeedPotato(count);
+            }
+            else if (itemName == "seed_tomato")
+            {
+                return CreateSeedTomato(count);
+            }
             else if (itemName == "seed_carrot")
             {
                 return CreateSeedCarrot(count);
+            }
+            else if (itemName == "seed_bean")
+            {
+                return CreateSeedBean(count);
             }
             else if (itemName == "carrot")
             {
@@ -64,6 +76,18 @@ namespace projectlndieFem
             else if (itemName == "pumpkin")
             {
                 return CreatePumpkin(count);
+            }
+            else if (itemName == "potato")
+            {
+                return CreatePotato(count);
+            }
+            else if (itemName == "tomato")
+            {
+                return CreateTomato(count);
+            }
+            else if (itemName == "bean")
+            {
+                return CreateBean(count);
             }
             return null;
 
@@ -195,6 +219,57 @@ namespace projectlndieFem
                 Item = item
             });
         }
+        public static Item CreateSeedPotato(int count = 5)
+        {
+            return new Item()
+            {
+                IconName = "PotatoSeedIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = true,
+                Name = "seed_potato",
+                PlantPrefabName = "PlantPotato",
+                Tool = new ToolSeed()
+            }
+            .Self(item => item.Tool = new ToolSeed()
+            {
+                Item = item
+            });
+        }
+        public static Item CreateSeedTomato(int count = 5)
+        {
+            return new Item()
+            {
+                IconName = "TomatoSeedIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = true,
+                Name = "seed_tomato",
+                PlantPrefabName = "PlantTomato",
+                Tool = new ToolSeed()
+            }
+            .Self(item => item.Tool = new ToolSeed()
+            {
+                Item = item
+            });
+        }
+        public static Item CreateSeedBean(int count = 5)
+        {
+            return new Item()
+            {
+                IconName = "BeanSeedIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = true,
+                Name = "seed_bean",
+                PlantPrefabName = "PlantBean",
+                Tool = new ToolSeed()
+            }
+            .Self(item => item.Tool = new ToolSeed()
+            {
+                Item = item
+            });
+        }
         public static Item CreateCarrot(int count = 1)
         {
             return new Item()
@@ -218,6 +293,45 @@ namespace projectlndieFem
                 Countable = true,
                 IsPlant = false,
                 Name = "pumpkin",
+                PlantPrefabName = string.Empty,
+                Tool = null
+            };
+        }
+        public static Item CreatePotato(int count = 1)
+        {
+            return new Item()
+            {
+                IconName = "PotatoIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = false,
+                Name = "potato",
+                PlantPrefabName = string.Empty,
+                Tool = null
+            };
+        }
+        public static Item CreateTomato(int count = 1)
+        {
+            return new Item()
+            {
+                IconName = "TomatoIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = false,
+                Name = "tomato",
+                PlantPrefabName = string.Empty,
+                Tool = null
+            };
+        }
+        public static Item CreateBean(int count = 1)
+        {
+            return new Item()
+            {
+                IconName = "BeanIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = false,
+                Name = "bean",
                 PlantPrefabName = string.Empty,
                 Tool = null
             };

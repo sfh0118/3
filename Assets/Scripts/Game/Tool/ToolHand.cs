@@ -35,6 +35,19 @@ namespace projectlndieFem
 
                     this.SendCommand(new AddItemCountCommand("pumkin", 1));
                 }
+                else if (plant.Name == "potato")
+                {
+                    this.SendCommand(new AddItemCountCommand("potato", 1));
+                }
+                else if (plant.Name == "tomato")
+                {
+                    this.SendCommand(new AddItemCountCommand("tomato", 1));
+                }
+                else if (plant.Name == "bean")
+                {
+                    this.SendCommand(new AddItemCountCommand("bean", 1));
+                }
+               
             }
             else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
             {

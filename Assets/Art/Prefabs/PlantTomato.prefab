@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7118703067016022717}
   - component: {fileID: -6677139401085858833}
   m_Layer: 0
-  m_Name: PlantPumpkin
+  m_Name: PlantTomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1868405260, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+  m_Sprite: {fileID: 356731075, guid: 2eba43b2eab118247be335b80584608f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,25 +104,25 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
-  Name: Pumpkin
+  Name: Tomato
   States:
   - State: 0
-    Sprite: {fileID: -1868405260, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: 356731075, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 1
     Days: 1
   - State: 1
-    Sprite: {fileID: -611413805, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: -1476925753, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
     Days: 1
   - State: 2
-    Sprite: {fileID: 1695187776, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: 534635314, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
     Days: 1
   - State: 3
-    Sprite: {fileID: 1584529052, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: 1371467994, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
     Days: 1
   - State: 4
-    Sprite: {fileID: -2116978661, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: 1124455460, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
     Days: 1

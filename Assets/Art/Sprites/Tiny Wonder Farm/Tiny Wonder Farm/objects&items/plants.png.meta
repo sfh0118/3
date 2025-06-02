@@ -203,8 +203,8 @@ TextureImporter:
         y: 128
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51572347, y: 0.24842739}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,8 +224,8 @@ TextureImporter:
         y: 128
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.53144646, y: 0.27987385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,8 +245,8 @@ TextureImporter:
         y: 128
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.27987385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,8 +266,8 @@ TextureImporter:
         y: 128
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29559708}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -371,8 +371,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.26415062}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,8 +392,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24842739}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -413,8 +413,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4842763, y: 0.27987385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,8 +434,8 @@ TextureImporter:
         y: 112
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5157232, y: 0.16981077}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,8 +581,8 @@ TextureImporter:
         y: 96
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.18553448}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,8 +602,8 @@ TextureImporter:
         y: 96
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46855402, y: 0.2012577}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -623,8 +623,8 @@ TextureImporter:
         y: 96
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24842787}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -644,8 +644,8 @@ TextureImporter:
         y: 96
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21698093}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -721,7 +721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_26
+      name: PotatoSeed
       rect:
         serializedVersion: 2
         x: 0
@@ -742,15 +742,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_27
+      name: PotatoSmail
       rect:
         serializedVersion: 2
         x: 16
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.34276676}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -763,15 +763,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_28
+      name: PotatoMiddle
       rect:
         serializedVersion: 2
         x: 32
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3113203}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -784,15 +784,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_29
+      name: PotatoBig
       rect:
         serializedVersion: 2
         x: 48
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.515723, y: 0.27987337}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -805,15 +805,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_30
+      name: PotatoRipe
       rect:
         serializedVersion: 2
         x: 64
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24842691}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_31
+      name: BeanSeed
       rect:
         serializedVersion: 2
         x: 80
@@ -847,15 +847,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_32
+      name: BeanSmail
       rect:
         serializedVersion: 2
         x: 96
         y: 80
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000005, y: 0.23270369}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -868,15 +868,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_33
+      name: BeanMiddle
       rect:
         serializedVersion: 2
         x: 112
         y: 80
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 19
+      alignment: 9
+      pivot: {x: 0.4842763, y: 0.18222408}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -889,15 +889,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_34
+      name: BeanBig
       rect:
         serializedVersion: 2
         x: 128
         y: 80
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 28
+      alignment: 9
+      pivot: {x: 0.56289387, y: 0.07771765}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -910,15 +910,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_35
+      name: BeanRipe
       rect:
         serializedVersion: 2
         x: 144
         y: 80
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5314455, y: 0.06625445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1141,7 +1141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_46
+      name: TomatoSeed
       rect:
         serializedVersion: 2
         x: 0
@@ -1162,15 +1162,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_47
+      name: TomatoSmail
       rect:
         serializedVersion: 2
         x: 16
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51572347, y: 0.27987337}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1183,15 +1183,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_48
+      name: TomatoMiddle
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2169807}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1204,15 +1204,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_49
+      name: TomatoBig
       rect:
         serializedVersion: 2
         x: 48
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48427677, y: 0.23270416}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1225,15 +1225,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_50
+      name: TomatoRipe
       rect:
         serializedVersion: 2
         x: 64
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5157237, y: 0.20125747}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1466,16 +1466,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BeanBig: -22914607
+      BeanMiddle: 1616232041
+      BeanRipe: 1976016056
+      BeanSeed: -282860949
+      BeanSmail: 193769753
       CarrotBig: 284870288
       CarrotMiddle: -410079446
       CarrotRipe: 1034431665
       CarrotSeed: 2069220360
       CarrotSmail: -1982779330
+      PotatoBig: 1799385406
+      PotatoMiddle: -695291539
+      PotatoRipe: -2116978661
+      PotatoSeed: 594291999
+      PotatoSmail: 660731621
       PumpkinBig: 1584529052
       PumpkinMiddle: 1695187776
       PumpkinRipe: 2057590538
       PumpkinSeed: -1868405260
       PumpkinSmail: -611413805
+      TomatoBig: 1371467994
+      TomatoMiddle: 534635314
+      TomatoRipe: 1124455460
+      TomatoSeed: 356731075
+      TomatoSmail: -1476925753
       plants_10: 380940316
       plants_11: 389359037
       plants_12: -1700958646
@@ -1487,16 +1502,6 @@ TextureImporter:
       plants_23: 1407358613
       plants_24: 1887145302
       plants_25: -1086792601
-      plants_26: 594291999
-      plants_27: 660731621
-      plants_28: -695291539
-      plants_29: 1799385406
-      plants_30: -2116978661
-      plants_31: -282860949
-      plants_32: 193769753
-      plants_33: 1616232041
-      plants_34: -22914607
-      plants_35: 1976016056
       plants_36: -2011632722
       plants_37: 1344272530
       plants_38: -310036750
@@ -1507,12 +1512,7 @@ TextureImporter:
       plants_43: -763478503
       plants_44: -1319528931
       plants_45: 1475846650
-      plants_46: 356731075
-      plants_47: -1476925753
-      plants_48: 534635314
-      plants_49: 1371467994
       plants_5: 1463974956
-      plants_50: 1124455460
       plants_51: -452585441
       plants_52: 992208086
       plants_53: -494098956
