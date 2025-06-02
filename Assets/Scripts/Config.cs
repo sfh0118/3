@@ -61,6 +61,10 @@ namespace projectlndieFem
             {
                 return CreateCarrot(count);
             }
+            else if (itemName == "pumpkin")
+            {
+                return CreatePumpkin(count);
+            }
             return null;
 
         }
@@ -204,7 +208,19 @@ namespace projectlndieFem
                 Tool = null
             };
 
-
+        }
+        public static Item CreatePumpkin(int count = 1)
+        {
+            return new Item()
+            {
+                IconName = "PumpkinIcon",
+                Count = new BindableProperty<int>(count),
+                Countable = true,
+                IsPlant = false,
+                Name = "pumpkin",
+                PlantPrefabName = string.Empty,
+                Tool = null
+            };
         }
     }
 }

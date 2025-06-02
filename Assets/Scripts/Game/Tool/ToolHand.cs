@@ -25,8 +25,16 @@ namespace projectlndieFem
 
             if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant)
             {
-                Global.FruitCount.Value++;
+                var plant = PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant;
+                if (plant.Name == "fruit")
+                {
+                    Global.FruitCount.Value++;
+                }
+                else if (plant.Name == "pumpkin")
+                {
 
+                    this.SendCommand(new AddItemCountCommand("pumkin", 1));
+                }
             }
             else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantRadish)
             {
