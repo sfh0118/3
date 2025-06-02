@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plants_0
+      name: PumpkinSeed
       rect:
         serializedVersion: 2
         x: 0
@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_1
+      name: PumpkinSmail
       rect:
         serializedVersion: 2
         x: 16
@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_2
+      name: PumpkinMiddle
       rect:
         serializedVersion: 2
         x: 32
@@ -238,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_3
+      name: PumpkinBig
       rect:
         serializedVersion: 2
         x: 48
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plants_4
+      name: PumpkinRipe
       rect:
         serializedVersion: 2
         x: 64
@@ -1471,8 +1471,11 @@ TextureImporter:
       CarrotRipe: 1034431665
       CarrotSeed: 2069220360
       CarrotSmail: -1982779330
-      plants_0: -1868405260
-      plants_1: -611413805
+      PumpkinBig: 1584529052
+      PumpkinMiddle: 1695187776
+      PumpkinRipe: 2057590538
+      PumpkinSeed: -1868405260
+      PumpkinSmail: -611413805
       plants_10: 380940316
       plants_11: 389359037
       plants_12: -1700958646
@@ -1481,7 +1484,6 @@ TextureImporter:
       plants_15: 1781503259
       plants_16: 1615932074
       plants_17: 17512102
-      plants_2: 1695187776
       plants_23: 1407358613
       plants_24: 1887145302
       plants_25: -1086792601
@@ -1489,7 +1491,6 @@ TextureImporter:
       plants_27: 660731621
       plants_28: -695291539
       plants_29: 1799385406
-      plants_3: 1584529052
       plants_30: -2116978661
       plants_31: -282860949
       plants_32: 193769753
@@ -1500,7 +1501,6 @@ TextureImporter:
       plants_37: 1344272530
       plants_38: -310036750
       plants_39: -176118685
-      plants_4: 2057590538
       plants_40: 1619978894
       plants_41: 1709769670
       plants_42: 2023884424

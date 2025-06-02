@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: items_0
+      name: PumpkinIcon
       rect:
         serializedVersion: 2
         x: 0
@@ -385,7 +385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_10
+      name: PumpkinSeedIcon
       rect:
         serializedVersion: 2
         x: 0
@@ -1174,9 +1174,9 @@ TextureImporter:
     nameFileIdTable:
       CarrotIcon: 367596268
       CarrotSeedIcon: 525519537
-      items_0: 963513473
+      PumpkinIcon: 963513473
+      PumpkinSeedIcon: 1708910668
       items_1: -2115969071
-      items_10: 1708910668
       items_11: 1365172483
       items_13: -1439495350
       items_14: -1882720316

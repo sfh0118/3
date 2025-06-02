@@ -23,11 +23,39 @@ namespace projectlndieFem
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
             
         }
-		void Start()
+        public static void CreateSellItem(string itemName, Button btn, GameObject gameObject)
+        {
+            if( Global.Interface.GetSystem<IToolBarSystem>().Items.Any(item => item != null && item.Name == itemName))
+            { 
+                btn.Show();
+            }
+            else
+            {
+                btn.Hide();
+            }
+            ToolBarSystem.OnItemCountChanged.Register((item, count) =>
+            {
+                if (item.Name == itemName)
+                {
+                    if (count >0)
+                    {
+                        btn.Show();
+                    }
+                    else
+                    {
+                        btn.Hide();
+                    }
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            
+
+        }
+        void Start()
 		{
             SetupBtnShowCheck(Global.FruitCount, BtnSellFruit,(count )=>count >= 1,gameObject);
             SetupBtnShowCheck(Global.RadishCount, BtnSellRadish, (count) => count >= 1, gameObject);
             SetupBtnShowCheck(Global.ChineseCabbageCount, BtnSellChineseCabbage, (count) => count >= 1, gameObject);
+            CreateSellItem("Carrot", BtnSellCarrot, gameObject);
             SetupBtnShowCheck(Global.Coin, BtnBuyFruitSeed, (count) => count >= 1, gameObject);
             SetupBtnShowCheck(Global.Coin, BtnBuyRadishSeed, (count) => count >= 2, gameObject);
             SetupBtnShowCheck(Global.Coin,BtnBuyChineseCabbageSeed, (count) => count >= 3, gameObject);

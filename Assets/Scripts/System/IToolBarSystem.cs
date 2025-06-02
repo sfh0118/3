@@ -27,6 +27,8 @@ namespace projectlndieFem
             Config.CreateSeedRadish(),
             Config.CreateSeedChineseCabbage(),
             Config.CreateSeedCarrot(),
+            Config.CreateSeedPumpkin(),
+
 
         };
         public int MaxCount { get; } = 10;
