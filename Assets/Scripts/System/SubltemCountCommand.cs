@@ -28,6 +28,7 @@ namespace projectlndieFem
                     ToolBarSystem.OnRemoveItem.Trigger(Item);
                     Object. FindObjectOfType<UIToolBar>().RemoveItem(Item);
                 }
+                ToolBarSystem.OnItemCountChanged.Trigger(Item, Item.Count.Value);
             }
 
         }

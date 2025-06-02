@@ -1,15 +1,15 @@
 ﻿namespace projectlndieFem
 {
-    public class ChallengeChineseCabbageCountGreaterOrEqual10 : Challenge
+    public class ChallengeHarvest10thCarrot : Challenge
     {
-        public override string Name { get; } = " 10개 배추 보요하기";
+        public override string Name { get; } = " 10번째당근 수확하기";
         public override void OnStart()
         {
 
         }
         public override bool CheckFinish()
         {
-            return Global.ChineseCabbageCount.Value >= 10;
+            return ChallengeController.HarvestCarrotCount >= 10;
         }
 
         public override void OnFinish()

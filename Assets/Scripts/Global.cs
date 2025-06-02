@@ -35,6 +35,7 @@ namespace projectlndieFem
         public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
         //무 씨앗 수량
         public static BindableProperty<int> ChineseCabbageCount = new BindableProperty<int>(0);
+
         //당근 수량
 
 

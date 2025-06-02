@@ -51,6 +51,7 @@ namespace projectlndieFem
                 ChallengeController.HarvestCountInCurrentDay.Value = 0;
                 ChallengeController.RadishHarvestCountInCurrentDay.Value = 0;
                 ChallengeController.ChineseCabbageHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.CarrotHarvestCountInCurrentDay.Value = 0;
 
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;

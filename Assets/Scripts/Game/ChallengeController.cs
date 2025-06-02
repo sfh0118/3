@@ -23,13 +23,15 @@ namespace projectlndieFem
         //당일 수확한 배추 수량
         public static BindableProperty<int> ChineseCabbageHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
+        public static BindableProperty<int> CarrotHarvestCountInCurrentDay = new BindableProperty<int>(0);
+
         //수확한 열매의 수량
         public static int HarvestedFruitCount = 0;
         //수확한 무의 수량
         public static int HarvestedRadishCount = 0;
-        //수확한 배추의 수량
 
         public static int HarvestChineseCabbageCount = 0;
+        public static int HarvestCarrotCount = 0;
 
         public static List<Challenge> Challenges = new List<Challenge>()
         {
@@ -42,10 +44,13 @@ namespace projectlndieFem
             //new ChallengeHarvest10thRadish(),
             //new ChallengeFruitCountGreaterOrEqual10(),
             //new ChallengeRadishCountGreaterOrEqual10(),
-            new ChallengeHarvestAChineseCabbage(),
-            new ChallengeCoin100(),
-            new ChallengeHarvest10thChineseCabbage(),
-            new ChallengeChineseCabbageCountGreaterOrEqual10()
+            //new ChallengeHarvestAChineseCabbage(),
+            //new ChallengeCoin100(),
+            //new ChallengeHarvest10thChineseCabbage(),
+            //new ChallengeChineseCabbageCountGreaterOrEqual10(),
+            new ChallengeHarvestACarrot(),
+            new ChallengeHarvest10thCarrot(),
+            new ChallengeCarrotCountGreatorOrEqual10(),
 
         };
         public static List<Challenge> ActiveChallenges = new List<Challenge>()
@@ -112,6 +117,11 @@ namespace projectlndieFem
                 {
                     ChineseCabbageHarvestCountInCurrentDay.Value++;
                     HarvestChineseCabbageCount++;
+                }
+                else if (plant is PlantCarrot)
+                {
+                    CarrotHarvestCountInCurrentDay.Value++;
+                    HarvestCarrotCount++;
                 }
             }).UnRegisterWhenGameObjectDestroyed(this);
         }

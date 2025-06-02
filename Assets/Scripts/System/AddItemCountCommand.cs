@@ -31,6 +31,7 @@ namespace projectlndieFem
             {
                item.Count.Value += mAddCount;
             }
+            ToolBarSystem.OnItemCountChanged.Trigger(item, item.Count.Value);
         }
 	}
 }

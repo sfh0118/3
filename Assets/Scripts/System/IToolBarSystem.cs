@@ -14,6 +14,7 @@ namespace projectlndieFem
       
         public static EasyEvent<Item> OnAddItem = new EasyEvent<Item>();
         public static EasyEvent<Item> OnRemoveItem = new EasyEvent<Item>();
+        public static EasyEvent<Item,int> OnItemCountChanged = new EasyEvent<Item, int>();
 
 
         // 게임 설정 및 아이템 목록을 정의하는 클래스
