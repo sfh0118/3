@@ -24,6 +24,7 @@ namespace projectlndieFem
         public void Awake()
         {
             Icon.sprite = null;
+            Icon.Hide();
             Select.Hide();
             ShortCut.Hide();
             Count.text = string.Empty;
@@ -51,6 +52,7 @@ namespace projectlndieFem
             {
                 Icon.sprite = null;
                 ShortCut.Hide();
+                Icon.Hide();
                 mData = null;
                 Count.text = string.Empty;
 
@@ -58,6 +60,7 @@ namespace projectlndieFem
             else
             { 
                 mData = data;
+                Icon.Show();
                 Icon.sprite = IconLoader?.Invoke(mData.IconName);
                 ShortCut.Show();
 

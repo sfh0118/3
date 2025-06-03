@@ -99,7 +99,7 @@ namespace projectlndieFem
             CreateSellItem("tomato", "매출:토마토($13)", 13);
             CreateSellItem("bean", "매출:단콩($15)", 15);
 
-            CreateBuyItem("seed_carot","구입:당근씨앗($-5)", 5);
+            CreateBuyItem("seed_carrot","구입:당근씨앗($-5)", 5);
             CreateBuyItem("seed_pumpkin", "구입:호박씨앗($-8)", 8);
             CreateBuyItem("seed_potato", "구입:감자씨앗($-4)", 4);
             CreateBuyItem("seed_tomato", "구입:토마토씨앗($-5)", 5);
