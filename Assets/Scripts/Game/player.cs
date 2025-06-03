@@ -84,7 +84,13 @@ namespace projectlndieFem
                 {
                     water.DestroySelf();
                 }
-
+                if (Global.Coin.Value < 0)
+                {
+                    ActionKit.Delay(2.0f, () =>
+                    {
+                        SceneManager.LoadScene("GameOver");
+                    }).Start(this);
+                }
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 

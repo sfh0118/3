@@ -1,5 +1,7 @@
 ﻿using QFramework;
+using System;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace projectlndieFem
 {
@@ -45,6 +47,25 @@ namespace projectlndieFem
                     Global.Hours.Value = 0;
                 }
 				
+			});
+			Global.Hours.RegisterWithInitValue(hours =>
+			{
+				if (hours > 1)
+				{
+					BtnPartTime.Show();
+				}
+				else
+				{
+					BtnPartTime.Hide();
+				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			BtnPartTime.onClick.AddListener(() =>
+			{
+				var coinPerHour = UnityEngine.Random.Range(2f, 3f);
+				var income = Global.Hours.Value * coinPerHour;
+				Global.Coin.Value += (int)income;
+				Global.Hours.Value = 0;
+
 			});
 			
 		}

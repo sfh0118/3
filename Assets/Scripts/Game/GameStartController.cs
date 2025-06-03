@@ -8,8 +8,10 @@ namespace projectlndieFem
 	{
 		void Start()
 		{
-			// Code Herer
-		}
+
+            Global.RestData();
+            // Code Herer
+        }
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
