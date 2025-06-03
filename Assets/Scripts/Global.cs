@@ -16,13 +16,13 @@ namespace projectlndieFem
         //시간
         public static BindableProperty<float> Hours = new BindableProperty<float>(Config.INIT_HOURS);
 
-        //금화(돈)코인
-        public static BindableProperty<int> Coin = new BindableProperty<int>(Config.INIT_COIN);
         //시간(초단위)
         public static BindableProperty<float> FirstGameTotalHours = new BindableProperty<float>(15);
-        public static BindableProperty<float> FirstGameCurrentHous = new BindableProperty<float>(0f);
+        public static BindableProperty<float> FirstGameCurrentHours = new BindableProperty<float>(0f);
         public static BindableProperty<bool> FirstGameFinished = new BindableProperty<bool>(false);
 
+        //금화(돈)코인
+        public static BindableProperty<int> Coin = new BindableProperty<int>(Config.INIT_COIN);
 
         //도구바
         public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(null);

@@ -45,6 +45,11 @@ namespace projectlndieFem
             Global.Days.Register(day =>
             {
                 Global.Hours.Value = Random.Range(8, 12+1);
+                Global.Coin.Value -= Random.Range(10,20);
+                if(Global.FirstGameFinished.Value)
+                {
+                    Global.Coin.Value += Random.Range(5, 15);
+                }
                 //다음날
                 ChallengeSystem.CarrotHarvestCountInCurrentDay.Value = 0;
                 ChallengeSystem.PotatoHarvestCountInCurrentDay.Value = 0;

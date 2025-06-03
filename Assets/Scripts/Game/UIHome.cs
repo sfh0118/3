@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using QFramework;
+﻿using QFramework;
 using UnityEngine.UI;
 
 namespace projectlndieFem
@@ -8,26 +7,43 @@ namespace projectlndieFem
 	{
 		void Start()
 		{
-			var firstGameTotalHours = 100f;
-			var firstGameCurrentHours = 0f;
+            Global.FirstGameFinished.RegisterWithInitValue(finished =>
+			{
+				if (finished)
+				{
+					BtnFirstGame.Hide();
+				}
+				else
+				{
+					BtnFirstGame.Show();
+				}
+
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			Global.FirstGameCurrentHours.RegisterWithInitValue(hours =>
+			{
+                BtnFirstGame.GetComponentInChildren<Text>().text =
+                    $"미니농장게임({hours:0.0}/{Global.FirstGameTotalHours.Value:0}시간)";
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+           
 			BtnFirstGame.onClick.AddListener(() =>
 			{
-				var canFinishGameToday = (firstGameTotalHours - firstGameCurrentHours) <= Global.Hours.Value;
+				var canFinishGameToday = (Global.FirstGameTotalHours.Value - Global.FirstGameCurrentHours.Value) <= Global.Hours.Value;
 
 				if (canFinishGameToday)
 				{
-                    var needHoursToDay = firstGameTotalHours - firstGameCurrentHours;
+                    var needHoursToDay = Global.FirstGameTotalHours.Value - Global.FirstGameCurrentHours.Value;
                     Global.Hours.Value -= needHoursToDay;
-                    firstGameCurrentHours = firstGameTotalHours;
+                    Global.FirstGameCurrentHours = Global.FirstGameTotalHours;
+                    Global.FirstGameFinished.Value = true;
                     
 				}
 				else
 				{
-                    firstGameCurrentHours += Global.Hours.Value;
+                    Global.FirstGameCurrentHours.Value += Global.Hours.Value;
                     Global.Hours.Value = 0;
                 }
-				BtnFirstGame.GetComponentInChildren<Text>().text = 
-					$"미니농장게임({firstGameCurrentHours:0.0}/{firstGameTotalHours:0}시간)";
 				
 			});
 			

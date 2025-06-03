@@ -88,6 +88,7 @@ namespace projectlndieFem
                     //깽이 땅깨기
                     if (Global.CurrentTool.Value.Selectable(mToolData))
                     {
+                        Icon.Alpha(1.0f);
                         if(Global.Hours.Value >= Global.CurrentTool.Value.HourCost)
                         {
 
@@ -104,12 +105,14 @@ namespace projectlndieFem
                         }
                         else
                         {
+
                             TimeNotEnoughIcon.Show();
                         }
                        
                     }
                     else
                     {
+                        Icon.Alpha(0.5f);
                         TimeNotEnoughIcon.Hide();
                     }
 
@@ -118,7 +121,10 @@ namespace projectlndieFem
             }
             else
             {
+
                 mSprite.enabled = false;
+                Icon.Alpha(0.5f);
+                TimeNotEnoughIcon.Hide();
             }
 
 
