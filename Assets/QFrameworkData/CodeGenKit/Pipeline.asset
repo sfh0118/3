@@ -20,29 +20,29 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos:
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnBuyChineseCabbageSeed
-      MemberName: BtnBuyChineseCabbageSeed
+      PathToRoot: BtnTemplate
+      MemberName: BtnTemplate
+    - TypeName: RectTransform
+      PathToRoot: BtnRoot
+      MemberName: BtnRoot
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnBuyRadishSeed
-      MemberName: BtnBuyRadishSeed
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnBuyFruitSeed
+      PathToRoot: BtnRoot/BtnBuyFruitSeed
       MemberName: BtnBuyFruitSeed
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnBuyCarrotSeed
-      MemberName: BtnBuyCarrotSeed
+      PathToRoot: BtnRoot/BtnBuyChineseCabbageSeed
+      MemberName: BtnBuyChineseCabbageSeed
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnSellFruit
+      PathToRoot: BtnRoot/BtnBuyRadishSeed
+      MemberName: BtnBuyRadishSeed
+    - TypeName: UnityEngine.UI.Button
+      PathToRoot: BtnRoot/BtnSellFruit
       MemberName: BtnSellFruit
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnSellRadish
+      PathToRoot: BtnRoot/BtnSellRadish
       MemberName: BtnSellRadish
     - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnSellChineseCabbage
+      PathToRoot: BtnRoot/BtnSellChineseCabbage
       MemberName: BtnSellChineseCabbage
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnSellCarrot
-      MemberName: BtnSellCarrot
     ScriptsFolder: Assets/Scripts/Game
     ClassName: UIShop
     Namespace: projectlndieFem
