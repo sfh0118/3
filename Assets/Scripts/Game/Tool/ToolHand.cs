@@ -57,6 +57,7 @@ namespace projectlndieFem
 
             AudioController.Get.SfxHarvest.Play();
         }
+        public float HourCost { get; } = 0.2f;
         public IArchitecture GetArchitecture()
         {
             return Global.Interface;

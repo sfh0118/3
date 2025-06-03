@@ -12,6 +12,8 @@ namespace projectlndieFem
         int Range { get;}
         bool Selectable(ToolData toolData);
         void Use(ToolData toolData);
+
+        float HourCost { get; }
     }
     public class ToolData
     {

@@ -19,14 +19,14 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnNextDay
-      MemberName: BtnNextDay
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnFirstGame
-      MemberName: BtnFirstGame
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: UIHome
+    - TypeName: SpriteRenderer
+      PathToRoot: Icon
+      MemberName: Icon
+    - TypeName: SpriteRenderer
+      PathToRoot: Icon/TimeNotEnoughIcon
+      MemberName: TimeNotEnoughIcon
+    ScriptsFolder: Assets\Scripts\Game
+    ClassName: ToolController
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

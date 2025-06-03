@@ -22,6 +22,8 @@ namespace projectlndieFem
             AudioController.Get.SfxShoveDig.Play();
 
         }
+
+        public float HourCost { get; } = 0.5f;
     }
     
 

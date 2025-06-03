@@ -88,14 +88,29 @@ namespace projectlndieFem
                     //깽이 땅깨기
                     if (Global.CurrentTool.Value.Selectable(mToolData))
                     {
-                        mToolData.GridCenterPos = ShowSelect(mouseCellPos);
-
-                        if (Input.GetMouseButton(0))
+                        if(Global.Hours.Value >= Global.CurrentTool.Value.HourCost)
                         {
-                            Global.CurrentTool.Value.Use(mToolData);
-                            //땅깨기 땅있음
 
+                            TimeNotEnoughIcon.Hide();
+                            mToolData.GridCenterPos = ShowSelect(mouseCellPos);
+
+                            if (Input.GetMouseButton(0))
+                            {
+                                Global.CurrentTool.Value.Use(mToolData);
+                                //땅깨기 땅있음
+                                Global.Hours.Value -= Global.CurrentTool.Value.HourCost;
+
+                            }
                         }
+                        else
+                        {
+                            TimeNotEnoughIcon.Show();
+                        }
+                       
+                    }
+                    else
+                    {
+                        TimeNotEnoughIcon.Hide();
                     }
 
 

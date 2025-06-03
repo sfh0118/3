@@ -1,4 +1,4 @@
-// Generate Id:e2d0397d-3bd9-40cc-bb89-71c1ead45346
+// Generate Id:ccdaf53d-a77a-413d-9f94-6053e7d43735
 using UnityEngine;
 
 namespace projectlndieFem
@@ -6,6 +6,8 @@ namespace projectlndieFem
 	public partial class ToolController
 	{
 		public SpriteRenderer Icon;
+		
+		public SpriteRenderer TimeNotEnoughIcon;
 		
 	}
 }

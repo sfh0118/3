@@ -36,6 +36,8 @@ namespace projectlndieFem
             //toolData.ShowGrid[toolData.CellPos.x,toolData.CellPos.y].Watered = true;
             //AudioController.Get.SfxWater.Play();
         }
+
+        public float HourCost { get; } = 0.3f;
     }
 
 
