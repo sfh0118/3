@@ -37,22 +37,12 @@ namespace projectlndieFem
             {
                 return CreateShovel();
             }
-            else if (itemName == "seed")
-            {
-                return CreateSeed(count);
-            }
+           
             else if (itemName == "watering_can")
             {
                 return CreateWateringCan();
             }
-            else if (itemName == "seed_radish")
-            {
-                return CreateSeedRadish(count);
-            }
-            else if (itemName == "seed_chinese_cabbage")
-            {
-                return CreateSeedChineseCabbage(count);
-            }
+            
             else if (itemName == "seed_potato")
             {
                 return CreateSeedPotato(count);
@@ -66,6 +56,10 @@ namespace projectlndieFem
                 return CreateSeedCarrot(count);
             }
             else if (itemName == "seed_bean")
+            {
+                return CreateSeedPumpkin(count);
+            }
+            else if (itemName == "seed_bpumpkin")
             {
                 return CreateSeedBean(count);
             }
@@ -119,23 +113,7 @@ namespace projectlndieFem
             };
 
         }
-        public static Item CreateSeed(int count = 5)
-        {
-            return new Item()
-            {
-                IconName = "ToolSeed_0",
-                Count = new BindableProperty<int>(count),
-                Countable = true,
-                IsPlant = true,
-                Name = "seed",
-                PlantPrefabName = "Plant"
-
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
-        }
+       
         public static Item CreateWateringCan()
         {
 
@@ -150,41 +128,8 @@ namespace projectlndieFem
                 Tool = new ToolWateringCan()
             };
         }
-        public static Item CreateSeedRadish(int count = 5)
-        {
-
-            return new Item()
-            {
-                IconName = "ToolSeedRadish_0",
-                Count = new BindableProperty<int>(count),
-                Countable = true,
-                IsPlant = true,
-                Name = "seed_radish",
-                PlantPrefabName = "PlantRadish"
-
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
-        }
-        public static Item CreateSeedChineseCabbage(int count = 5)
-        {
-            return new Item()
-            {
-                IconName = "ToolSeedChineseCabbage_0",
-                Count = new BindableProperty<int>(count),
-                Countable = true,
-                IsPlant = true,
-                Name = "seed_chinese_cabbage",
-                PlantPrefabName = "PlantChineseCabbage",
-                Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
-        }
+        
+        
         public static Item CreateSeedCarrot(int count = 5)
         {
             return new Item()

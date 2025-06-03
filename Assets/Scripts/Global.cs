@@ -25,21 +25,7 @@ namespace projectlndieFem
 
         //도구바
         public static BindableProperty<ITool> CurrentTool = new BindableProperty<ITool>(null);
-        //열매 수량
-        public static BindableProperty<int> FruitCount= new BindableProperty<int>( 0);
-
-        //
-        public static BindableProperty<int> FruitSeedCount = new BindableProperty<int>(5);
-      
-        //무 수량
-        public static BindableProperty<int> RadishCount = new BindableProperty<int>(0);
-        //무 씨앗 수량
-        public static BindableProperty<int> ChineseCabbageCount = new BindableProperty<int>(0);
-
-        //당근 수량
-
-
-
+        
 
         //식물 수확 
         public static EasyEvent<IPlant> OnPlantHarvest= new EasyEvent<IPlant>();
@@ -75,7 +61,7 @@ namespace projectlndieFem
         {
             //데이터 저장
             PlayerPrefs.SetInt(nameof(Coin), Coin.Value);
-            PlayerPrefs.SetFloat(nameof(Hours), FruitCount.Value);
+            //PlayerPrefs.SetFloat(nameof(Hours), FruitCount.Value);
             PlayerPrefs.SetInt(nameof(Days), Days.Value);
         }
         protected override void Init()

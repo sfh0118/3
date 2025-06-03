@@ -46,12 +46,12 @@ namespace projectlndieFem
             {
 
                 //다음날
-                ChallengeController.RipeAndHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.RipeAndHarvestRadishCountInCurrentDay.Value = 0;
-                ChallengeController.HarvestCountInCurrentDay.Value = 0;
-                ChallengeController.RadishHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.ChineseCabbageHarvestCountInCurrentDay.Value = 0;
                 ChallengeController.CarrotHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.PotatoHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.TomatoHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.BeanHarvestCountInCurrentDay.Value = 0;
+                ChallengeController.PumpkinHarvestCountInCurrentDay.Value = 0;
+
 
                 //식물 상태변경
                 var soilDatas = FindObjectOfType<GridController>().ShowGrid;
@@ -83,47 +83,7 @@ namespace projectlndieFem
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
-        private void OnGUI()
-        {
-            IMGUIHelper.SetDesignResolution(640, 360);
-
-
-
-
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("열매 :" + Global.FruitCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("무 :" + Global.RadishCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            GUILayout.Label("배추 :" + Global.ChineseCabbageCount.Value, mLabelsyle);
-            GUILayout.EndHorizontal();
-
-
-
-            //GUILayout.BeginHorizontal();
-            //GUILayout.Space(10);
-            //GUILayout.Label("다음날:F ", mLabelsyle);
-            //GUILayout.EndHorizontal();
-
-
-
-
-            GUILayout.FlexibleSpace();
-
-            //GUI.Label(new Rect(10, 360 - 24, 200, 24), "[1]손 [2]깽이 [3]씨앗 [4]물뿌리개");
-
-
-
-        }
-
+    
 
 
         private void Update()

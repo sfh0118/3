@@ -8,32 +8,12 @@ namespace projectlndieFem
     public partial class ChallengeController : ViewController,IController
     {
 
-        //당일 열매수량
-        public static BindableProperty<int> RipeAndHarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 무 수량
-        public static BindableProperty<int> RipeAndHarvestRadishCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 수확한 식물 수량
-        public static BindableProperty<int> HarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 수확한 무 수량
-        public static BindableProperty<int> RadishHarvestCountInCurrentDay = new BindableProperty<int>(0);
-
-        //당일 수확한 배추 수량
-        public static BindableProperty<int> ChineseCabbageHarvestCountInCurrentDay = new BindableProperty<int>(0);
-
         public static BindableProperty<int> CarrotHarvestCountInCurrentDay = new BindableProperty<int>(0);
         public static BindableProperty<int> PotatoHarvestCountInCurrentDay = new BindableProperty<int>(0);
         public static BindableProperty<int> TomatoHarvestCountInCurrentDay = new BindableProperty<int>(0);
         public static BindableProperty<int> PumpkinHarvestCountInCurrentDay = new BindableProperty<int>(0);
         public static BindableProperty<int> BeanHarvestCountInCurrentDay = new BindableProperty<int>(0);
 
-        //수확한 열매의 수량
-        public static int HarvestedFruitCount = 0;
-
-        public static int HarvestedRadishCount = 0;
-        public static int HarvestChineseCabbageCount = 0;
         public static int HarvestCarrotCount = 0;
         public static int HarvestPotatoCount = 0;
         public static int HarvestTomatoCount = 0;
@@ -162,19 +142,7 @@ namespace projectlndieFem
                 if (plant is Plant)
                 {
                     var plantObj = plant as Plant;
-                    if (plantObj.Name == "fruit")
-                    {
-
-                        HarvestCountInCurrentDay.Value++;
-
-                        HarvestedFruitCount++;
-
-                        if (plant.RipeDay == Global.Days.Value)
-                        {
-                            RipeAndHarvestCountInCurrentDay.Value++;
-                        }
-                    }
-                    else if(plantObj.Name == "potato")
+                    if(plantObj.Name == "potato")
                     {
                         PotatoHarvestCountInCurrentDay.Value++;
 
@@ -197,23 +165,7 @@ namespace projectlndieFem
                     }
 
                 }
-                else if (plant is PlantRadish)
-                {
-                    ChallengeController.RadishHarvestCountInCurrentDay.Value++;
-
-                    HarvestedRadishCount++;
-
-                    if (plant.RipeDay == Global.Days.Value)
-                    {
-                        ChallengeController.RipeAndHarvestRadishCountInCurrentDay.Value++;
-                    }
-
-                }
-                else if (plant is PlantChineseCabbage)
-                {
-                    ChineseCabbageHarvestCountInCurrentDay.Value++;
-                    HarvestChineseCabbageCount++;
-                }
+               
                 else if (plant is PlantCarrot)
                 {
                     CarrotHarvestCountInCurrentDay.Value++;

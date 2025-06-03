@@ -25,24 +25,6 @@ MonoBehaviour:
     - TypeName: RectTransform
       PathToRoot: BtnRoot
       MemberName: BtnRoot
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnBuyFruitSeed
-      MemberName: BtnBuyFruitSeed
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnBuyChineseCabbageSeed
-      MemberName: BtnBuyChineseCabbageSeed
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnBuyRadishSeed
-      MemberName: BtnBuyRadishSeed
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnSellFruit
-      MemberName: BtnSellFruit
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnSellRadish
-      MemberName: BtnSellRadish
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnRoot/BtnSellChineseCabbage
-      MemberName: BtnSellChineseCabbage
     ScriptsFolder: Assets/Scripts/Game
     ClassName: UIShop
     Namespace: projectlndieFem

@@ -1,4 +1,4 @@
-// Generate Id:42add1ca-96c4-4150-8e09-bfc163c85097
+// Generate Id:ace99e7b-1e6a-4602-8f5c-390f4d0d571d
 using UnityEngine;
 
 namespace projectlndieFem
@@ -8,18 +8,6 @@ namespace projectlndieFem
 		public UnityEngine.UI.Button BtnTemplate;
 		
 		public RectTransform BtnRoot;
-		
-		public UnityEngine.UI.Button BtnBuyFruitSeed;
-		
-		public UnityEngine.UI.Button BtnBuyChineseCabbageSeed;
-		
-		public UnityEngine.UI.Button BtnBuyRadishSeed;
-		
-		public UnityEngine.UI.Button BtnSellFruit;
-		
-		public UnityEngine.UI.Button BtnSellRadish;
-		
-		public UnityEngine.UI.Button BtnSellChineseCabbage;
 		
 	}
 }

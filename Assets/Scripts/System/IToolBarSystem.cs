@@ -22,9 +22,7 @@ namespace projectlndieFem
         {
             Config.CreateHand(),
             Config.CreateShovel(),
-            Config.CreateSeed(),
             Config.CreateWateringCan(),
-            Config.CreateSeedCarrot(),
             Config.CreateSeedPumpkin(),
             Config.CreateSeedPotato(),
             Config.CreateSeedTomato(),
