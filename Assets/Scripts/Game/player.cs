@@ -44,7 +44,7 @@ namespace projectlndieFem
 
             Global.Days.Register(day =>
             {
-                Global.Hours.Value = Random.Range(8, 12.0f);
+                Global.Hours.Value = Random.Range(8, 12+1);
                 //다음날
                 ChallengeSystem.CarrotHarvestCountInCurrentDay.Value = 0;
                 ChallengeSystem.PotatoHarvestCountInCurrentDay.Value = 0;

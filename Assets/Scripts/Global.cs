@@ -14,7 +14,7 @@ namespace projectlndieFem
         //첫날
         public static BindableProperty<int> Days = new BindableProperty<int>(Config.INIT_DAY);
         //시간
-        public static BindableProperty<float> Hours = new BindableProperty<float>(10);//Config.INIT_HOURS);
+        public static BindableProperty<float> Hours = new BindableProperty<float>(Config.INIT_HOURS);
 
         //금화(돈)코인
         public static BindableProperty<int> Coin = new BindableProperty<int>(Config.INIT_COIN);
