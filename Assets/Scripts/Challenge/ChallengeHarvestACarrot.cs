@@ -9,7 +9,7 @@
         }
         public override bool CheckFinish()
         {
-            return Global.Days.Value != StartDate && ChallengeController.CarrotHarvestCountInCurrentDay.Value > 0;
+            return Global.Days.Value != StartDate && ChallengeSystem.CarrotHarvestCountInCurrentDay.Value > 0;
         }
 
         public override void OnFinish()

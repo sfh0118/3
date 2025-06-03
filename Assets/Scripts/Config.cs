@@ -11,21 +11,6 @@ namespace projectlndieFem
         public const int INIT_HOURS = 10;
         public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
 
-        //public static Dictionary<string, Item> ItemForName = new Dictionary<string, Item>()
-        //{
-        //    { "hand", CreateHand() },
-        //    { "shovel", CreateShovel() },
-        //    { "seed", CreateSeed() },
-        //    { "watering_can", CreateWateringCan() },
-        //    { "seed_radish", CreateSeedRadish() },
-        //    { "seed_chinese_cabbage", CreateSeedChineseCabbage() },
-        //    { "seed_carrot", CreateSeedCarrot() },
-        //    { "carrot", CreateCarrot() },
-        //{"pumpkin",CreatePumpkin() },
-        //{"potato", CreatePotato() },
-        //{"tomato", CreateTomato() },
-        //{"bean", CreateBean() },
-        //};
 
         public static Item CreateItem(string itemName, int count = 1)
         {

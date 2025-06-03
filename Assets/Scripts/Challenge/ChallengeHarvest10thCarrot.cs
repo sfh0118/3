@@ -9,7 +9,7 @@
         }
         public override bool CheckFinish()
         {
-            return ChallengeController.HarvestCarrotCount >= 10;
+            return ChallengeSystem.HarvestCarrotCount >= 10;
         }
 
         public override void OnFinish()

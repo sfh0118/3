@@ -13,12 +13,12 @@ namespace projectlndieFem
 		{
             Application.targetFrameRate = 60;
 
-            ChallengeController.OnChallengeFinish.Register(challenge =>
+            ChallengeSystem.OnChallengeFinish.Register(challenge =>
             {
                 AudioController.Get.SfxChallengeFinish.Play();
 
 
-                if (ChallengeController.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
+                if (ChallengeSystem.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
                 {
                     ActionKit.Delay(0.5f, () =>
                      {

@@ -44,13 +44,13 @@ namespace projectlndieFem
 
             Global.Days.Register(day =>
             {
-
+                Global.Hours.Value = Random.Range(8, 12.0f);
                 //다음날
-                ChallengeController.CarrotHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.PotatoHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.TomatoHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.BeanHarvestCountInCurrentDay.Value = 0;
-                ChallengeController.PumpkinHarvestCountInCurrentDay.Value = 0;
+                ChallengeSystem.CarrotHarvestCountInCurrentDay.Value = 0;
+                ChallengeSystem.PotatoHarvestCountInCurrentDay.Value = 0;
+                ChallengeSystem.TomatoHarvestCountInCurrentDay.Value = 0;
+                ChallengeSystem.BeanHarvestCountInCurrentDay.Value = 0;
+                ChallengeSystem.PumpkinHarvestCountInCurrentDay.Value = 0;
 
 
                 //식물 상태변경
