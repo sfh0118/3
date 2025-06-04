@@ -1,12 +1,13 @@
 ﻿using QFramework;
 using System.Collections.Generic;
+using UnityEngine.XR;
 using static UnityEditor.Progress;
 
 namespace projectlndieFem
 {
     public class Config
     {
-        public const int INIT_COIN = 10;
+        public const int INIT_COIN = 1000;
         public const int INIT_DAY = 1;
         public const int INIT_HOURS = 10;
         public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
@@ -14,63 +15,29 @@ namespace projectlndieFem
 
         public static Item CreateItem(string itemName, int count = 1)
         {
-            if (itemName == "hand")
-            {
-                return CreateHand();
-            }
-            else if (itemName == "shovel")
-            {
-                return CreateShovel();
-            }
-           
-            else if (itemName == "watering_can")
-            {
-                return CreateWateringCan();
-            }
-            
-            else if (itemName == "seed_potato")
-            {
-                return CreateSeedPotato(count);
-            }
-            else if (itemName == "seed_tomato")
-            {
-                return CreateSeedTomato(count);
-            }
-            else if (itemName == "seed_carrot")
-            {
-                return CreateSeedCarrot(count);
-            }
-            else if (itemName == "seed_bean")
-            {
-                return CreateSeedPumpkin(count);
-            }
-            else if (itemName == "seed_bpumpkin")
-            {
-                return CreateSeedBean(count);
-            }
-            else if (itemName == "carrot")
-            {
-                return CreateCarrot(count);
-            }
-            else if (itemName == "pumpkin")
-            {
-                return CreatePumpkin(count);
-            }
-            else if (itemName == "potato")
-            {
-                return CreatePotato(count);
-            }
-            else if (itemName == "tomato")
-            {
-                return CreateTomato(count);
-            }
-            else if (itemName == "bean")
-            {
-                return CreateBean(count);
-            }
-            return null;
+            var item = ItemForName[itemName].Copy();
+            item.Count.Value = count;
+            return item;
 
         }
+
+        public static Dictionary<string, Item> ItemForName = new Dictionary<string, Item>()
+        {
+            {"hand", CreateHand()},
+            {"shovel", CreateShovel()},
+            {"watering_can",CreateWateringCan()},
+            {"seed_potato", CreateSeedPotato()},
+            { "seed_tomato", CreateSeedTomato()},
+            {"seed_carrot", CreateSeedCarrot()},
+            {"seed_bean", CreateSeedPumpkin()},
+            {"seed_bpumpkin",CreateSeedBean()},
+            {"carrot", CreateCarrot()},
+            {"pumpkin", CreatePumpkin()},
+            {"potato", CreatePotato()},
+            {"tomato", CreateTomato()},
+            {"bean", CreateBean()},
+
+        };
         public static Item CreateHand()
         {
             return new Item()

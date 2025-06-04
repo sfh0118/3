@@ -62,15 +62,15 @@ namespace projectlndieFem
         //    //Interface.GetSystem<ISoilSystem>().LoadDate();
         //    //Interface.GetSystem<IChallengeSystem>().LoadDate();
         //}
-        //public static void SaveData()
-        //{
-        //    //데이터 저장
-        //    PlayerPrefs.SetInt(nameof(Coin), Coin.Value);
-        //    //PlayerPrefs.SetFloat(nameof(Hours), FruitCount.Value);
-        //    PlayerPrefs.SetInt(nameof(Days), Days.Value);
-        //    //Interface.GetSystem<ISoilSystem>().SaveDate();
-        //    //Interface.GetSystem<IChallengeSystem>().SaveDate();
-        //}
+        public static void SaveData()
+        {
+            //데이터 저장
+            PlayerPrefs.SetInt(nameof(Coin), Coin.Value);
+            //PlayerPrefs.SetFloat(nameof(Hours), FruitCount.Value);
+            PlayerPrefs.SetInt(nameof(Days), Days.Value);
+            //Interface.GetSystem<ISoilSystem>().SaveDate();
+            //Interface.GetSystem<IChallengeSystem>().SaveDate();
+        }
         protected override void Init()
         {
             //this.RegisterSystem<IChallengeSystem>(new ChallengeSystem());

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3973936673608959090}
   - component: {fileID: 6923510827801137252}
   - component: {fileID: 2290685249566527164}
+  - component: {fileID: -7172702388143240891}
   m_Layer: 0
   m_Name: PlantCarrot
   m_TagString: Untagged
@@ -104,3 +105,44 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+--- !u!114 &-7172702388143240891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075451032888004668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c295f74848614eb4bb745e18cb127dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: projectlndieFem
+  ScriptName: PlantCarrot
+  ScriptsFolder: Assets\Scripts\Game\Plant
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Name: 
+  States:
+  - State: 0
+    Sprite: {fileID: 2069220360, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    ShowDigState: 0
+    Days: 0
+  - State: 1
+    Sprite: {fileID: -1982779330, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    ShowDigState: 0
+    Days: 0
+  - State: 2
+    Sprite: {fileID: -410079446, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    ShowDigState: 0
+    Days: 0
+  - State: 3
+    Sprite: {fileID: 284870288, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    ShowDigState: 0
+    Days: 0
+  - State: 4
+    Sprite: {fileID: 1034431665, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    ShowDigState: 0
+    Days: 0

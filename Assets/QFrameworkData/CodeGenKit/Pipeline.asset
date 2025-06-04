@@ -15,18 +15,12 @@ MonoBehaviour:
   CurrentTask:
     ShowLog: 0
     Status: 1
-    GameObject: {fileID: 0}
+    GameObject: {fileID: 7562126971696108414, guid: 152d928ceb6049740aa54a28f293677c, type: 3}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: projectlndieFem.UIMessageItem
-      PathToRoot: UIMessageItemTemplete
-      MemberName: UIMessageItemTemplete
-    - TypeName: RectTransform
-      PathToRoot: MessageRoot
-      MemberName: MessageRoot
-    ScriptsFolder: Assets\Scripts\Game
-    ClassName: UIMessageQueue
+    BindInfos: []
+    ScriptsFolder: Assets/Scripts/Game/Plant
+    ClassName: Plant
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

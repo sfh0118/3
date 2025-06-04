@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using QFramework;
+using static UnityEditor.Progress;
 
 
 namespace projectlndieFem
@@ -19,6 +20,26 @@ namespace projectlndieFem
         public string PlantPrefabName;
 
 
+        public Item Copy()
 
+        {
+            var item = new Item()
+            {
+                Name = Name,
+                IconName = IconName,
+                Count = new BindableProperty<int>(Count.Value),
+                Countable = Countable,
+                Tool = Tool,
+                IsPlant = IsPlant,
+                PlantPrefabName = PlantPrefabName
+            };
+            if (item.Tool is ToolSeed  tools)
+            {
+                var toolSeed = item.Tool as ToolSeed;
+                toolSeed.Item = item;
+            }
+            return item;
+        }
+        
     }
 }

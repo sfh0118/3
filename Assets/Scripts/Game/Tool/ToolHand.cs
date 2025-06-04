@@ -27,20 +27,24 @@ namespace projectlndieFem
             {
                 var plant = PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant;
                 if (plant.Name == "pumpkin")
-                {
 
+                {
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
                     this.SendCommand(new AddItemCountCommand("pumkin", 1));
                 }
                 else if (plant.Name == "potato")
                 {
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
                     this.SendCommand(new AddItemCountCommand("potato", 1));
                 }
                 else if (plant.Name == "tomato")
                 {
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
                     this.SendCommand(new AddItemCountCommand("tomato", 1));
                 }
                 else if (plant.Name == "bean")
                 {
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
                     this.SendCommand(new AddItemCountCommand("bean", 1));
                 }
                
@@ -48,6 +52,7 @@ namespace projectlndieFem
        
             else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantCarrot)
             {
+                UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName["carrot"].IconName), "+1");
                 this.SendCommand(new AddItemCountCommand("carrot", 1));
 
             }

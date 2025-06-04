@@ -119,7 +119,7 @@ MonoBehaviour:
     ShowDigState: 0
     Days: 1
   - State: 3
-    Sprite: {fileID: 1584529052, guid: 2eba43b2eab118247be335b80584608f, type: 3}
+    Sprite: {fileID: 1799385406, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
     Days: 1
   - State: 2
