@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using QFramework;
 
 
@@ -87,6 +87,7 @@ namespace projectlndieFem
                 if (soilData.Watered)
                 {
                     SetState(PlantStates.Ripe);
+                    UIMessageQueue.Push(this.GetComponent<SpriteRenderer>().sprite, "수확 가능");
                 }
             }
 

@@ -16,8 +16,8 @@ namespace projectlndieFem
             ChallengeSystem.OnChallengeFinish.Register(challenge =>
             {
                 AudioController.Get.SfxChallengeFinish.Play();
-
-
+                Global.Coin.Value += 100;
+                UIMessageQueue.Push("도전[" + challenge.Name + "]완료 코인<colcr=yellow>+$100</color>");
                 if (ChallengeSystem.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
                 {
                     ActionKit.Delay(0.5f, () =>

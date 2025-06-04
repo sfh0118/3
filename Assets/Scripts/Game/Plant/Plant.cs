@@ -96,6 +96,11 @@ namespace projectlndieFem
                     currentStateIndex++;
                     var nexPlantState = States[currentStateIndex];
                     SetState(nexPlantState.State);
+
+                    if(nexPlantState.State == PlantStates.Ripe)
+                    {
+                        UIMessageQueue.Push(this.GetComponent<SpriteRenderer>().sprite,"수확 가능");
+                    }
                     mDayInCurrentState = 0;
                 }
             }
