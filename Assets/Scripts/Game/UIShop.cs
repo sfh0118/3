@@ -33,6 +33,8 @@ namespace projectlndieFem
                 if (carrotItem != null)
                 {
                     Global.Coin.Value += sellPrice;
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[itemName].IconName), 
+                        $"-1 코인$+{sellPrice}");
                     this.SendCommand(new SubItemCountCommand(itemName, 1));
                 }
 
@@ -72,7 +74,8 @@ namespace projectlndieFem
             {
                 Global.Coin.Value -= buyPrice;
                 this.SendCommand(new AddItemCountCommand(itemName, 1));
-
+                UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[itemName].IconName),
+                        $"+1 코인$-{buyPrice}");
                 AudioController.Get.SfxBuy.Play();
             });
             btnBuyItem.GetComponentInChildren<Text>().text = displayName;

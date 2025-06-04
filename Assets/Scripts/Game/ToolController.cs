@@ -100,6 +100,7 @@ namespace projectlndieFem
                                 Global.CurrentTool.Value.Use(mToolData);
                                 //땅깨기 땅있음
                                 Global.Hours.Value -= Global.CurrentTool.Value.HourCost;
+                                UIMessageQueue.Push($"시간수-{Global.CurrentTool.Value.HourCost:0.0}");
 
                             }
                         }

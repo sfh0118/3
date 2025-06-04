@@ -36,13 +36,15 @@ namespace projectlndieFem
 				if (canFinishGameToday)
 				{
                     var needHoursToDay = Global.FirstGameTotalHours.Value - Global.FirstGameCurrentHours.Value;
+					UIMessageQueue.Push($"시간수-{needHoursToDay}");
                     Global.Hours.Value -= needHoursToDay;
                     Global.FirstGameCurrentHours = Global.FirstGameTotalHours;
                     Global.FirstGameFinished.Value = true;
                     
 				}
 				else
-				{
+                {
+                    UIMessageQueue.Push($"시간수-{Global.Hours.Value}");
                     Global.FirstGameCurrentHours.Value += Global.Hours.Value;
                     Global.Hours.Value = 0;
                 }
@@ -63,7 +65,8 @@ namespace projectlndieFem
 			{
 				var coinPerHour = UnityEngine.Random.Range(2f, 3f);
 				var income = Global.Hours.Value * coinPerHour;
-				Global.Coin.Value += (int)income;
+                UIMessageQueue.Push($"시간수-{Global.Hours.Value} 코인$+{income}");
+                Global.Coin.Value += (int)income;
 				Global.Hours.Value = 0;
 
 			});
