@@ -10,7 +10,7 @@ namespace projectlndieFem
 	{
 		void Start()
 		{
-			// Code Here
+            Global.RestData();
         }
 
         private void Update()

@@ -42,31 +42,32 @@ namespace projectlndieFem
         public static bool WateringCanRange1Unlock = false;
         public static bool SeedRange1Unlock = false;
 
-        //public static void RestData()
-        //{
-        //    //데이터 초기화
 
-        //    Coin.Value = Config.INIT_COIN;
-        //    Hours.Value = Config.INIT_HOURS;
-        //    Days.Value = Config.INIT_DAY;
-        //    //Interface.GetSystem<ISoilSystem>().ResetDate();
-        //    //Interface.GetSystem<IChallengeSystem>().ResetDate();
+        public static void RestData()
+        {
+            //    //데이터 초기화
 
-        //}
-        //public static void LoadData()
-        //{
-        //    //데이터 불러오기
-        //    Coin.Value = PlayerPrefs.GetInt(nameof(Coin), Config.INIT_COIN);
-        //    Hours.Value = PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS);
-        //    Days.Value = PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY);
-        //    //Interface.GetSystem<ISoilSystem>().LoadDate();
-        //    //Interface.GetSystem<IChallengeSystem>().LoadDate();
-        //}
+            Coin.Value = Config.INIT_COIN;
+            Hours.Value = Config.INIT_HOURS;
+            Days.Value = Config.INIT_DAY;
+            //    //Interface.GetSystem<ISoilSystem>().ResetDate();
+            //    //Interface.GetSystem<IChallengeSystem>().ResetDate();
+
+        }
+        public static void LoadData()
+        {
+            //    //데이터 불러오기
+            Coin.Value = PlayerPrefs.GetInt(nameof(Coin), Config.INIT_COIN);
+            Hours.Value = PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS);
+            Days.Value = PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY);
+            //    //Interface.GetSystem<ISoilSystem>().LoadDate();
+            //    //Interface.GetSystem<IChallengeSystem>().LoadDate();
+        }
         public static void SaveData()
         {
             //데이터 저장
             PlayerPrefs.SetInt(nameof(Coin), Coin.Value);
-            //PlayerPrefs.SetFloat(nameof(Hours), FruitCount.Value);
+            PlayerPrefs.SetFloat(nameof(Hours), Hours.Value);
             PlayerPrefs.SetInt(nameof(Days), Days.Value);
             //Interface.GetSystem<ISoilSystem>().SaveDate();
             //Interface.GetSystem<IChallengeSystem>().SaveDate();
@@ -77,16 +78,16 @@ namespace projectlndieFem
             //this.RegisterSystem<ISoilSystem>(new SoilSystem);
             this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
 
-            //LoadData();
+            LoadData();
             //this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
-            //Global.Days.Register(day =>
-            //{
-            //    ActionKit.NextFrame(() =>
-            //    {
+            Global.Days.Register(day =>
+            {
+                ActionKit.NextFrame(() =>
+                {
 
-            //        SaveData();
-            //    }).StartGlobal();
-            //});
+                    SaveData();
+                }).StartGlobal();
+            });
         }
         [RuntimeInitializeOnLoadMethod]
         public static void AutoInit()

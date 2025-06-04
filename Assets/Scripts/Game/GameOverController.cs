@@ -8,7 +8,7 @@ namespace projectlndieFem
     {
         private void Start()
         {
-            //Global.RestData();
+            Global.RestData();
             //Global.Days.Value = 1;
             //Global.Coin.Value = 0;
             ////Global.FruitCount.Value = 0;
