@@ -25,13 +25,13 @@ namespace projectlndieFem
                 Config.Items.Add(item);
                 ToolBarSystem.OnAddItem.Trigger(item);
 
-    //Global.UIToolBar.AddItem(carrotItem);
+                //Global.UIToolBar.AddItem(carrotItem);
             }
             else
             {
-               item.Count.Value += mAddCount;
+                item.Count.Value += mAddCount;
             }
             ToolBarSystem.OnItemCountChanged.Trigger(item, item.Count.Value);
         }
-	}
+    }
 }

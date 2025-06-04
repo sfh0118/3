@@ -9,7 +9,7 @@ namespace projectlndieFem
 		void Start()
 		{
 
-            Global.RestData();
+            //Global.RestData();
             // Code Herer
         }
         private void Update()

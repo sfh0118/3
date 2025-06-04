@@ -45,10 +45,16 @@ namespace projectlndieFem
             Global.Days.Register(day =>
             {
                 Global.Hours.Value = Random.Range(8, 12+1);
-                Global.Coin.Value -= Random.Range(10,20);
+
+                var cost = Random.Range(10, 20);
+                UIMessageQueue.Push($"전일소비한:$-{cost}");
+                Global.Coin.Value -= cost;
                 if(Global.FirstGameFinished.Value)
                 {
-                    Global.Coin.Value += Random.Range(5, 15);
+                    //첫 게임이 끝난 후에는 코인 보상
+                    var firstGameIncome = Random.Range(5, 15);
+                    UIMessageQueue.Push($"게임수익 $+{firstGameIncome}");
+                    Global.Coin.Value += firstGameIncome;
                 }
                 //다음날
                 ChallengeSystem.CarrotHarvestCountInCurrentDay.Value = 0;

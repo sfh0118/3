@@ -19,17 +19,14 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnNextDay
-      MemberName: BtnNextDay
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnPartTime
-      MemberName: BtnPartTime
-    - TypeName: UnityEngine.UI.Button
-      PathToRoot: BtnFirstGame
-      MemberName: BtnFirstGame
+    - TypeName: projectlndieFem.UIMessageItem
+      PathToRoot: UIMessageItemTemplete
+      MemberName: UIMessageItemTemplete
+    - TypeName: RectTransform
+      PathToRoot: MessageRoot
+      MemberName: MessageRoot
     ScriptsFolder: Assets\Scripts\Game
-    ClassName: UIHome
+    ClassName: UIMessageQueue
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

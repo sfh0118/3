@@ -6,7 +6,7 @@ namespace projectlndieFem
 {
     public class Config
     {
-        public const int INIT_COIN = 1000;
+        public const int INIT_COIN = 10;
         public const int INIT_DAY = 1;
         public const int INIT_HOURS = 10;
         public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
