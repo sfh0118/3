@@ -14,16 +14,31 @@ namespace projectlndieFem
         public TileBase Pen;
 
         public TileBase PlantablePen;
-       
+
         // public Tilemap Tilemap; // Added this field to reference the Tilemap component
         // Added this field to reference the Tilemap component  
 
         void Start()
         {
-            mShowGrid[0, 0] = new SoilData();
-            mShowGrid[2, 2] = new SoilData();
 
 
+        
+            //데이터  초기화
+            for (var i = 0; i < 5; i++)
+            {
+                for (var j = 0; j < 4; j++)
+                {
+                    var soilData = mShowGrid[i, j];
+                    var isEmpty = PlayerPrefs.GetInt($"soil_{i}_{j}_is_empty", 1)== 1 ? true : false;
+                    if(isEmpty)
+                    {
+                        mShowGrid[i, j] = null; 
+                       
+                    }
+                   
+                }
+            }
+            //            //Tilemap 컴포넌트 가져오기
             for (var i = 0; i < ShowGrid.Width; i++)
             {
                 for (var j = 0; j < ShowGrid.Height; j++)
@@ -38,28 +53,32 @@ namespace projectlndieFem
                 {
                     Soil.SetTile(new Vector3Int(x, y), Pen); // Fixed missing z-coordinate in Vector3Int  
                 }
-               
-            });
-        }
-        private void Update()
-        {
-            var grid = FindObjectOfType<Grid>();
 
-            mShowGrid.ForEach((x, y, _) =>
+            });
+            //데이터 저장
+            Global.Days.Register(day =>
             {
-                var tileWorldPos = grid.CellToWorld(new Vector3Int(x, y, 0));
-                var leftBottomPos = tileWorldPos;
-                var leftTopPos = tileWorldPos + new Vector3(0, grid.cellSize.y, 0);
-                var rightToPos = tileWorldPos + new Vector3(grid.cellSize.x, grid.cellSize.y, 0);
-                var rightBottomPos = tileWorldPos + new Vector3(grid.cellSize.x, 0, 0);
+                for (var i = 0; i < 5; i++)
+                {
+                    for (var j = 0; j < 4; j++)
+                    {
+                        var soilData = mShowGrid[i, j];
+                        if (soilData == null)
+                        {
+                            PlayerPrefs.SetInt($"soil_{i}_{j}_is_empty", true ? 1 : 0);
+                        }
+                        else
+                        {
+                            PlayerPrefs.SetInt($"soil_{i}_{j}_is_empty", false ? 1 : 0);
 
-                Debug.DrawLine(leftBottomPos, leftTopPos, Color.red);
-                Debug.DrawLine(leftTopPos, rightToPos, Color.red);
-                Debug.DrawLine(rightToPos, rightBottomPos, Color.red);
-                Debug.DrawLine(rightBottomPos, leftBottomPos, Color.red);
+                        }
 
-            });
 
+                    }
+                }
+
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
+       
     }
 }   
