@@ -91,7 +91,12 @@ namespace projectlndieFem
 
             }
         }
-        private int mDayInCurrentState = 0;
+        private int mDayInCurrentState
+        {
+            get => mSoilSystem.SoilGrid[XCell, YCell].DaysInCurrentState;
+            set => mSoilSystem.SoilGrid[XCell, YCell].DaysInCurrentState = value;
+
+        }
         public void Grow(SoilData soilData)
         {
             if (State == PlantStates.Ripe) return;

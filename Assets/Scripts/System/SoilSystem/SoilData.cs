@@ -7,6 +7,8 @@ namespace projectlndieFem
         public bool Watered { get; set; } = false;
 
         public string PlantName { get; set; }
+
+        public int DaysInCurrentState { get; set; }
         public PlantStates PlantState { get; set; } = PlantStates.Seed;
 
     }

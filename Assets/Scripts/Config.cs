@@ -10,6 +10,8 @@ namespace projectlndieFem
         public const int INIT_COIN = 1000;
         public const int INIT_DAY = 1;
         public const int INIT_HOURS = 10;
+        public const int INIT_SOIL_GRID_WIDTH = 4;
+        public const int INIT_SOIL_GRID_HEIGHT = 5;
         public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
 
 
