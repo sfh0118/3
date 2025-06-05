@@ -48,7 +48,9 @@ namespace projectlndieFem
                         if (hasPlant)
                         {
                             var plantName = PlayerPrefs.GetString($"soil_{i}_{j}_plant_name", string.Empty);
+                            var plantState = (PlantStates)PlayerPrefs.GetInt($"soil_{i}_{j}_plant_state", (int)PlantStates.Seed);
                             SoilGrid[i, j].PlantName = plantName;
+                            SoilGrid[i, j].PlantState = plantState;
                         }
                     }
                     else
@@ -78,7 +80,9 @@ namespace projectlndieFem
 
                         if (soilData.HasPlant)
                         {
-                            PlayerPrefs.SetString($"soil_{i}_{j}_has_plant", soilData.PlantName);
+                            PlayerPrefs.SetString($"soil_{i}_{j}_plant_name", soilData.PlantName);
+                            PlayerPrefs.SetInt($"soil_{i}_{j}_plant_state", (int)soilData.PlantState);
+
                         }
                     }
 

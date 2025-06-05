@@ -44,6 +44,7 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
             var tomatoCount = 0;
             var pumpkinCount = 0;
             var beanCount = 0;
+            var carrotCount = 0;
             ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
             {
                 if (Item.Name == "potato")
@@ -61,6 +62,10 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
                 else if (Item.Name == "bean")
                 {
                     beanCount = count;
+                }
+                else if (Item.Name == "carrot")
+                {
+                    carrotCount = count;
                 }
             });
             Challenges.Add(new GenericChallenge()
@@ -121,23 +126,22 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
                         TomatoHarvestCountInCurrentDay.Value++;
                         HarvestTomatoCount++;
                     }
-                    else if (plantObj.Name == "pumkin")
+                    else if (plantObj.Name == "pumpkin")
                     {
                         PumpkinHarvestCountInCurrentDay.Value++;
-                        HarvestTomatoCount++;
+                        HarvestPumpkinCount++;
                     }
                     else if (plantObj.Name == "bean")
                     {
                         BeanHarvestCountInCurrentDay.Value++;
-                        HarvestTomatoCount++;
+                        HarvestBeanCount++;
+                    }
+                    else if (plantObj.Name == "carrot")
+                    {
+                        BeanHarvestCountInCurrentDay.Value++;
+                        HarvestCarrotCount++;
                     }
 
-                }
-
-                else if (plant is PlantCarrot)
-                {
-                    CarrotHarvestCountInCurrentDay.Value++;
-                    HarvestCarrotCount++;
                 }
             });
 

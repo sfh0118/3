@@ -45,6 +45,8 @@ namespace projectlndieFem
                         PlantController.Instance.Plants[x,y] = plantPrefab.Instantiate()
                             .Position(tileGrid.CellToWorld(new Vector3Int(x, y)) + 0.5f * tileGrid.cellSize)
                             .GetComponent<IPlant>();
+
+                        PlantController.Instance.Plants[x, y].SetState(data.PlantState);
                     }
                 }
 

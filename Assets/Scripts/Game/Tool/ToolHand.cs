@@ -47,13 +47,12 @@ namespace projectlndieFem
                     UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
                     this.SendCommand(new AddItemCountCommand("bean", 1));
                 }
-               
-            }
-       
-            else if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as PlantCarrot)
-            {
-                UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName["carrot"].IconName), "+1");
-                this.SendCommand(new AddItemCountCommand("carrot", 1));
+                else if (plant.Name == "carrot")
+                {
+                    UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
+                    this.SendCommand(new AddItemCountCommand("carrot", 1));
+                }
+
 
             }
 

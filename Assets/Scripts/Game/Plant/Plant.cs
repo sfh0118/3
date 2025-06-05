@@ -32,7 +32,7 @@ namespace projectlndieFem
         }
         
     }
-    public partial class Plant : ViewController, IPlant
+    public partial class Plant : ViewController, IPlant,IController
     {
         [System.Serializable]
         public class PlantState
@@ -50,52 +50,59 @@ namespace projectlndieFem
         public int XCell { get; set; }
         public int YCell { get; set; }
 
-        private PlantStates mState = PlantStates.Seed;
-        public PlantStates State => mState;
-        
+        public PlantStates State
+        {
+            get => mSoilSystem.SoilGrid[XCell, YCell].PlantState; 
+            private set => mSoilSystem.SoilGrid[XCell,YCell].PlantState = value; 
+        }
+        private ISoilSystem mSoilSystem;
+
+        private void Awake()
+        {
+            mSoilSystem = this.GetSystem<ISoilSystem>();
+        }
+
+        private void OnDestroy()
+        {
+            mSoilSystem = null;
+        }
         public void SetState(PlantStates newState)
         {
-            if (newState != mState)
+            if (State == PlantStates.Small && newState == PlantStates.Ripe)
             {
-                if (mState == PlantStates.Small && newState == PlantStates.Ripe)
+                RipeDay = Global.Days.Value;
+            }
+
+            var plantState = States.FirstOrDefault(s => s.State == newState);
+
+            State = newState;
+            if (plantState != null)
+            {
+
+                if (plantState.ShowDigState)
                 {
-                    RipeDay = Global.Days.Value;
+
                 }
-
-                var plantState = States.FirstOrDefault(s => s.State == newState);
-
-                mState = newState;
-                if (plantState != null)
+                else
                 {
-
-                    if (plantState.ShowDigState)
-                    {
-
-                    }
-                    else
-                    {
-                        this.ClearSoilDigState();
-                    }
-                    GetComponent<SpriteRenderer>().sprite = plantState.Sprite;
-
-                    FindObjectOfType<GridController>().ShowGrid[XCell, YCell].PlantState = newState;
+                    this.ClearSoilDigState();
                 }
-
+                GetComponent<SpriteRenderer>().sprite = plantState.Sprite;
 
             }
         }
         private int mDayInCurrentState = 0;
         public void Grow(SoilData soilData)
         {
-            if (mState == PlantStates.Ripe) return;
+            if (State == PlantStates.Ripe) return;
             if (soilData.Watered)
             {
                 mDayInCurrentState++;
-                var plantState = States.FirstOrDefault(s => s.State == mState);
+                var plantState = States.FirstOrDefault(s => s.State == State);
 
                 if (mDayInCurrentState >= plantState.Days)
                 {
-                    var currentStateIndex = States.FindIndex(s => s.State == mState);
+                    var currentStateIndex = States.FindIndex(s => s.State == State);
                     currentStateIndex++;
                     var nexPlantState = States[currentStateIndex];
                     SetState(nexPlantState.State);
@@ -109,8 +116,15 @@ namespace projectlndieFem
             }
 
         }
+
+        
+
         public int RipeDay { get; private set; }
        
         public GameObject GameObject => gameObject;
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
+        }
     }
 }
