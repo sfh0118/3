@@ -51,7 +51,7 @@ namespace projectlndieFem
             Hours.SetValueWithoutEvent(Config.INIT_HOURS);
             Days.SetValueWithoutEvent(Config.INIT_DAY);
             Interface.GetSystem<ISoilSystem>().ResetData();
-            //Interface.GetSystem<IChallengeSystem>().ResetDate();
+            Interface.GetSystem<IChallengeSystem>().ResetDate();
 
         }
         public static void LoadData()
@@ -61,7 +61,7 @@ namespace projectlndieFem
             Hours.SetValueWithoutEvent(PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS));
             Days.SetValueWithoutEvent(PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY));
             Interface.GetSystem<ISoilSystem>().LoadData();
-            //Interface.GetSystem<IChallengeSystem>().LoadDate();
+            Interface.GetSystem<IChallengeSystem>().LoadDate();
         }
         public static void SaveData()
         {
@@ -70,7 +70,7 @@ namespace projectlndieFem
             PlayerPrefs.SetFloat(nameof(Hours), Hours.Value);
             PlayerPrefs.SetInt(nameof(Days), Days.Value);
             Interface.GetSystem<ISoilSystem>().SaveData();
-            //Interface.GetSystem<IChallengeSystem>().SaveDate();
+            Interface.GetSystem<IChallengeSystem>().SaveDate();
         }
         protected override void Init()
         {

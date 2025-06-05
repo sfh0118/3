@@ -104,20 +104,12 @@ namespace projectlndieFem
             {
                 mDayInCurrentState++;
                 var plantState = States.FirstOrDefault(s => s.State == State);
-                if (plantState == null)
-                {
-                    Debug.LogError($"[Grow] No PlantState found for current state {State} at ({XCell}, {YCell}) in plant {Name}");
-                    return; // 또는 예외 던지기
-                }
+                
                 if (mDayInCurrentState >= plantState.Days)
                 {
                     var currentStateIndex = States.FindIndex(s => s.State == State);
                     currentStateIndex++;
-                    if (currentStateIndex >= States.Count)
-                    {
-                        Debug.LogError($"[Grow] No next state found for plant {Name}");
-                        return;
-                    }
+                    
                     var nexPlantState = States[currentStateIndex];
                     SetState(nexPlantState.State);
 

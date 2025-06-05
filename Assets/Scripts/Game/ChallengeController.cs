@@ -33,46 +33,6 @@ namespace projectlndieFem
         }
 
 
-
-
-        private void Update()
-        {
-            var hasFinishChallenge = false;
-            foreach (var challenge in ChallengeSystem.ActiveChallenges)
-            {
-                if (challenge.State == Challenge.States.NotStart)
-                {
-                    challenge.StartDate = Global.Days.Value;
-                    challenge.OnStart();
-                    challenge.State = Challenge.States.Started;
-                }
-                if (challenge.State == Challenge.States.Started)
-                {
-                    if (challenge.CheckFinish())
-                    {
-                        challenge.OnFinish();
-                        challenge.State = Challenge.States.Finished;
-
-                        ChallengeSystem.OnChallengeFinish.Trigger(challenge);
-                        ChallengeSystem.FinishedChallenges.Add(challenge);
-                        hasFinishChallenge = true;
-                    }
-                }
-            }
-            if (hasFinishChallenge)
-            {
-                ChallengeSystem.ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
-
-            }
-
-
-            if (ChallengeSystem.ActiveChallenges.Count == 0 && ChallengeSystem.FinishedChallenges.Count != ChallengeSystem.Challenges.Count)
-            {
-                var randomItem = ChallengeSystem.Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
-                ChallengeSystem.ActiveChallenges.Add(randomItem);
-            }
-        }
-
         public Font Font;
         private GUIStyle mLabelsyle;
         private void OnGUI()

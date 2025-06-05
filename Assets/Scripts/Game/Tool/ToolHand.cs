@@ -57,6 +57,7 @@ namespace projectlndieFem
             }
 
             Object.Destroy(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y].GameObject);
+            PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] = null;
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] = null;
 
             AudioController.Get.SfxHarvest.Play();

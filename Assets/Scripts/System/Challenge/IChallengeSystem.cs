@@ -1,15 +1,17 @@
 ﻿using QFramework;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace projectlndieFem
 {
     public interface IChallengeSystem : ISystem
     {
-        //void LoadDate();
-        //void SaveDate();
-        //void ResetDate();
+        void LoadDate();
+        void SaveDate();
+        void ResetDate();
     }
-public class ChallengeSystem : AbstractSystem//,IChallengeSystem
+public class ChallengeSystem : AbstractSystem,IChallengeSystem
     {
 
         public static BindableProperty<int> CarrotHarvestCountInCurrentDay = new BindableProperty<int>(0);
@@ -38,39 +40,20 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
 
         };
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
-        protected override void OnInit()
+        private int potatoCount = 0;
+        private int tomatoCount = 0;
+        private int pumpkinCount = 0;
+        private int beanCount = 0;
+        private int carrotCount = 0;
+        void LoadChallenges()
         {
-            var potatoCount = 0;
-            var tomatoCount = 0;
-            var pumpkinCount = 0;
-            var beanCount = 0;
-            var carrotCount = 0;
-            ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
-            {
-                if (Item.Name == "potato")
-                {
-                    potatoCount = count;
-                }
-                else if (Item.Name == "tomato")
-                {
-                    tomatoCount = count;
-                }
-                else if (Item.Name == "pumpkin")
-                {
-                    pumpkinCount = count;
-                }
-                else if (Item.Name == "bean")
-                {
-                    beanCount = count;
-                }
-                else if (Item.Name == "carrot")
-                {
-                    carrotCount = count;
-                }
-            });
+            Challenges.Clear();
+            ActiveChallenges.Clear();
+            FinishedChallenges.Clear();
+
             Challenges.Add(new GenericChallenge()
-                .Key("감자하나수확")
-                .OnCheckFinish(self => Global.Days.Value != self.StartDate && PotatoHarvestCountInCurrentDay.Value > 0));
+               .Key("감자하나수확")
+               .OnCheckFinish(self => Global.Days.Value != self.StartDate && PotatoHarvestCountInCurrentDay.Value > 0));
             Challenges.Add(new GenericChallenge()
                 .Key("토마토하나수확")
                 .OnCheckFinish(self => Global.Days.Value != self.StartDate && TomatoHarvestCountInCurrentDay.Value > 0));
@@ -105,8 +88,37 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
                 .Key("10개단콩보요하기")
                 .OnCheckFinish(self => beanCount >= 10));
 
-            var randomItem = Challenges.GetRandomItem();
-            ActiveChallenges.Add(randomItem);
+        }
+        protected override void OnInit()
+        {
+            LoadChallenges();
+
+            ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
+            {
+                if (Item.Name == "potato")
+                {
+                    potatoCount = count;
+                }
+                else if (Item.Name == "tomato")
+                {
+                    tomatoCount = count;
+                }
+                else if (Item.Name == "pumpkin")
+                {
+                    pumpkinCount = count;
+                }
+                else if (Item.Name == "bean")
+                {
+                    beanCount = count;
+                }
+                else if (Item.Name == "carrot")
+                {
+                    carrotCount = count;
+                }
+            });
+           
+
+            
 
 
             Global.OnPlantHarvest.Register(plant =>
@@ -144,34 +156,74 @@ public class ChallengeSystem : AbstractSystem//,IChallengeSystem
 
                 }
             });
+            ActionKit.OnUpdate.Register(() =>
+            {
+                var hasFinishChallenge = false;
+                foreach (var challenge in ChallengeSystem.ActiveChallenges)
+                {
+                    if (challenge.State == Challenge.States.NotStart)
+                    {
+                        challenge.StartDate = Global.Days.Value;
+                        challenge.OnStart();
+                        challenge.State = Challenge.States.Started;
+                    }
+                    if (challenge.State == Challenge.States.Started)
+                    {
+                        if (challenge.CheckFinish())
+                        {
+                            challenge.OnFinish();
+                            challenge.State = Challenge.States.Finished;
+
+                            ChallengeSystem.OnChallengeFinish.Trigger(challenge);
+                            ChallengeSystem.FinishedChallenges.Add(challenge);
+                            hasFinishChallenge = true;
+                        }
+                    }
+                }
+                if (hasFinishChallenge)
+                {
+                    ChallengeSystem.ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
+
+                }
+
+
+                if (ChallengeSystem.ActiveChallenges.Count == 0 && ChallengeSystem.FinishedChallenges.Count != ChallengeSystem.Challenges.Count)
+                {
+                    var randomItem = ChallengeSystem.Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
+                    ChallengeSystem.ActiveChallenges.Add(randomItem);
+                }
+            });
+        }
+        public void LoadData()
+        {
+            foreach (var challenge in Challenges)
+            {
+
+                challenge.State = (Challenge.States) PlayerPrefs.GetInt(nameof(challenge.Name), (int)Challenge.States.NotStart);
+                if (challenge.State == Challenge.States.Started)
+                {
+                    ActiveChallenges.Add(challenge);
+                }
+                else if (challenge.State == Challenge.States.Finished)
+                {
+                    FinishedChallenges.Add(challenge);
+                }
+            }
 
         }
-        //public void LoadData()
-        //{
+        public void SaveData()
+        {
+            foreach (var challenge in Challenges)
+            {
 
-        //}
-        //public void SaveData()
-        //{
+                PlayerPrefs.SetInt(nameof(challenge.Name),(int)challenge.State);
+            }
+        }
+        public void ResetData()
+        {
 
-        //}
-        //public void ResetData()
-        //{
+        }
 
-        //}
 
-        //public void LoadDate()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        //public void SaveDate()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        //public void ResetDate()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
     }
 }
