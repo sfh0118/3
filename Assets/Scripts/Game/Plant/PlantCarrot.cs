@@ -13,6 +13,8 @@ namespace projectlndieFem
         private PlantStates mState = PlantStates.Seed;
         public PlantStates State => mState;
 
+        public string GetName() => "carrot";
+
         public int RipeDay { get; private set; }
         public void SetState(PlantStates newState)
         {

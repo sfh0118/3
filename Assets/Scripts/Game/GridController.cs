@@ -30,12 +30,22 @@ namespace projectlndieFem
                     Ground.SetTile(new Vector3Int(i, j), PlantablePen);
                 }
             }
-
+            var tileGrid = Soil.layoutGrid;
             mSoilSystem.SoilGrid.ForEach((x, y, data) =>
             {
                 if (data != null)
                 {
-                    Soil.SetTile(new Vector3Int(x, y), Pen); // Fixed missing z-coordinate in Vector3Int  
+                    Soil.SetTile(new Vector3Int(x, y), Pen);
+
+                    if(data.HasPlant)
+                    {
+                        var plantSeedName = "seed_" + data.PlantName;
+                        var plantItemConfig = Config.ItemForName[plantSeedName];
+                        var plantPrefab = ResController.Instance.LoadPrefab(plantItemConfig.PlantPrefabName);
+                        PlantController.Instance.Plants[x,y] = plantPrefab.Instantiate()
+                            .Position(tileGrid.CellToWorld(new Vector3Int(x, y)) + 0.5f * tileGrid.cellSize)
+                            .GetComponent<IPlant>();
+                    }
                 }
 
             });

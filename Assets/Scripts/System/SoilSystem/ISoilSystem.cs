@@ -41,8 +41,15 @@ namespace projectlndieFem
                     var isEmpty = PlayerPrefs.GetInt($"soil_{i}_{j}_is_empty", 1) == 1 ? true : false;
                     if (!isEmpty)
                     {
+                        var hasPlant = PlayerPrefs.GetInt($"soil_{i}_{j}_has_plant", 1) == 1 ? true : false;
                         SoilGrid[i, j] = new SoilData();
+                        SoilGrid[i, j].HasPlant = hasPlant;
 
+                        if (hasPlant)
+                        {
+                            var plantName = PlayerPrefs.GetString($"soil_{i}_{j}_plant_name", string.Empty);
+                            SoilGrid[i, j].PlantName = plantName;
+                        }
                     }
                     else
                     {
@@ -62,11 +69,17 @@ namespace projectlndieFem
                     if (soilData == null)
                     {
                         PlayerPrefs.SetInt($"soil_{i}_{j}_is_empty", true ? 1 : 0);
+                        PlayerPrefs.SetInt($"soil_{i}_{j}_has_plant", false ? 1 : 0);
                     }
                     else
                     {
                         PlayerPrefs.SetInt($"soil_{i}_{j}_is_empty", false ? 1 : 0);
+                        PlayerPrefs.SetInt($"soil_{i}_{j}_has_plant",soilData.HasPlant ? 1 : 0);
 
+                        if (soilData.HasPlant)
+                        {
+                            PlayerPrefs.SetString($"soil_{i}_{j}_has_plant", soilData.PlantName);
+                        }
                     }
 
 

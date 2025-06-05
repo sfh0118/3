@@ -47,9 +47,9 @@ namespace projectlndieFem
         {
             //    //데이터 초기화
 
-            Coin.Value = Config.INIT_COIN;
-            Hours.Value = Config.INIT_HOURS;
-            Days.Value = Config.INIT_DAY;
+            Coin.SetValueWithoutEvent(Config.INIT_COIN);
+            Hours.SetValueWithoutEvent(Config.INIT_HOURS);
+            Days.SetValueWithoutEvent(Config.INIT_DAY);
             Interface.GetSystem<ISoilSystem>().ResetData();
             //Interface.GetSystem<IChallengeSystem>().ResetDate();
 
@@ -57,9 +57,9 @@ namespace projectlndieFem
         public static void LoadData()
         {
             //    //데이터 불러오기
-            Coin.Value = PlayerPrefs.GetInt(nameof(Coin), Config.INIT_COIN);
-            Hours.Value = PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS);
-            Days.Value = PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY);
+            Coin.SetValueWithoutEvent(PlayerPrefs.GetInt(nameof(Coin), Config.INIT_COIN));
+            Hours.SetValueWithoutEvent(PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS));
+            Days.SetValueWithoutEvent(PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY));
             Interface.GetSystem<ISoilSystem>().LoadData();
             //Interface.GetSystem<IChallengeSystem>().LoadDate();
         }

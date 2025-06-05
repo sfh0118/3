@@ -17,6 +17,8 @@ namespace projectlndieFem
         void Grow(SoilData soilData);
 
         int RipeDay { get; }
+
+        string GetName();
         public int XCell { get; set; }
         public int YCell { get; set; }
 
@@ -41,6 +43,7 @@ namespace projectlndieFem
             public int Days = 1;
         }
         public string Name;
+        public string GetName() => Name;
         public List<PlantState> States = new List<PlantState>();
         
 

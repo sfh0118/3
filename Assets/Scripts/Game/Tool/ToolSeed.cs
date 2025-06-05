@@ -36,6 +36,7 @@ namespace projectlndieFem
             PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] = plant;
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant = true;
 
+            toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantName = plant.GetName();
             AudioController.Get.SfxSeed.Play();
 
 
