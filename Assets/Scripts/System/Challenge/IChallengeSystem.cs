@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace projectlndieFem
 {
-    //public interface IChallengeSystem : ISystem
-    //{
-    //    void LoadDate();
-    //    void SaveDate();
-    //    void ResetDate();
-    //}
-    public class ChallengeSystem : AbstractSystem//,IChallengeSystem
+    public interface IChallengeSystem : ISystem
+    {
+        //void LoadDate();
+        //void SaveDate();
+        //void ResetDate();
+    }
+public class ChallengeSystem : AbstractSystem//,IChallengeSystem
     {
 
         public static BindableProperty<int> CarrotHarvestCountInCurrentDay = new BindableProperty<int>(0);

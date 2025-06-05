@@ -50,8 +50,8 @@ namespace projectlndieFem
             Coin.Value = Config.INIT_COIN;
             Hours.Value = Config.INIT_HOURS;
             Days.Value = Config.INIT_DAY;
-            //    //Interface.GetSystem<ISoilSystem>().ResetDate();
-            //    //Interface.GetSystem<IChallengeSystem>().ResetDate();
+            Interface.GetSystem<ISoilSystem>().ResetData();
+            //Interface.GetSystem<IChallengeSystem>().ResetDate();
 
         }
         public static void LoadData()
@@ -60,8 +60,8 @@ namespace projectlndieFem
             Coin.Value = PlayerPrefs.GetInt(nameof(Coin), Config.INIT_COIN);
             Hours.Value = PlayerPrefs.GetFloat(nameof(Hours), Config.INIT_HOURS);
             Days.Value = PlayerPrefs.GetInt(nameof(Days), Config.INIT_DAY);
-            //    //Interface.GetSystem<ISoilSystem>().LoadDate();
-            //    //Interface.GetSystem<IChallengeSystem>().LoadDate();
+            Interface.GetSystem<ISoilSystem>().LoadData();
+            //Interface.GetSystem<IChallengeSystem>().LoadDate();
         }
         public static void SaveData()
         {
@@ -69,17 +69,16 @@ namespace projectlndieFem
             PlayerPrefs.SetInt(nameof(Coin), Coin.Value);
             PlayerPrefs.SetFloat(nameof(Hours), Hours.Value);
             PlayerPrefs.SetInt(nameof(Days), Days.Value);
-            //Interface.GetSystem<ISoilSystem>().SaveDate();
+            Interface.GetSystem<ISoilSystem>().SaveData();
             //Interface.GetSystem<IChallengeSystem>().SaveDate();
         }
         protected override void Init()
         {
             //this.RegisterSystem<IChallengeSystem>(new ChallengeSystem());
-            //this.RegisterSystem<ISoilSystem>(new SoilSystem);
+            this.RegisterSystem<ISoilSystem>(new SoilSystem());
             this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
 
             LoadData();
-            //this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
             Global.Days.Register(day =>
             {
                 ActionKit.NextFrame(() =>
