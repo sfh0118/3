@@ -1,32 +1,32 @@
-﻿using UnityEngine;
-using QFramework;
+﻿//using UnityEngine;
+//using QFramework;
 
-namespace projectlndieFem
-{
-    public partial class CameraController : ViewController
-    {
-        private Transform mPlayer;
+//namespace projectlndieFem
+//{
+//    public partial class CameraController : ViewController
+//    {
+//        private Transform mPlayer;
 
-        void Start()
-        {
-            mPlayer = FindObjectOfType<Player>()?.transform;
-        }
+//        void Start()
+//        {
+//            mPlayer = FindObjectOfType<Player>()?.transform;
+//        }
 
-        void Update()
-        {
-            if (mPlayer == null) return; // 플레이어 없으면 리턴
+//        void Update()
+//        {
+//            if (mPlayer == null) return; // 플레이어 없으면 리턴
 
-            var currentPosition = transform.position;
-            var targetPosition = mPlayer.position;
+//            var currentPosition = transform.position;
+//            var targetPosition = mPlayer.position;
 
-            // z축을 -10으로 고정
-            targetPosition.z = -10f;
+//            // z축을 -10으로 고정
+//            targetPosition.z = -10f;
 
-            var smoothPosition = Vector3.Lerp(currentPosition, targetPosition, 1 - Mathf.Exp(-Time.deltaTime * 10));
-            transform.position = smoothPosition;
-        }
-    }
-}
+//            var smoothPosition = Vector3.Lerp(currentPosition, targetPosition, 1 - Mathf.Exp(-Time.deltaTime * 10));
+//            transform.position = smoothPosition;
+//        }
+//    }
+//}
 
 //using UnityEngine;
 //using QFramework;
@@ -34,8 +34,8 @@ namespace projectlndieFem
 
 //namespace projectlndieFem
 //{
-//	public partial class CameraController : ViewController
-//	{
+//    public partial class CameraController : ViewController
+//    {
 //        private Transform mPlayer;
 //        void Start()
 //        {

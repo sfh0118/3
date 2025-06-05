@@ -5,19 +5,18 @@ using System.Collections.Generic;
 
 namespace projectlndieFem
 {
-    public partial class ChallengeController : ViewController//,IController
+    public partial class ChallengeController : ViewController,IController
     {
 
-
-
-        //private IChallengeSystem mUIChallengeSystem;
+        private IChallengeSystem mChallengeSystem;
         private void Awake()
         {
+            mChallengeSystem =this.GetSystem<IChallengeSystem>();
         }
-        //public override void OnDestroy()
-        //{
-        //    mUIChallengeSystem = null;
-        //}
+        private void OnDestroy()
+        {
+            mChallengeSystem = null;
+        }
 
 
         void Start()
@@ -41,9 +40,9 @@ namespace projectlndieFem
 
             GUI.Label(new Rect(960 - 300, 24 + -24, 300, 24), "@@ 도전 @@", mLabelsyle);
 
-            for (var i = 0; i < ChallengeSystem.ActiveChallenges.Count; i++)
+            for (var i = 0; i < mChallengeSystem.ActiveChallenges.Count; i++)
             {
-                var challenge = ChallengeSystem.ActiveChallenges[i];
+                var challenge = mChallengeSystem.ActiveChallenges[i];
 
                 GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), challenge.Name, mLabelsyle);
 
@@ -52,18 +51,20 @@ namespace projectlndieFem
                     GUI.Label(new Rect(960 - 300, 24 + i * 24, 300, 24), "<color=green>" + challenge.Name + "</color>", mLabelsyle);
                 }
             }
-            for (var i = 0; i < ChallengeSystem.FinishedChallenges.Count; i++)
+            for (var i = 0; i < mChallengeSystem.FinishedChallenges.Count; i++)
             {
-                var challenge = ChallengeSystem.FinishedChallenges[i];
+                var challenge = mChallengeSystem.FinishedChallenges[i];
 
-                GUI.Label(new Rect(960 - 300, 24 + (i + ChallengeSystem.ActiveChallenges.Count) * 24, 300, 24),
+                GUI.Label(new Rect(960 - 300, 24 + (i + mChallengeSystem.ActiveChallenges.Count) * 24, 300, 24),
                 "<color=green>" + challenge.Name + "</color>", mLabelsyle);
 
             }
         }
-        //public IArchitecture GetArchitecture()
-        //{
-        //    return Global.Interface;
-        //}
+
+
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
+        }
     }
 }

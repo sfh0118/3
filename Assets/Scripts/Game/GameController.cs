@@ -7,10 +7,13 @@ using projectlndieFem;
 
 namespace projectlndieFem
 {
-	public partial class GameController : ViewController
+	public partial class GameController : ViewController,IController
 	{
-		void Start()
+        
+
+        void Start()
 		{
+            var challengeSystem = this.GetSystem<IChallengeSystem>();
             Application.targetFrameRate = 60;
 
             ChallengeSystem.OnChallengeFinish.Register(challenge =>
@@ -18,7 +21,7 @@ namespace projectlndieFem
                 AudioController.Get.SfxChallengeFinish.Play();
                 Global.Coin.Value += 100;
                 UIMessageQueue.Push("도전[" + challenge.Name + "]완료 코인<colcr=yellow>+$100</color>");
-                if (ChallengeSystem.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
+                if (challengeSystem.Challenges.All(challenge => challenge.State == Challenge.States.Finished))
                 {
                     ActionKit.Delay(0.5f, () =>
                      {
@@ -33,6 +36,10 @@ namespace projectlndieFem
         {
            
             
+        }
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
         }
     }
 }

@@ -7,6 +7,10 @@ namespace projectlndieFem
 {
     public interface IChallengeSystem : ISystem
     {
+        List<Challenge> Challenges { get; }
+        List<Challenge> ActiveChallenges { get; }
+        List<Challenge> FinishedChallenges { get; }
+
         void LoadDate();
         void SaveDate();
         void ResetDate();
@@ -26,16 +30,16 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
         public static int HarvestPumpkinCount = 0;
         public static int HarvestBeanCount = 0;
 
-        public static List<Challenge> Challenges = new List<Challenge>()
+        public  List<Challenge> Challenges { get; } = new List<Challenge>()
         {
 
         };
-        public static List<Challenge> ActiveChallenges = new List<Challenge>()
+        public List<Challenge> ActiveChallenges { get; } = new List<Challenge>()
         {
 
         };
 
-        public static List<Challenge> FinishedChallenges = new List<Challenge>()
+        public  List<Challenge> FinishedChallenges { get; } = new List<Challenge>()
         {
 
         };
@@ -159,7 +163,7 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
             ActionKit.OnUpdate.Register(() =>
             {
                 var hasFinishChallenge = false;
-                foreach (var challenge in ChallengeSystem.ActiveChallenges)
+                foreach (var challenge in ActiveChallenges)
                 {
                     if (challenge.State == Challenge.States.NotStart)
                     {
@@ -175,22 +179,22 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
                             challenge.State = Challenge.States.Finished;
 
                             ChallengeSystem.OnChallengeFinish.Trigger(challenge);
-                            ChallengeSystem.FinishedChallenges.Add(challenge);
+                            FinishedChallenges.Add(challenge);
                             hasFinishChallenge = true;
                         }
                     }
                 }
                 if (hasFinishChallenge)
                 {
-                    ChallengeSystem.ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
+                    ActiveChallenges.RemoveAll(challenge => challenge.State == Challenge.States.Finished);
 
                 }
 
 
-                if (ChallengeSystem.ActiveChallenges.Count == 0 && ChallengeSystem.FinishedChallenges.Count != ChallengeSystem.Challenges.Count)
+                if (ActiveChallenges.Count == 0 && FinishedChallenges.Count != Challenges.Count)
                 {
-                    var randomItem = ChallengeSystem.Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
-                    ChallengeSystem.ActiveChallenges.Add(randomItem);
+                    var randomItem = Challenges.Where(c => c.State == Challenge.States.NotStart).ToList().GetRandomItem();
+                    ActiveChallenges.Add(randomItem);
                 }
             });
         }
@@ -199,7 +203,7 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
             foreach (var challenge in Challenges)
             {
 
-                challenge.State = (Challenge.States) PlayerPrefs.GetInt(nameof(challenge.Name), (int)Challenge.States.NotStart);
+                challenge.State = (Challenge.States) PlayerPrefs.GetInt(challenge.Name, (int)Challenge.States.NotStart);
                 if (challenge.State == Challenge.States.Started)
                 {
                     ActiveChallenges.Add(challenge);
@@ -216,7 +220,7 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
             foreach (var challenge in Challenges)
             {
 
-                PlayerPrefs.SetInt(nameof(challenge.Name),(int)challenge.State);
+                PlayerPrefs.SetInt(challenge.Name,(int)challenge.State);
             }
         }
         public void ResetData()
@@ -224,6 +228,19 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
 
         }
 
+        public void LoadDate()
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public void SaveDate()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ResetDate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -78,7 +78,6 @@ namespace projectlndieFem
             this.RegisterSystem<ISoilSystem>(new SoilSystem());
             this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
 
-            LoadData();
             Global.Days.Register(day =>
             {
                 ActionKit.NextFrame(() =>
@@ -92,6 +91,7 @@ namespace projectlndieFem
         public static void AutoInit()
         {
             var _ =  Global.Interface;
+            Global.LoadData();
             Debug.Log(_.GetType().Name + ": initialized");
         }
     }

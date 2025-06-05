@@ -3,7 +3,7 @@ using QFramework;
 
 namespace projectlndieFem
 {
-	public partial class UIChallenge : ViewController,IController
+	public partial class UIChallenge : ViewController, IController
 	{
 		private void Start()
 		{
