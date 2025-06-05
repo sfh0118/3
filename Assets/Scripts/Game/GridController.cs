@@ -30,6 +30,7 @@ namespace projectlndieFem
                     Ground.SetTile(new Vector3Int(i, j), PlantablePen);
                 }
             }
+            PlantController.Instance.Plants.Resize(mSoilSystem.SoilGrid.Width, mSoilSystem.SoilGrid.Height, (x, y) => null);
             var tileGrid = Soil.layoutGrid;
             mSoilSystem.SoilGrid.ForEach((x, y, data) =>
             {
@@ -39,12 +40,17 @@ namespace projectlndieFem
 
                     if(data.HasPlant)
                     {
-                        var plantSeedName = "seed_" + data.PlantName;
+                        var plantSeedName = "seed_" + data.PlantName; 
                         var plantItemConfig = Config.ItemForName[plantSeedName];
                         var plantPrefab = ResController.Instance.LoadPrefab(plantItemConfig.PlantPrefabName);
-                        PlantController.Instance.Plants[x,y] = plantPrefab.Instantiate()
+                        PlantController.Instance.Plants[x, y] = plantPrefab.Instantiate()
                             .Position(tileGrid.CellToWorld(new Vector3Int(x, y)) + 0.5f * tileGrid.cellSize)
-                            .GetComponent<IPlant>();
+                            .GetComponent<IPlant>()
+                            .Self(plant =>
+                            {
+                                plant.XCell = x;
+                                plant.YCell = y; ;
+                            });
 
                         PlantController.Instance.Plants[x, y].SetState(data.PlantState);
                     }

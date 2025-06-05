@@ -10,8 +10,8 @@ namespace projectlndieFem
         public const int INIT_COIN = 1000;
         public const int INIT_DAY = 1;
         public const int INIT_HOURS = 10;
-        public const int INIT_SOIL_GRID_WIDTH = 4;
-        public const int INIT_SOIL_GRID_HEIGHT = 5;
+        public const int INIT_SOIL_GRID_WIDTH = 5;
+        public const int INIT_SOIL_GRID_HEIGHT = 4;
         public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
 
 
@@ -31,8 +31,8 @@ namespace projectlndieFem
             {"seed_potato", CreateSeedPotato()},
             { "seed_tomato", CreateSeedTomato()},
             {"seed_carrot", CreateSeedCarrot()},
-            {"seed_bean", CreateSeedPumpkin()},
-            {"seed_bpumpkin",CreateSeedBean()},
+            {"seed_pumpkin", CreateSeedPumpkin()},
+            {"seed_bean", CreateSeedBean()},
             {"carrot", CreateCarrot()},
             {"pumpkin", CreatePumpkin()},
             {"potato", CreatePotato()},

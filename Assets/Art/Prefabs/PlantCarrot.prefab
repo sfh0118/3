@@ -104,7 +104,7 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
-  Name: carrot
+  Name: Carrot
   States:
   - State: 0
     Sprite: {fileID: 2069220360, guid: 2eba43b2eab118247be335b80584608f, type: 3}

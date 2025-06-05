@@ -18,7 +18,7 @@ namespace projectlndieFem
     {
         public static PlantController Instance => MonoSingletonProperty<PlantController>.Instance;
 
-        public EasyGrid<IPlant> Plants = new EasyGrid<IPlant>(5, 4);
+        public EasyGrid<IPlant> Plants = new EasyGrid<IPlant>(Config.INIT_SOIL_GRID_WIDTH, Config.INIT_SOIL_GRID_HEIGHT);
 
         public void OnSingletonInit()
         {

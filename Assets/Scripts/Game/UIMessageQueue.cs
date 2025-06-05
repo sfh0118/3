@@ -15,12 +15,12 @@ namespace projectlndieFem
                      self.Text.Hide();
                      self.Icon.Show();
                      self.TextWithIcon.Show();
-                     self.SetAIpha(0);
+                     self.SetAlpha(0);
                      self.Show();
                      ActionKit.Sequence()
-                     .Lerp(1, 0, 0.5f, self.SetAIpha)
+                     .Lerp(1, 0, 0.5f, self.SetAlpha)
                      .Delay(3.0f)
-                     .Lerp(0, 1, 2.0f, self.SetAIpha)
+                     .Lerp(0, 1, 2.0f, self.SetAlpha)
                      .Start(self, () =>
                      {
                          self.DestroyGameObj();
@@ -38,13 +38,13 @@ namespace projectlndieFem
                      self.TextWithIcon.Hide();
                      self.Icon.Hide();
                      self.Text.Show();
-                     self.SetAIpha(0);
+                     self.SetAlpha(0);
                      self.Show();
 
                      ActionKit.Sequence()
-                     .Lerp(0, 1, 0.5f, self.SetAIpha)
+                     .Lerp(0, 1, 0.5f, self.SetAlpha)
                      .Delay(3.0f)
-                     .Lerp(1, 0, 2.0f, self.SetAIpha)
+                     .Lerp(1, 0, 2.0f, self.SetAlpha)
                      .Start(self, () =>
                      {
                          self.DestroyGameObj();

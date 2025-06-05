@@ -5,7 +5,7 @@ namespace projectlndieFem
 {
 	public partial class UIMessageItem : ViewController
 	{
-		public void SetAIpha(float alpha)
+		public void SetAlpha(float alpha)
 		{
 			Icon.ColorAlpha(alpha);
 			TextWithIcon.ColorAlpha(alpha);
