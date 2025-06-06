@@ -69,25 +69,22 @@ namespace projectlndieFem
             ToolbarSlots.Add(ToolbarSlot9);
             ToolbarSlots.Add(ToolbarSlot10);
 
-            var toolBarConfig = this.GetSystem<IToolBarSystem>();
+            var toolBarSystem = this.GetSystem<IToolBarSystem>();
 
             for (var i = 0; i < ToolbarSlots.Count; i++)
             {
+                var slotData = toolBarSystem.Slots[i];
                 var slot = ToolbarSlots[i];
+                slot.SetData(slotData.ItemId,slotData.Count,i+1);
 
-                slot.ShortCut.text = (i + 1).ToString();
-
-                if (i < toolBarConfig.Items.Count)
-                {
-                    slot.SetData(toolBarConfig.Items[i]);
-                }
+                
 
 
             }
 
             HideAllSelect();
 
-            SelectDefault();
+            //SelectDefault();
 
 
 

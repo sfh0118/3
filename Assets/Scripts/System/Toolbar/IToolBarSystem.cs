@@ -8,7 +8,10 @@ namespace projectlndieFem
         List<Item> Items { get; }
         int MaxCount { get; }
 
+        List<ToolbarSlot> Slots { get; }
+
     }
+
     public class ToolBarSystem : AbstractSystem, IToolBarSystem
     {
       
@@ -31,6 +34,22 @@ namespace projectlndieFem
 
         };
         public int MaxCount { get; } = 10;
+
+        List<ToolbarSlot> IToolBarSystem.Slots => throw new System.NotImplementedException();
+
+        public List<ToolbarSlot> Slots = new List<ToolbarSlot>()
+        {
+            new ToolbarSlot("hand", 1),
+            new ToolbarSlot("shovel", 1),
+            new ToolbarSlot("watering_can", 1),
+            new ToolbarSlot("seed_pumpkin", 5),
+            new ToolbarSlot("seed_potato", 5),
+            new ToolbarSlot("seed_tomato", 5),
+            new ToolbarSlot("seed_bean", 5),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+        };
 
         protected override void OnInit()
         {

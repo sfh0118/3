@@ -46,6 +46,23 @@ namespace projectlndieFem
             Button = GetComponent<Button>();
         }
 #endif
+
+        public void SetData(string itemId, int count,int shortCut)
+        {
+            if (string.IsNullOrEmpty(itemId) || count == 0)
+            {
+                return;
+            }
+            else
+            {
+                var itemConfig = Config.ItemForName[itemId];
+                Icon.sprite = ResController.Instance.LoadSprite(itemConfig.IconName);
+                Count.text = count.ToString();
+                Icon.Show();
+                ShortCut.Show();
+                ShortCut.text = shortCut.ToString();
+            }
+        }
         public void SetData(Item data)
         {
             if (data == null)
