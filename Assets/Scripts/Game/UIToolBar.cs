@@ -12,24 +12,22 @@ namespace projectlndieFem
     {
         public List<UISlot> ToolbarSlots = new List<UISlot>();
 
-        public void AddItem(Item item)
+        void AddItem(ToolbarSlot item)
         {
             var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == null);
-            if (slot)
+            if (slot != null)
             {
-                slot.SetData(item);
+                int index = ToolbarSlots.IndexOf(slot);
+                slot.SetData(item, index + 1);
             }
         }
-        public void RemoveItem(Item item)
+        void RemoveItem(ToolbarSlot item)
         {
             var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == item);
-            if (slot)
+            if (slot != null)
             {
-                slot.SetData(null);
-                if (ToolbarSlots.IndexOf(slot) == 0)
-                {
-                    ChangeTool(Config.CreateHand().Tool, slot.Select, slot.Icon.sprite);
-                }
+                int index = ToolbarSlots.IndexOf(slot);
+                slot.SetData(item, index + 1);
             }
         }
 
@@ -51,7 +49,9 @@ namespace projectlndieFem
             {
                 if (slot.Data != null)
                 {
-                    ChangeTool(slot.Data.Tool, slot.Select, slot.Icon.sprite);
+
+                    // 선택된 슬롯의 도구를 변경
+                    ChangeTool(Config.ItemForName[slot.Data.ItemId].Tool, slot.Select, slot.Icon.sprite);
                 }
             };
 
@@ -75,7 +75,7 @@ namespace projectlndieFem
             {
                 var slotData = toolBarSystem.Slots[i];
                 var slot = ToolbarSlots[i];
-                slot.SetData(slotData.ItemId,slotData.Count,i+1);
+                slot.SetData(slotData, i + 1);
 
                 
 

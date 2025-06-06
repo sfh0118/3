@@ -18,8 +18,6 @@ namespace projectlndieFem
 
         public Button Button;
         
-        private Item mData;
-        public Item Data => mData;
         
         public void Awake()
         {
@@ -46,48 +44,31 @@ namespace projectlndieFem
             Button = GetComponent<Button>();
         }
 #endif
+        public ToolbarSlot Data { get; private set; }
 
-        public void SetData(string itemId, int count,int shortCut)
+        public void SetShortCut(int shortCut)
         {
-            if (string.IsNullOrEmpty(itemId) || count == 0)
+            ShortCut.text = shortCut.ToString();
+        }
+        public void SetData(ToolbarSlot data,int shortCut)
+        {
+            if (string.IsNullOrEmpty(data.ItemId) || data.Count == 0)
             {
                 return;
             }
             else
             {
-                var itemConfig = Config.ItemForName[itemId];
+                var itemConfig = Config.ItemForName[data.ItemId];
                 Icon.sprite = ResController.Instance.LoadSprite(itemConfig.IconName);
-                Count.text = count.ToString();
+                Count.text = data.Count.ToString();
                 Icon.Show();
                 ShortCut.Show();
                 ShortCut.text = shortCut.ToString();
             }
+            Data = data;
         }
-        public void SetData(Item data)
-        {
-            if (data == null)
-            {
-                Icon.sprite = null;
-                ShortCut.Hide();
-                Icon.Hide();
-                mData = null;
-                Count.text = string.Empty;
-
-            }
-            else
-            { 
-                mData = data;
-                Icon.Show();
-                Icon.sprite = IconLoader?.Invoke(mData.IconName);
-                ShortCut.Show();
-
-                if (data.Countable)
-                {
-                    data.Count.RegisterWithInitValue(count => { Count.text = count.ToString(); })
-                        .UnRegisterWhenGameObjectDestroyed(gameObject);
-                } 
-            }
-        }
+       
+        
         // Start is called before the first frame update
        
     }

@@ -16,19 +16,17 @@ namespace projectlndieFem
         protected override void OnExecute()
         {
             var toolBarSystem = this.GetSystem<IToolBarSystem>();
-            var Item = toolBarSystem.Items.FirstOrDefault(Item => Item.Name == mItemName);
+            var slot = toolBarSystem.Slots.FirstOrDefault(slot => slot.ItemId == mItemName);
 
-            if (Item != null)
+            if (slot != null)
             {
 
-                Item.Count.Value -= mSubCount;
-                if (Item.Count.Value == 0)
+                slot.Count -= mSubCount;
+                if (slot.Count == 0)
                 {
-                    toolBarSystem.Items.Remove(Item);
-                    ToolBarSystem.OnRemoveItem.Trigger(Item);
-                    Object. FindObjectOfType<UIToolBar>().RemoveItem(Item);
+                    ToolBarSystem.OnRemoveItem.Trigger(slot);
                 }
-                ToolBarSystem.OnItemCountChanged.Trigger(Item, Item.Count.Value);
+                ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count);
             }
 
         }

@@ -100,19 +100,19 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
 
             ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
             {
-                if (Item.Name == "potato")
+                if (Item.ItemId == "potato")
                 {
                     potatoCount = count;
                 }
-                else if (Item.Name == "tomato")
+                else if (Item.ItemId == "tomato")
                 {
                     tomatoCount = count;
                 }
-                else if (Item.Name == "pumpkin")
+                else if (Item.ItemId == "pumpkin")
                 {
                     pumpkinCount = count;
                 }
-                else if (Item.Name == "bean")
+                else if (Item.ItemId == "bean")
                 {
                     beanCount = count;
                 }

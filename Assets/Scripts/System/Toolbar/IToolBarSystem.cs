@@ -15,9 +15,9 @@ namespace projectlndieFem
     public class ToolBarSystem : AbstractSystem, IToolBarSystem
     {
       
-        public static EasyEvent<Item> OnAddItem = new EasyEvent<Item>();
-        public static EasyEvent<Item> OnRemoveItem = new EasyEvent<Item>();
-        public static EasyEvent<Item,int> OnItemCountChanged = new EasyEvent<Item, int>();
+        public static EasyEvent<ToolbarSlot> OnAddItem = new EasyEvent<ToolbarSlot>();
+        public static EasyEvent<ToolbarSlot> OnRemoveItem = new EasyEvent<ToolbarSlot>();
+        public static EasyEvent<ToolbarSlot, int> OnItemCountChanged = new EasyEvent<ToolbarSlot, int>();
 
 
         // 게임 설정 및 아이템 목록을 정의하는 클래스

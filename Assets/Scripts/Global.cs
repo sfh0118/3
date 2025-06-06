@@ -74,7 +74,7 @@ namespace projectlndieFem
         }
         protected override void Init()
         {
-            //this.RegisterSystem<IChallengeSystem>(new ChallengeSystem());
+            this.RegisterSystem<IChallengeSystem>(new ChallengeSystem());
             this.RegisterSystem<ISoilSystem>(new SoilSystem());
             this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
 

@@ -52,7 +52,7 @@ namespace projectlndieFem
             }
             ToolBarSystem.OnItemCountChanged.Register((item, count) =>
             {
-                if (item.Name == itemName)
+                if (item.ItemId == itemName)
                 {
                     if (count >0)
                     {

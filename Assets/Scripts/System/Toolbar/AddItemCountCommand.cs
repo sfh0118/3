@@ -16,22 +16,22 @@ namespace projectlndieFem
         }
         protected override void OnExecute()
         {
-            var item = Config.Items.FirstOrDefault(item => item.Name == mItemName);
+            var slot = this.GetSystem<IToolBarSystem>().Slots.FirstOrDefault(slot => slot.ItemId == mItemName);
 
-            if (item == null)
+            if (slot == null)
             {
-
-                item = Config.CreateItem(mItemName, mAddCount);
-                Config.Items.Add(item);
-                ToolBarSystem.OnAddItem.Trigger(item);
+                slot = this.GetSystem<IToolBarSystem>().Slots.FirstOrDefault(slot => slot.Count == 0);
+                slot.ItemId = mItemName;
+                slot.Count = mAddCount;
+                ToolBarSystem.OnAddItem.Trigger(slot);
 
                 //Global.UIToolBar.AddItem(carrotItem);
             }
             else
             {
-                item.Count.Value += mAddCount;
+                slot.Count += mAddCount;
             }
-            ToolBarSystem.OnItemCountChanged.Trigger(item, item.Count.Value);
+            ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count);
         }
     }
 }

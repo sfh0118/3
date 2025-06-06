@@ -36,6 +36,23 @@ namespace projectlndieFem
         private GUIStyle mLabelsyle;
         private void OnGUI()
         {
+            if (mChallengeSystem == null)
+            {
+                Debug.LogError("[ChallengeController] ChallengeSystem is null!");
+                return;
+            }
+
+            if (mChallengeSystem.ActiveChallenges == null)
+            {
+                Debug.LogError("[ChallengeController] ActiveChallenges is null!");
+                return;
+            }
+
+            if (mChallengeSystem.FinishedChallenges == null)
+            {
+                Debug.LogError("[ChallengeController] FinishedChallenges is null!");
+                return;
+            }
             IMGUIHelper.SetDesignResolution(960, 540);
 
             GUI.Label(new Rect(960 - 300, 24 + -24, 300, 24), "@@ 도전 @@", mLabelsyle);

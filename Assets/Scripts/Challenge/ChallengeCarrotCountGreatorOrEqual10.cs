@@ -11,7 +11,7 @@ public class ChallengeCarrotCountGreatorOrEqual10 : Challenge, IUnRegisterList
     {
         ToolBarSystem.OnItemCountChanged.Register((Item, count) =>
         {
-            if(Item.Name == "carrot")
+            if(Item.ItemId == "carrot")
             {
                 mCarrotCount = count;
             }
