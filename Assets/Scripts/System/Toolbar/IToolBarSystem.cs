@@ -5,8 +5,6 @@ namespace projectlndieFem
 {
     public interface IToolBarSystem : ISystem
     {
-        List<Item> Items { get; }
-        int MaxCount { get; }
 
         List<ToolbarSlot> Slots { get; }
 
@@ -15,27 +13,13 @@ namespace projectlndieFem
     public class ToolBarSystem : AbstractSystem, IToolBarSystem
     {
       
-        public static EasyEvent<ToolbarSlot> OnAddItem = new EasyEvent<ToolbarSlot>();
-        public static EasyEvent<ToolbarSlot> OnRemoveItem = new EasyEvent<ToolbarSlot>();
         public static EasyEvent<ToolbarSlot, int> OnItemCountChanged = new EasyEvent<ToolbarSlot, int>();
 
 
         // 게임 설정 및 아이템 목록을 정의하는 클래스
-        public List<Item> Items { get; } = new List<Item>()
-        {
-            Config.CreateHand(),
-            Config.CreateShovel(),
-            Config.CreateWateringCan(),
-            Config.CreateSeedPumpkin(),
-            Config.CreateSeedPotato(),
-            Config.CreateSeedTomato(),
-            Config.CreateSeedBean(),
 
+        List<ToolbarSlot> IToolBarSystem.Slots => Slots;
 
-        };
-        public int MaxCount { get; } = 10;
-
-        List<ToolbarSlot> IToolBarSystem.Slots => throw new System.NotImplementedException();
 
         public List<ToolbarSlot> Slots = new List<ToolbarSlot>()
         {

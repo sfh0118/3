@@ -16,17 +16,14 @@ namespace projectlndieFem
 
         void Start()
         {
-            //ToolBarSystem.OnAddItem.Register(Item =>
-            //{
-                
-            //        AddItem(Item);
-                
-            //}).UnRegisterWhenGameObjectDestroyed(gameObject);
-            //ToolBarSystem.OnRemoveItem.Register(Item =>
-            //{
-            //    RemoveItem(Item);
-            //    SelectDefault();
-            //}).UnRegisterWhenGameObjectDestroyed(gameObject);
+            ToolBarSystem.OnItemCountChanged.Register((slot, count) =>
+            {
+                if (count == 0 && Global.CurrentTool.Value != null && Global.CurrentTool.Value is ToolSeed && 
+                    (Global.CurrentTool.Value as ToolSeed).Slot.ItemId == slot.ItemId)
+                {
+                    SelectDefault();
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
             UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);
             UISlot.OnItemSelect = slot =>
             {

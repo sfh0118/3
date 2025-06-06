@@ -50,7 +50,9 @@ namespace projectlndieFem
         public void InitwithData(ToolbarSlot data,int shortCut)
         {
             Data = data;
-            SetShortCut.text = shortCut.ToString();
+
+            ShortCut.text = shortCut.ToString();
+
             Data.Count.RegisterWithInitValue(count =>
             {
                 Count.text = count.ToString();

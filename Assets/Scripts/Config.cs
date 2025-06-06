@@ -12,16 +12,8 @@ namespace projectlndieFem
         public const int INIT_HOURS = 10;
         public const int INIT_SOIL_GRID_WIDTH = 5;
         public const int INIT_SOIL_GRID_HEIGHT = 4;
-        public static List<Item> Items => Global.Interface.GetSystem<IToolBarSystem>().Items;
 
 
-        public static Item CreateItem(string itemName, int count = 1)
-        {
-            var item = ItemForName[itemName].Copy();
-            item.Count.Value = count;
-            return item;
-
-        }
 
         public static Dictionary<string, Item> ItemForName = new Dictionary<string, Item>()
         {
@@ -45,7 +37,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "ToolHand_0",
-                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "hand",
@@ -58,7 +49,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "ToolShovel_0",
-                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "shovel",
@@ -74,7 +64,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "ToolWateringCan_0",
-                Count = new BindableProperty<int>(1),
                 Countable = false,
                 IsPlant = false,
                 Name = "watering_can",
@@ -89,7 +78,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "CarrotSeedIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_carrot",
@@ -102,7 +90,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "PumpkinSeedIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_pumpkin",
@@ -115,7 +102,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "PotatoSeedIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_potato",
@@ -128,7 +114,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "TomatoSeedIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_tomato",
@@ -141,7 +126,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "BeanSeedIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = true,
                 Name = "seed_bean",
@@ -154,7 +138,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "CarrotIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = false,
                 Name = "carrot",
@@ -168,7 +151,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "PumpkinIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = false,
                 Name = "pumpkin",
@@ -181,7 +163,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "PotatoIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = false,
                 Name = "potato",
@@ -194,7 +175,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "TomatoIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = false,
                 Name = "tomato",
@@ -207,7 +187,6 @@ namespace projectlndieFem
             return new Item()
             {
                 IconName = "BeanIcon",
-                Count = new BindableProperty<int>(count),
                 Countable = true,
                 IsPlant = false,
                 Name = "bean",

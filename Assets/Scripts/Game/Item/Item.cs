@@ -11,7 +11,6 @@ namespace projectlndieFem
     {
         public string Name;
         public string IconName;
-        public  BindableProperty<int>  Count;
 
         public bool Countable = false;
 
@@ -27,7 +26,6 @@ namespace projectlndieFem
             {
                 Name = Name,
                 IconName = IconName,
-                Count = new BindableProperty<int>(Count.Value),
                 Countable = Countable,
                 Tool = Tool,
                 IsPlant = IsPlant,

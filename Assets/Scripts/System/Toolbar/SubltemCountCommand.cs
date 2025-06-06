@@ -22,11 +22,8 @@ namespace projectlndieFem
             {
 
                 slot.Count.Value -= mSubCount;
-                if (slot.Count == 0)
-                {
-                    ToolBarSystem.OnRemoveItem.Trigger(slot);
-                }
-                ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count);
+                
+                ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count.Value);
             }
 
         }

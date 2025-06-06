@@ -77,7 +77,7 @@ namespace projectlndieFem
 
 
 
-            if (ToolInRange(mouseCellPos, playerCellPos, Global.CurrentTool.Value.Range))
+            if (Global.CurrentTool.Value != null && ToolInRange(mouseCellPos, playerCellPos, Global.CurrentTool.Value.Range))
             {
                 if (mouseCellPos.x < mShowGrid.Width && mouseCellPos.x >= 0 && mouseCellPos.y < mShowGrid.Height && mouseCellPos.y >= 0)
                 {

@@ -29,7 +29,7 @@ namespace projectlndieFem
             btnSellItem.onClick.AddListener(() =>
             {
                 var toolBarSystem = this.GetSystem<IToolBarSystem>();
-                var carrotItem = toolBarSystem.Items.FirstOrDefault(Item => Item.Name == itemName);
+                var carrotItem = toolBarSystem.Slots.FirstOrDefault(Item => Item.ItemId == itemName);
                 if (carrotItem != null)
                 {
                     Global.Coin.Value += sellPrice;
@@ -42,7 +42,7 @@ namespace projectlndieFem
                 AudioController.Get.SfxBuy.Play();
             });
             btnSellItem.GetComponentInChildren<Text>().text = displayName;
-            if ( Global.Interface.GetSystem<IToolBarSystem>().Items.Any(item => item != null && item.Name == itemName))
+            if ( Global.Interface.GetSystem<IToolBarSystem>().Slots.Any(item => item != null && item.ItemId == itemName))
             {
                 btnSellItem.Show();
             }

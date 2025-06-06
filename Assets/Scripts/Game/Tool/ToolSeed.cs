@@ -17,7 +17,7 @@ namespace projectlndieFem
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
                    toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant != true &&
-                   Slot.Count > 0;
+                   Slot.Count.Value > 0;
 
 
         }

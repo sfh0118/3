@@ -20,10 +20,11 @@ namespace projectlndieFem
 
             if (slot == null)
             {
-                slot = this.GetSystem<IToolBarSystem>().Slots.FirstOrDefault(slot => slot.Count == 0);
+                slot = this.GetSystem<IToolBarSystem>().Slots.FirstOrDefault(slot => slot.Count.Value == 0);
+                
+
                 slot.ItemId = mItemName;
                 slot.Count.Value = mAddCount;
-                ToolBarSystem.OnAddItem.Trigger(slot);
 
                 //Global.UIToolBar.AddItem(carrotItem);
             }
@@ -31,7 +32,7 @@ namespace projectlndieFem
             {
                 slot.Count.Value += mAddCount;
             }
-            ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count);
+            ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count.Value);
         }
     }
 }
