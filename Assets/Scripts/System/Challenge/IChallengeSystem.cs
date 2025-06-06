@@ -30,6 +30,11 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
         public static int HarvestPumpkinCount = 0;
         public static int HarvestBeanCount = 0;
 
+        private int potatoCount = 0;
+        private int tomatoCount = 0;
+        private int pumpkinCount = 0;
+        private int beanCount = 0;
+
         public  List<Challenge> Challenges { get; } = new List<Challenge>()
         {
 
@@ -44,11 +49,7 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
 
         };
         public static EasyEvent<Challenge> OnChallengeFinish = new EasyEvent<Challenge>();
-        private int potatoCount = 0;
-        private int tomatoCount = 0;
-        private int pumpkinCount = 0;
-        private int beanCount = 0;
-        private int carrotCount = 0;
+        
         void LoadChallenges()
         {
             Challenges.Clear();
@@ -115,10 +116,7 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
                 {
                     beanCount = count;
                 }
-                else if (Item.Name == "carrot")
-                {
-                    carrotCount = count;
-                }
+                
             });
            
 
@@ -198,12 +196,16 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
                 }
             });
         }
-        public void LoadData()
+        
+    
+     
+
+        public void LoadDate()
         {
             foreach (var challenge in Challenges)
             {
 
-                challenge.State = (Challenge.States) PlayerPrefs.GetInt(challenge.Name, (int)Challenge.States.NotStart);
+                challenge.State = (Challenge.States)PlayerPrefs.GetInt(challenge.Name, (int)Challenge.States.NotStart);
                 if (challenge.State == Challenge.States.Started)
                 {
                     ActiveChallenges.Add(challenge);
@@ -213,34 +215,65 @@ public class ChallengeSystem : AbstractSystem,IChallengeSystem
                     FinishedChallenges.Add(challenge);
                 }
             }
-
-        }
-        public void SaveData()
-        {
-            foreach (var challenge in Challenges)
-            {
-
-                PlayerPrefs.SetInt(challenge.Name,(int)challenge.State);
-            }
-        }
-        public void ResetData()
-        {
-
-        }
-
-        public void LoadDate()
-        {
-            throw new System.NotImplementedException();
+            CarrotHarvestCountInCurrentDay.Value = PlayerPrefs.GetInt(nameof(CarrotHarvestCountInCurrentDay), 0);
+            PotatoHarvestCountInCurrentDay.Value = PlayerPrefs.GetInt(nameof(PotatoHarvestCountInCurrentDay), 0);
+            TomatoHarvestCountInCurrentDay.Value = PlayerPrefs.GetInt(nameof(TomatoHarvestCountInCurrentDay), 0);
+            PumpkinHarvestCountInCurrentDay.Value = PlayerPrefs.GetInt(nameof(PumpkinHarvestCountInCurrentDay), 0);
+            BeanHarvestCountInCurrentDay.Value = PlayerPrefs.GetInt(nameof(BeanHarvestCountInCurrentDay), 0);
+            HarvestCarrotCount = PlayerPrefs.GetInt(nameof(HarvestCarrotCount), 0);
+            HarvestPotatoCount = PlayerPrefs.GetInt(nameof(HarvestPotatoCount), 0);
+            HarvestTomatoCount = PlayerPrefs.GetInt(nameof(HarvestTomatoCount), 0);
+            HarvestPumpkinCount = PlayerPrefs.GetInt(nameof(HarvestPumpkinCount), 0);
+            HarvestBeanCount = PlayerPrefs.GetInt(nameof(HarvestBeanCount), 0);
+            potatoCount = PlayerPrefs.GetInt(nameof(potatoCount), 0);
+            tomatoCount = PlayerPrefs.GetInt(nameof(tomatoCount), 0);
+            pumpkinCount = PlayerPrefs.GetInt(nameof(pumpkinCount), 0);
+            beanCount = PlayerPrefs.GetInt(nameof(beanCount), 0);
         }
 
         public void SaveDate()
         {
-            throw new System.NotImplementedException();
+            foreach (var challenge in Challenges)
+            {
+
+                PlayerPrefs.SetInt(challenge.Name, (int)challenge.State);
+            }
+            PlayerPrefs.SetInt(nameof(CarrotHarvestCountInCurrentDay), CarrotHarvestCountInCurrentDay.Value);
+            PlayerPrefs.SetInt(nameof(PotatoHarvestCountInCurrentDay), PotatoHarvestCountInCurrentDay.Value);
+            PlayerPrefs.SetInt(nameof(TomatoHarvestCountInCurrentDay), TomatoHarvestCountInCurrentDay.Value);
+            PlayerPrefs.SetInt(nameof(PumpkinHarvestCountInCurrentDay), PumpkinHarvestCountInCurrentDay.Value);
+            PlayerPrefs.SetInt(nameof(BeanHarvestCountInCurrentDay), BeanHarvestCountInCurrentDay.Value);
+            PlayerPrefs.SetInt(nameof(HarvestCarrotCount), HarvestCarrotCount);
+            PlayerPrefs.SetInt(nameof(HarvestPotatoCount), HarvestPotatoCount);
+            PlayerPrefs.SetInt(nameof(HarvestTomatoCount), HarvestTomatoCount);
+            PlayerPrefs.SetInt(nameof(HarvestPumpkinCount), HarvestPumpkinCount);
+            PlayerPrefs.SetInt(nameof(HarvestBeanCount), HarvestBeanCount);
+            PlayerPrefs.SetInt(nameof(potatoCount), potatoCount);
+            PlayerPrefs.SetInt(nameof(tomatoCount), tomatoCount);
+            PlayerPrefs.SetInt(nameof(pumpkinCount), pumpkinCount);
+            PlayerPrefs.SetInt(nameof(beanCount), beanCount);
         }
 
         public void ResetDate()
         {
-            throw new System.NotImplementedException();
+            LoadChallenges();
+
+            CarrotHarvestCountInCurrentDay.Value = 0;
+            PotatoHarvestCountInCurrentDay.Value = 0;
+            TomatoHarvestCountInCurrentDay.Value = 0;
+            PumpkinHarvestCountInCurrentDay.Value = 0;
+            BeanHarvestCountInCurrentDay.Value = 0;
+            HarvestCarrotCount = 0;
+            HarvestPotatoCount = 0;
+            HarvestTomatoCount = 0;
+            HarvestPumpkinCount = 0;
+            HarvestBeanCount = 0;
+            potatoCount = 0;
+            tomatoCount = 0;
+            pumpkinCount = 0;
+            beanCount = 0;
+
+            SaveDate();
         }
     }
 }
