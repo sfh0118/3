@@ -21,7 +21,7 @@ namespace projectlndieFem
             if (slot != null)
             {
 
-                slot.Count -= mSubCount;
+                slot.Count.Value -= mSubCount;
                 if (slot.Count == 0)
                 {
                     ToolBarSystem.OnRemoveItem.Trigger(slot);

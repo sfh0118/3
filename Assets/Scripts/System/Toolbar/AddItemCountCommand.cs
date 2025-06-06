@@ -22,14 +22,14 @@ namespace projectlndieFem
             {
                 slot = this.GetSystem<IToolBarSystem>().Slots.FirstOrDefault(slot => slot.Count == 0);
                 slot.ItemId = mItemName;
-                slot.Count = mAddCount;
+                slot.Count.Value = mAddCount;
                 ToolBarSystem.OnAddItem.Trigger(slot);
 
                 //Global.UIToolBar.AddItem(carrotItem);
             }
             else
             {
-                slot.Count += mAddCount;
+                slot.Count.Value += mAddCount;
             }
             ToolBarSystem.OnItemCountChanged.Trigger(slot, slot.Count);
         }

@@ -1,3 +1,5 @@
+using QFramework;
+
 namespace projectlndieFem
 {
     
@@ -7,9 +9,9 @@ namespace projectlndieFem
         public ToolbarSlot(string itemId , int count)
         {
             ItemId = itemId;
-            Count = count;
+            Count.Value = count;
         }
         public string ItemId;
-        public int Count;
+        public BindableProperty<int> Count = new BindableProperty<int>(0);
     }
 }

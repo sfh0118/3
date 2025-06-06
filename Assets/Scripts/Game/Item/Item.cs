@@ -33,11 +33,7 @@ namespace projectlndieFem
                 IsPlant = IsPlant,
                 PlantPrefabName = PlantPrefabName
             };
-            if (item.Tool is ToolSeed  tools)
-            {
-                var toolSeed = item.Tool as ToolSeed;
-                toolSeed.Item = item;
-            }
+            
             return item;
         }
         

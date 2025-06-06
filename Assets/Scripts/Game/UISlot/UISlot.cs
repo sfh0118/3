@@ -46,26 +46,45 @@ namespace projectlndieFem
 #endif
         public ToolbarSlot Data { get; private set; }
 
-        public void SetShortCut(int shortCut)
+        
+        public void InitwithData(ToolbarSlot data,int shortCut)
         {
-            ShortCut.text = shortCut.ToString();
-        }
-        public void SetData(ToolbarSlot data,int shortCut)
-        {
-            if (string.IsNullOrEmpty(data.ItemId) || data.Count == 0)
-            {
-                return;
-            }
-            else
-            {
-                var itemConfig = Config.ItemForName[data.ItemId];
-                Icon.sprite = ResController.Instance.LoadSprite(itemConfig.IconName);
-                Count.text = data.Count.ToString();
-                Icon.Show();
-                ShortCut.Show();
-                ShortCut.text = shortCut.ToString();
-            }
             Data = data;
+            SetShortCut.text = shortCut.ToString();
+            Data.Count.RegisterWithInitValue(count =>
+            {
+                Count.text = count.ToString();
+                if(count ==0)
+                {
+                    Icon.Hide();
+                    ShortCut.Hide();
+                    Count.Hide();
+                }
+                else
+                {
+                    if(!Icon.gameObject.activeSelf)
+                    {
+                        var itemConfig = Config.ItemForName[data.ItemId];
+                        Icon.sprite = ResController.Instance.LoadSprite(itemConfig.IconName);
+                        Icon.Show();
+                        ShortCut.Show();
+                        if(itemConfig.Countable)
+                        {
+                            Count.Show();
+                        }
+                        else
+                        {
+                            Count.Hide();
+                        }
+                        
+                    }
+                    
+
+                }
+            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            
+
+
         }
        
         

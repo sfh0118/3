@@ -9,7 +9,7 @@ namespace projectlndieFem
     {
         public string Name { get; set; } = "seed";
         
-        public Item Item { get; set; }
+        public ToolbarSlot Slot { get; set; }
 
 
         public int Range => Global.SeedRange1Unlock ? 2 : 1;
@@ -17,15 +17,17 @@ namespace projectlndieFem
         {
             return toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] != null &&
                    toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant != true &&
-                   Item.Count.Value > 0;
+                   Slot.Count > 0;
 
 
         }
         public void Use(ToolData toolData)
         {
-            this.SendCommand(new SubItemCountCommand(Item.Name, 1));
+            this.SendCommand(new SubItemCountCommand(Slot.ItemId, 1));
 
-            var plantGameObj = ResController.Instance.LoadPrefab(Item.PlantPrefabName)
+            var itemConfig = Config.ItemForName[Slot.ItemId];
+
+            var plantGameObj = ResController.Instance.LoadPrefab(itemConfig.PlantPrefabName)
                 .Instantiate()
                 .Position(toolData.GridCenterPos);
 

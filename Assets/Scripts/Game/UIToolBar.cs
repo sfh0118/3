@@ -12,46 +12,34 @@ namespace projectlndieFem
     {
         public List<UISlot> ToolbarSlots = new List<UISlot>();
 
-        void AddItem(ToolbarSlot item)
-        {
-            var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == null);
-            if (slot != null)
-            {
-                int index = ToolbarSlots.IndexOf(slot);
-                slot.SetData(item, index + 1);
-            }
-        }
-        void RemoveItem(ToolbarSlot item)
-        {
-            var slot = ToolbarSlots.FirstOrDefault(slot => slot.Data == item);
-            if (slot != null)
-            {
-                int index = ToolbarSlots.IndexOf(slot);
-                slot.SetData(item, index + 1);
-            }
-        }
+        
 
         void Start()
         {
-            ToolBarSystem.OnAddItem.Register(Item =>
-            {
+            //ToolBarSystem.OnAddItem.Register(Item =>
+            //{
                 
-                    AddItem(Item);
+            //        AddItem(Item);
                 
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
-            ToolBarSystem.OnRemoveItem.Register(Item =>
-            {
-                RemoveItem(Item);
-                SelectDefault();
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
+            //}).UnRegisterWhenGameObjectDestroyed(gameObject);
+            //ToolBarSystem.OnRemoveItem.Register(Item =>
+            //{
+            //    RemoveItem(Item);
+            //    SelectDefault();
+            //}).UnRegisterWhenGameObjectDestroyed(gameObject);
             UISlot.IconLoader = (spriteName) => ResController.Instance.LoadSprite(spriteName);
             UISlot.OnItemSelect = slot =>
             {
                 if (slot.Data != null)
                 {
-
+                    // 선택된 슬롯의 아이템이 있으면
+                    var tool = Config.ItemForName[slot.Data.ItemId].Tool;
+                    if (tool is ToolSeed)
+                    {
+                        (tool as ToolSeed).Slot = slot.Data;
+                    }
                     // 선택된 슬롯의 도구를 변경
-                    ChangeTool(Config.ItemForName[slot.Data.ItemId].Tool, slot.Select, slot.Icon.sprite);
+                    ChangeTool(tool, slot.Select, slot.Icon.sprite);
                 }
             };
 
@@ -75,9 +63,9 @@ namespace projectlndieFem
             {
                 var slotData = toolBarSystem.Slots[i];
                 var slot = ToolbarSlots[i];
-                slot.SetData(slotData, i + 1);
+                slot.InitwithData(slotData, i + 1); // 슬롯 초기화
 
-                
+
 
 
             }

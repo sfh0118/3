@@ -95,11 +95,7 @@ namespace projectlndieFem
                 Name = "seed_carrot",
                 PlantPrefabName = "PlantCarrot",
                 Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
+            };
         }
         public static Item CreateSeedPumpkin(int count = 5)
         {
@@ -112,11 +108,7 @@ namespace projectlndieFem
                 Name = "seed_pumpkin",
                 PlantPrefabName = "PlantPumpkin",
                 Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
+            };
         }
         public static Item CreateSeedPotato(int count = 5)
         {
@@ -129,11 +121,7 @@ namespace projectlndieFem
                 Name = "seed_potato",
                 PlantPrefabName = "PlantPotato",
                 Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
+            };
         }
         public static Item CreateSeedTomato(int count = 5)
         {
@@ -146,11 +134,7 @@ namespace projectlndieFem
                 Name = "seed_tomato",
                 PlantPrefabName = "PlantTomato",
                 Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
+            };
         }
         public static Item CreateSeedBean(int count = 5)
         {
@@ -163,11 +147,7 @@ namespace projectlndieFem
                 Name = "seed_bean",
                 PlantPrefabName = "PlantBean",
                 Tool = new ToolSeed()
-            }
-            .Self(item => item.Tool = new ToolSeed()
-            {
-                Item = item
-            });
+            };
         }
         public static Item CreateCarrot(int count = 1)
         {
