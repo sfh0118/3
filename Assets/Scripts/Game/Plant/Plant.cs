@@ -43,7 +43,7 @@ namespace projectlndieFem
             public int Days = 1;
         }
         public string Name;
-        public string GetName() => Name;
+        public string GetName() => Name.ToLower();
         public List<PlantState> States = new List<PlantState>();
         
 
@@ -132,5 +132,11 @@ namespace projectlndieFem
         {
             return Global.Interface;
         }
+        public void Harvest()
+        {
+            this.SendCommand(new AddItemCountCommand(GetName(), 1)); // 도구바에 수확 아이템 추가
+            Destroy(this.gameObject); // 식물 오브젝트 삭제
+        }
+
     }
 }

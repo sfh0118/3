@@ -109,20 +109,20 @@ MonoBehaviour:
   - State: 0
     Sprite: {fileID: 2069220360, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 1
-    Days: 0
+    Days: 1
   - State: 1
     Sprite: {fileID: -1982779330, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
-    Days: 0
+    Days: 1
   - State: 2
     Sprite: {fileID: -410079446, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
-    Days: 0
+    Days: 1
   - State: 3
     Sprite: {fileID: 284870288, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
-    Days: 0
+    Days: 1
   - State: 4
     Sprite: {fileID: 1034431665, guid: 2eba43b2eab118247be335b80584608f, type: 3}
     ShowDigState: 0
-    Days: 0
+    Days: 1

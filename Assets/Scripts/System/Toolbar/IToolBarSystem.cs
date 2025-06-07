@@ -1,5 +1,6 @@
 ﻿using QFramework;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace projectlndieFem
 {
@@ -7,6 +8,11 @@ namespace projectlndieFem
     {
 
         List<ToolbarSlot> Slots { get; }
+
+        void LoadData();
+        void SaveData();
+        void ResetData();
+
 
     }
 
@@ -16,13 +22,27 @@ namespace projectlndieFem
         public static EasyEvent<ToolbarSlot, int> OnItemCountChanged = new EasyEvent<ToolbarSlot, int>();
 
 
-        // 게임 설정 및 아이템 목록을 정의하는 클래스
 
-        List<ToolbarSlot> IToolBarSystem.Slots => Slots;
-
-
-        public List<ToolbarSlot> Slots = new List<ToolbarSlot>()
+        public List<ToolbarSlot> Slots { get; } = new List<ToolbarSlot>()
         {
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+            new ToolbarSlot(),
+
+
+        };
+
+        private readonly
+            List<ToolbarSlot> mInitSlotsConfig = new List<ToolbarSlot>()
+        {
+
             new ToolbarSlot("hand", 1),
             new ToolbarSlot("shovel", 1),
             new ToolbarSlot("watering_can", 1),
@@ -33,11 +53,44 @@ namespace projectlndieFem
             new ToolbarSlot(),
             new ToolbarSlot(),
             new ToolbarSlot(),
+
         };
 
+        public void LoadData()
+        {
+            for (var i = 0; i < Slots.Count; i++)
+            {
+                Slots[i].ItemId = PlayerPrefs.GetString($"toolbar_slot_{i}_item_id", mInitSlotsConfig[i].ItemId);
+                Slots[i].Count.Value = PlayerPrefs.GetInt($"toolbar_slot_{i}_count", mInitSlotsConfig[i].Count.Value);
+            }
+        }
+
+        public void SaveData()
+        {
+            for (var i=0; i<Slots.Count; i++)
+            {
+                PlayerPrefs.SetString($"toolbar_slot_{i}_item_id", Slots[i].ItemId);
+                PlayerPrefs.SetInt($"toolbar_slot_{i}_count", Slots[i].Count.Value);
+            }
+        
+            
+        }
+
+        public void ResetData()
+        {
+            for (var i = 0; i < Slots.Count; i++)
+            {
+                var toolbarSlot = Slots[i];
+                toolbarSlot.ItemId = mInitSlotsConfig[i].ItemId;
+                toolbarSlot.Count.Value = mInitSlotsConfig[i].Count.Value;
+            }
+            SaveData();
+        }
         protected override void OnInit()
         {
             // Initialization logic if needed
         }
+
+        
     }
 }

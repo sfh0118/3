@@ -40,7 +40,7 @@ namespace projectlndieFem
 
                     if(data.HasPlant)
                     {
-                        var plantSeedName = "seed_" + data.PlantName; 
+                        var plantSeedName = "seed_" + data.PlantName.ToLower();
                         var plantItemConfig = Config.ItemForName[plantSeedName];
                         var plantPrefab = ResController.Instance.LoadPrefab(plantItemConfig.PlantPrefabName);
                         PlantController.Instance.Plants[x, y] = plantPrefab.Instantiate()

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using QFramework;
 
 namespace projectlndieFem
@@ -18,15 +18,16 @@ namespace projectlndieFem
                      self.SetAlpha(0);
                      self.Show();
                      ActionKit.Sequence()
-                     .Lerp(1, 0, 0.5f, self.SetAlpha)
+                     .Lerp(0, 1, 0.5f, self.SetAlpha)
                      .Delay(3.0f)
-                     .Lerp(0, 1, 2.0f, self.SetAlpha)
+                     .Lerp(1, 0, 2.0f, self.SetAlpha)
                      .Start(self, () =>
                      {
                          self.DestroyGameObj();
                      });
 
                  });
+
 
         }
         public static void Push( string message)

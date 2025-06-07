@@ -21,6 +21,7 @@ namespace projectlndieFem
         }
         public void Use(ToolData toolData)
         {
+
             Global.OnPlantHarvest.Trigger(PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y]);
 
             if (PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] as Plant)
@@ -30,7 +31,7 @@ namespace projectlndieFem
 
                 {
                     UIMessageQueue.Push(ResController.Instance.LoadSprite(Config.ItemForName[plant.Name].IconName), "+1");
-                    this.SendCommand(new AddItemCountCommand("pumkin", 1));
+                    this.SendCommand(new AddItemCountCommand("pumpkin", 1));
                 }
                 else if (plant.Name == "potato")
                 {
@@ -53,6 +54,15 @@ namespace projectlndieFem
                     this.SendCommand(new AddItemCountCommand("carrot", 1));
                 }
 
+                Debug.Log($"[DEBUG] Harvesting {plant.GetName()}");
+                var itemConfig = Config.ItemForName[plant.GetName()];
+                Debug.Log($"[DEBUG] Loaded item config: {itemConfig.IconName}");
+
+                UIMessageQueue.Push(ResController.Instance.LoadSprite(itemConfig.IconName), "+1");
+                Debug.Log($"[DEBUG] UIMessageQueue.Push called!");
+
+                plant.Harvest();
+                Debug.Log($"[DEBUG] Harvest done for {plant.GetName()}");
 
             }
 
