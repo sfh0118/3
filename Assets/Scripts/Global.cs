@@ -53,6 +53,9 @@ namespace projectlndieFem
             Interface.GetSystem<ISoilSystem>().ResetData();
             Interface.GetSystem<IChallengeSystem>().ResetDate();
             Interface.GetSystem<IToolBarSystem>().ResetData();
+            Interface.GetSystem<IComputerSystem>().ResetData();
+            Interface.GetSystem<IPowerUpSystem>().ResetData();
+
 
         }
         public static void LoadData()
@@ -64,6 +67,8 @@ namespace projectlndieFem
             Interface.GetSystem<ISoilSystem>().LoadData();
             Interface.GetSystem<IChallengeSystem>().LoadDate();
             Interface.GetSystem<IToolBarSystem>().LoadData();
+            Interface.GetSystem<IComputerSystem>().LoadData();
+            Interface.GetSystem<IPowerUpSystem>().LoadData();
 
         }
         public static void SaveData()
@@ -75,6 +80,8 @@ namespace projectlndieFem
             Interface.GetSystem<ISoilSystem>().SaveData();
             Interface.GetSystem<IChallengeSystem>().SaveDate();
             Interface.GetSystem<IToolBarSystem>().SaveData();
+            Interface.GetSystem<IComputerSystem>().SaveData();
+            Interface.GetSystem<IPowerUpSystem>().SaveData();
 
         }
         protected override void Init()
@@ -82,6 +89,8 @@ namespace projectlndieFem
             this.RegisterSystem<IChallengeSystem>(new ChallengeSystem());
             this.RegisterSystem<ISoilSystem>(new SoilSystem());
             this.RegisterSystem<IToolBarSystem>(new ToolBarSystem());
+            this.RegisterSystem<IComputerSystem>(new ComputerSystem());
+            this.RegisterSystem<IPowerUpSystem>(new PowerUpSystem());
 
             Global.Days.Register(day =>
             {
