@@ -71,6 +71,7 @@ namespace projectlndieFem
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y] = null;
 
             AudioController.Get.SfxHarvest.Play();
+            CameraController.ShakeMiddle();
         }
         public float HourCost { get; } = 0.2f;
         public IArchitecture GetArchitecture()

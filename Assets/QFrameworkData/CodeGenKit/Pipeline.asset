@@ -28,6 +28,9 @@ MonoBehaviour:
     - TypeName: ParticleSystem
       PathToRoot: DigFx
       MemberName: DigFx
+    - TypeName: ParticleSystem
+      PathToRoot: WaterFx
+      MemberName: WaterFx
     ScriptsFolder: Assets\Scripts\Game
     ClassName: ToolController
     Namespace: projectlndieFem

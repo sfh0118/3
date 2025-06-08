@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using QFramework;
 using UnityEngine.Tilemaps;
+using DG.Tweening;
 
 namespace projectlndieFem
 {
@@ -98,6 +99,10 @@ namespace projectlndieFem
                             if (Input.GetMouseButton(0))
                             {
                                 Global.CurrentTool.Value.Use(mToolData);
+                                var rotateAngle = RandomUtility.Choose(-360, 360);
+                                Icon.transform.DORotate(new Vector3(0, 0, rotateAngle), 0.3f, 
+                                    RotateMode.FastBeyond360)
+                                    .SetEase(Ease.OutCubic);
                                 //땅깨기 땅있음
                                 Global.Hours.Value -= Global.CurrentTool.Value.HourCost;
 

@@ -27,7 +27,12 @@ namespace projectlndieFem
             water.name = "water"; 
 
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].Watered = true;
+            var toolController = Object.FindObjectOfType<ToolController>();
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            toolController.WaterFx.Position(mousePos.x, mousePos.y);
+            toolController.WaterFx.GetComponent<ParticleSystem>().Play();
             AudioController.Get.SfxWater.Play();
+            CameraController.ShakeSlight();
             //???
             //ResController.Instance.WaterPrefab
             //    .Instantiate()

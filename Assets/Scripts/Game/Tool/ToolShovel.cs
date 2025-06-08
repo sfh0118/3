@@ -24,13 +24,10 @@ namespace projectlndieFem
             AudioController.Get.SfxShoveDig.Play();
 
             var toolController = Object.FindObjectOfType<ToolController>();
-            toolController.Icon.transform.DORotate(new Vector3(0, 0, RandomUtility.Choose(-360, 360)), 0.3f,RotateMode.FastBeyond360)
-                .SetEase(Ease.OutCubic);
-
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             toolController.DigFx.Position(mousePos.x, mousePos.y);
             toolController.DigFx.GetComponent<ParticleSystem>().Play();
-            CameraController.Shake();
+            CameraController.ShakeHeavy();
 
         }
 

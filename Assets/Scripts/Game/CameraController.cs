@@ -25,12 +25,32 @@ namespace projectlndieFem
                 mDefault = null;
             
         }
-        public static void Shake()
+        public static void ShakeHeavy()
         {
             mDefault.mMovementEnabled = false;
             // 카메라 흔들기
             mDefault.GetComponent<Camera>().DOShakePosition(0.2f, 0.1f, 100, 180, true, ShakeRandomnessMode.Harmonic)
                 .OnComplete(()=>
+                {
+                    mDefault.mMovementEnabled = true;
+                });
+        }
+        public static void ShakeMiddle()
+        {
+            mDefault.mMovementEnabled = false;
+            // 카메라 흔들기
+            mDefault.GetComponent<Camera>().DOShakePosition(0.2f, 0.05f, 100, 180, true, ShakeRandomnessMode.Harmonic)
+                .OnComplete(() =>
+                {
+                    mDefault.mMovementEnabled = true;
+                });
+        }
+        public static void ShakeSlight()
+        {
+            mDefault.mMovementEnabled = false;
+            // 카메라 흔들기
+            mDefault.GetComponent<Camera>().DOShakePosition(0.2f, 0.02f, 100, 180, true, ShakeRandomnessMode.Harmonic)
+                .OnComplete(() =>
                 {
                     mDefault.mMovementEnabled = true;
                 });

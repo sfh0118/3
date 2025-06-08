@@ -40,7 +40,7 @@ namespace projectlndieFem
 
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].PlantName = plant.GetName();
             AudioController.Get.SfxSeed.Play();
-
+            CameraController.ShakeSlight();
 
         }
         public float HourCost { get; } = 0.2f;
