@@ -1,4 +1,4 @@
-// Generate Id:ccdaf53d-a77a-413d-9f94-6053e7d43735
+// Generate Id:ca39ba81-10f1-4334-b533-717ff3095e70
 using UnityEngine;
 
 namespace projectlndieFem
@@ -8,6 +8,8 @@ namespace projectlndieFem
 		public SpriteRenderer Icon;
 		
 		public SpriteRenderer TimeNotEnoughIcon;
+		
+		public ParticleSystem DigFx;
 		
 	}
 }

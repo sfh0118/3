@@ -19,14 +19,17 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: projectlndieFem.UIMessageItem
-      PathToRoot: UIMessageItemTemplete
-      MemberName: UIMessageItemTemplete
-    - TypeName: RectTransform
-      PathToRoot: MessageRoot
-      MemberName: MessageRoot
+    - TypeName: SpriteRenderer
+      PathToRoot: Icon
+      MemberName: Icon
+    - TypeName: SpriteRenderer
+      PathToRoot: Icon/TimeNotEnoughIcon
+      MemberName: TimeNotEnoughIcon
+    - TypeName: ParticleSystem
+      PathToRoot: DigFx
+      MemberName: DigFx
     ScriptsFolder: Assets\Scripts\Game
-    ClassName: UIMessageQueue
+    ClassName: ToolController
     Namespace: projectlndieFem
     MainCode: 
     DesignerCode: 

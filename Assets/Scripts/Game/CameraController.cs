@@ -1,53 +1,49 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using QFramework;
+using UnityEngine.UIElements;
+using DG.Tweening;
 
 namespace projectlndieFem
 {
     public partial class CameraController : ViewController
     {
         private Transform mPlayer;
-
         void Start()
         {
+            // Code Here
             mPlayer = FindObjectOfType<Player>()?.transform;
         }
-
+        private static CameraController mDefault;
+        private void Awake()
+        {
+            mDefault = this;
+        }
+        private void OnDestroy()
+        {
+            
+                mDefault = null;
+            
+        }
+        public static void Shake()
+        {
+            mDefault.mMovementEnabled = false;
+            // 카메라 흔들기
+            mDefault.GetComponent<Camera>().DOShakePosition(0.2f, 0.1f, 100, 180, true, ShakeRandomnessMode.Harmonic)
+                .OnComplete(()=>
+                {
+                    mDefault.mMovementEnabled = true;
+                });
+        }
+        private bool mMovementEnabled = true;
         void Update()
         {
-            if (mPlayer == null) return; // 플레이어 없으면 리턴
-
-            var currentPosition = transform.position;
-            var targetPosition = mPlayer.position;
-
-            // z축을 -10으로 고정
-            targetPosition.z = -10f;
-
-            var smoothPosition = Vector3.Lerp(currentPosition, targetPosition, 1 - Mathf.Exp(-Time.deltaTime * 10));
-            transform.position = smoothPosition;
+            if (mMovementEnabled)
+            {
+                var position =
+                    Vector2.Lerp(transform.position, mPlayer.position, 1 - Mathf.Exp(-Time.deltaTime * 10));
+                transform.position = new Vector3(position.x, position.y, transform.position.z);
+            }
         }
     }
 }
-
-//using UnityEngine;
-//using QFramework;
-//using UnityEngine.UIElements;
-
-//namespace projectlndieFem
-//{
-//    public partial class CameraController : ViewController
-//    {
-//        private Transform mPlayer;
-//        void Start()
-//        {
-//            // Code Here
-//            mPlayer = FindObjectOfType<Player>()?.transform;
-//        }
-//        void Update()
-//        {
-
-//            var position = transform.position = Vector2.Lerp(transform.position, mPlayer.position, 1 - Mathf.Exp(-Time.deltaTime * 10));
-
-//            transform.position = new Vector3(position.x, position.y, transform.position.z);
-//        }
-//    }
-//}
