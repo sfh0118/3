@@ -7,18 +7,20 @@ using System.Linq;
 
 namespace projectlndieFem
 {
-    
+
     public partial class UIToolBar : ViewController, IController
     {
-        public List<UISlot> ToolbarSlots = new List<UISlot>();
+        public List<UISlot> ToolbarSlots { get; } = new List<UISlot>();
 
-        
+
 
         void Start()
         {
+            CollectionIconTemplate.Hide();
+            // UI 초기화
             ToolBarSystem.OnItemCountChanged.Register((slot, count) =>
             {
-                if (count == 0 && Global.CurrentTool.Value != null && Global.CurrentTool.Value is ToolSeed && 
+                if (count == 0 && Global.CurrentTool.Value != null && Global.CurrentTool.Value is ToolSeed &&
                     (Global.CurrentTool.Value as ToolSeed).Slot.ItemId == slot.ItemId)
                 {
                     SelectDefault();
@@ -54,6 +56,7 @@ namespace projectlndieFem
             ToolbarSlots.Add(ToolbarSlot9);
             ToolbarSlots.Add(ToolbarSlot10);
 
+
             var toolBarSystem = this.GetSystem<IToolBarSystem>();
 
             for (var i = 0; i < ToolbarSlots.Count; i++)
@@ -69,7 +72,7 @@ namespace projectlndieFem
 
             HideAllSelect();
 
-            //SelectDefault();
+            SelectDefault();
 
 
 
@@ -108,8 +111,7 @@ namespace projectlndieFem
             if (Input.GetKeyDown(KeyCode.Alpha7)) UISlot.OnItemSelect(ToolbarSlots[6]);
             if (Input.GetKeyDown(KeyCode.Alpha8)) UISlot.OnItemSelect(ToolbarSlots[7]);
             if (Input.GetKeyDown(KeyCode.Alpha9)) UISlot.OnItemSelect(ToolbarSlots[8]);
-            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[9]);
-
+            if (Input.GetKeyDown(KeyCode.Alpha0)) UISlot.OnItemSelect(ToolbarSlots[9]); 
         }
         public IArchitecture GetArchitecture()
         {
@@ -118,5 +120,3 @@ namespace projectlndieFem
 
     }
 }
-
-

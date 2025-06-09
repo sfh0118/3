@@ -43,6 +43,9 @@ namespace projectlndieFem
             public int Days = 1;
         }
         public string Name;
+        [SerializeField]
+        public string ItemId;
+
         public string GetName() => Name.ToLower();
         public List<PlantState> States = new List<PlantState>();
         
@@ -128,6 +131,8 @@ namespace projectlndieFem
         public int RipeDay { get; private set; }
        
         public GameObject GameObject => gameObject;
+
+
         public IArchitecture GetArchitecture()
         {
             return Global.Interface;

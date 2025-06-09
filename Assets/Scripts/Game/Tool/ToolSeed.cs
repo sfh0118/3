@@ -35,6 +35,11 @@ namespace projectlndieFem
             plant.XCell = toolData.CellPos.x;
             plant.YCell = toolData.CellPos.y;
 
+            if (plant is Plant concretePlant)
+            {
+                concretePlant.ItemId = "plant_" + concretePlant.Name.ToLower();
+            }
+
             PlantController.Instance.Plants[toolData.CellPos.x, toolData.CellPos.y] = plant;
             toolData.ShowGrid[toolData.CellPos.x, toolData.CellPos.y].HasPlant = true;
 

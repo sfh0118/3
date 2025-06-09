@@ -1,12 +1,10 @@
-// Generate Id:4c8dafaf-918b-44aa-9a40-28eb2db4c667
+// Generate Id:8723c0dd-2143-4774-9e07-a0aae121a360
 using UnityEngine;
 
 namespace projectlndieFem
 {
 	public partial class UIChallenge
 	{
-		public UnityEngine.UI.Text Title;
-		
 		public UnityEngine.UI.Text ChallengeItemTemplate;
 		
 		public RectTransform ChallengeRoot;

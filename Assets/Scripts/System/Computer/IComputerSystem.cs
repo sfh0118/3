@@ -31,8 +31,7 @@ namespace projectlndieFem
         {
             Global.FirstGameFinished.Value = false;
             Global.FirstGameCurrentHours.Value = 0;
-
-            SaveData();
+            PlayerPrefs.Save();
         }
 
         
